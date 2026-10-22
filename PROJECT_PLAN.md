@@ -198,6 +198,28 @@ F2 50%는 "정상품 절반은 사람이 안 봐도 된다"는 최소 실익선�
 
 **참고 지표 (기준 없음)**: 제품별 AUROC, 제품별 정상품 자동 합격률, 정책 적용 시 라인 가정 재검사율.
 
+## 11. 규제 대조 자기평가 (Gap analysis)
+
+국내외 품질 규정·가이드라인의 요구사항을 이 프로젝트의 설계와 하나씩 대조했다.
+**목적은 "준수했다"는 주장이 아니라, 어디까지 반영했고 무엇이 비어 있는지 스스로 확인하는 것**이다.
+연구용 데이터로 한 개인 프로젝트라 정식 밸리데이션 문서(IQ/OQ/PQ 등)는 없다. 초안(draft) 문서는 확정 규정이 아님을 표시했다.
+
+| 규정·가이드라인 (상태) | 핵심 요구 | 프로젝트 반영 | 남은 간극 |
+|---|---|---|---|
+| **EU GMP Annex 22 — AI** (2025-07 공개 초안, 2026-10 현재 미확정) | 품질 직결(critical) 판정은 고정·결정론적 모델만. 생성형 AI·LLM은 critical에서 제외, 비핵심 용도는 사람 책임 하에 허용. 독립 시험 데이터, 사전 합격 기준, 저신뢰 판정 보류 | Claude(LLM)는 **선별 + 사람 최종 판정**으로 한정(v3). v5부터 판정을 **로컬 고정 모델**로 옮기고 3회 비트 단위 동일 확인(C5·F5·G6). 기준 사전 커밋, 홀드아웃·외부 데이터, 재검사 처분 | 확정본이 아님. 모델 위험 문서·설명가능성은 히트맵 수준 |
+| **FDA 초안 가이던스: AI의 규제 의사결정 지원** (2025-01, Draft, 비구속) | 사용 맥락(COU) 정의, 모델 위험 = 영향력 × 결과 심각도, 신뢰성 평가 계획·실행·문서화, 수명주기 관리 | 사용 범위(§1), 사람 재검사로 모델 영향력 축소, 사전 프로토콜(§4·§7~§10) = 평가 계획, 모델·프롬프트 해시로 변경관리(D10) | 이 가이던스는 허가 제출 자료용이라 제조 현장 검사와 범위가 다름 → 틀만 차용 |
+| **ICH Q2(R2) 분석법 밸리데이션** (2023-11 Step 4) | 특이성, 정밀성(반복성), 견뢰성, 검출 능력 | 특이성 A1, 반복성 A2·C5, 견뢰성 A3·A4(백색잡음·블러·조명), 검출 능력 = 누락률 + 95% 상한 | 외관검사는 엄밀히 분석법이 아님 → **준용(유추 적용)** |
+| **ICH Q9(R1) 품질 위험관리** (2023-01) | 위험 기반 의사결정, 위험 평가·통제·검토 | 위험 표(§2), 누락(환자 위험) vs 과검출(비용) 비대칭, fail-safe 처분 | 정량 FMEA 점수화 없음 |
+| **GAMP 5 2판 / EU GMP Annex 11** (컴퓨터화 시스템) | 공급사 평가, 버전 고정, 변경관리, 재밸리데이션 | 프롬프트 해시, 모델 ID(v4~), 가중치 SHA-256(v5~). 클라우드 모델은 버전 고정 불가 → 로컬 전환의 근거 | IQ/OQ/PQ 문서, 공급사 감사 없음 |
+| **21 CFR Part 11 / ALCOA+** (데이터 완전성) | 누가·언제·무엇을 기록, 원본 보존, 변경 추적, 전자서명 | append-only 감사추적 + 해시 체인, 사람 판정은 덧붙임(원본 수정 없음), 실패 결과·철회본 보존 | 사용자 인증·전자서명·시각 동기화 없음, 끝 기록 삭제는 탐지 못 함 |
+| **USP <1790> 주사제 육안검사** (참고: 다른 제형) | 검사원 자격 부여, 자동검사는 사람 대비 동등 이상 입증(Knapp 방식 등) | 사람 최종 판정 구조만 반영 | **사람 검사원 대비 비교 시험은 하지 않음** |
+| **결함 등급·샘플링 (치명/중/경결함, AQL: ISO 2859-1 등)** | 결함을 등급별로 나누고 허용 수준을 다르게 둠 | 반영하지 않음 — 모든 불량을 "하나도 놓치면 안 됨"으로 동일 처리 | 정제 실패의 근본 원인과 직결(D9) → **v8 과제** |
+
+**출처**: [FDA 초안 가이던스](https://www.fda.gov/regulatory-information/search-fda-guidance-documents/considerations-use-artificial-intelligence-support-regulatory-decision-making-drug-and-biological) ·
+[ICH Q2(R2) (EMA)](https://www.ema.europa.eu/en/documents/scientific-guideline/ich-q2r2-guideline-validation-analytical-procedures-step-5-revision-2_en.pdf) ·
+Annex 22 초안 해설: [European Pharmaceutical Review](https://www.europeanpharmaceuticalreview.com/what-annex-22-spells-for-ai-in-gmp-manufacturing/2135686.article), [PharmOut](https://www.pharmout.net/annex-22-artificial-intelligence/), 현황: [PharmaNow](https://www.pharmanow.live/pharma-it/annex-22-not-law-yet-what-to-invest)
+(Annex 22는 EMA 원문 대신 2차 해설로 확인 — 면접 전 EudraLex 원문 확인 권장)
+
 ## 데이터·라이선스
 
 - MVTec AD pill/capsule (CC BY-NC-SA 4.0, 비상업 연구용). 실제 제약사 QC 데이터 아님
