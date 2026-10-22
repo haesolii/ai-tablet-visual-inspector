@@ -1,7 +1,7 @@
 """밸리데이션 분석: results/*.json → 합격 기준 판정표(markdown) + 대시보드용 results/summary.json
     python analyze.py > results/analysis.md
 
-v3 기준(A1~A5)은 PROJECT_PLAN §4, v4 기준(B1~B5)은 §7, v5 기준(C1~C6)은 §8, v6 기준(F1~F6)은 §9. 기준값은 프로토콜에 고정된 값을 쓰고,
+v3 기준(A1~A5)은 PROJECT_PLAN §4, v4 기준(B1~B5)은 §7, v5 기준(C1~C6)은 §8, v6 기준(F1~F6)은 §9, v7 기준(G1~G6)·제품별 정책은 §10. 기준값은 프로토콜에 고정된 값을 쓰고,
 운용 설정(benchmark.REVIEW_THRESHOLD)이 나중에 바뀌어도 과거 판정은 바뀌지 않게 한다.
 """
 import hashlib
@@ -417,6 +417,100 @@ def v6(md: list, summary: dict):
            " / ".join(f"{x['id']} {mark(x['ok'])}" for x in crit[-6:]), ""]
 
 
+POLICY_MIN = 0.30   # §10: 보정 정상품 자동 합격률이 이 이상인 제품만 '자동 합격 허용'
+
+
+def good_pass_by_cat(rs, th, role) -> dict:
+    out = {}
+    for cat in th:
+        g = [r for r in rs if r["category"] == cat and v6_role(r) == role and not is_defect(r)]
+        out[cat] = sum(v5_disposition(r, th) == "pass" for r in g) / len(g)
+    return out
+
+
+def policy_disposition(r, th, policy) -> str:
+    """제품별 정책: '불량 선별 전용' 제품은 합격 처분을 내지 않는다 (합격 → 재검사). 합격을 줄이기만 하므로 유출은 늘 수 없다"""
+    d = v5_disposition(r, th)
+    return "review" if d == "pass" and policy[r["category"]] == "screen" else d
+
+
+def load_run(name) -> list:
+    return json.loads((R / f"{name}.json").read_text(encoding="utf-8"))["results"]
+
+
+def local_decision() -> dict:
+    """§10 채택 규칙을 결과 파일에서 계산 → 데모가 그대로 쓴다 (판정 근거와 운용 설정을 한 곳에서)"""
+    runs = [json.loads((R / f"v7_run{i}.json").read_text(encoding="utf-8")) for i in (1, 2, 3)]
+    rs6, rs7 = load_run("v6_run1"), runs[0]["results"]
+    e6, e7 = v6_eval(rs6), v6_eval(rs7)
+    gp6 = good_pass_by_cat(rs6, e6["th"], "eval")
+    gp7 = good_pass_by_cat(rs7, e7["th"], "eval")
+    same = all([r["score"] for r in run["results"]] == [r["score"] for r in rs7] for run in runs[1:])
+    offline = all(run["meta"]["offline"] for run in runs[1:])
+    sec = max(run["meta"]["sec_per_image"] for run in runs)
+    g = {"G1": e7["leak"] == 0, "G2": gp7["pill"] >= 0.20, "G3": e7["good_pass"] >= 0.50,
+         "G4": e7["good_reject"] <= 0.02, "G5": sec <= 1.0, "G6": same and offline}
+    adopt = g["G1"] and g["G4"] and g["G6"] and gp7["pill"] > gp6["pill"]
+    name, rs, e = ("v7", rs7, e7) if adopt else ("v6", rs6, e6)
+    calib = good_pass_by_cat(rs, e["th"], "calib")
+    policy = {c: "auto" if v >= POLICY_MIN else "screen" for c, v in calib.items()}
+    return {"model": name, "res": 448 if adopt else 224, "keep": runs[0]["meta"]["keep"] if adopt else 0.1,
+            "run": f"{name}_run1", "policy": policy, "policy_calib": calib, "default_local": adopt and g["G3"],
+            "g": g, "e6": e6, "e7": e7, "gp6": gp6, "gp7": gp7, "sec": sec, "rs": rs, "th": e["th"]}
+
+
+def v7(md: list, summary: dict):
+    dec = local_decision()
+    e6, e7, gp6, gp7, g = dec["e6"], dec["e7"], dec["gp6"], dec["gp7"], dec["g"]
+    n_def, n_good = e7["n_def"], e7["n_good"]
+    # 채택 모델 + 제품별 정책을 평가 데이터에 적용
+    ev = [r for r in dec["rs"] if v6_role(r) == "eval"]
+    pol = {}
+    for cat in dec["policy"]:
+        gs = [r for r in ev if r["category"] == cat and not is_defect(r)]
+        ds = [r for r in ev if r["category"] == cat and is_defect(r)]
+        dp = lambda r: policy_disposition(r, dec["th"], dec["policy"])  # noqa: E731
+        g_rev = sum(dp(r) == "review" for r in gs) / len(gs)
+        pol[cat] = {"policy": dec["policy"][cat], "calib_good_pass": dec["policy_calib"][cat],
+                    "good_pass": sum(dp(r) == "pass" for r in gs) / len(gs),
+                    "leak": sum(dp(r) == "pass" for r in ds),
+                    "line_review": 0.99 * g_rev + 0.01 * sum(dp(r) == "review" for r in ds) / len(ds)}
+    crit = summary["criteria"]
+    crit += [
+        {"id": "G1", "name": "v7 고해상도 — 유출", "rule": f"평가 불량 {n_def}장 단독 합격 0건",
+         "result": f"{e7['leak']}/{n_def}", "ok": g["G1"]},
+        {"id": "G2", "name": "v7 — pill 정상품 자동 합격 (해상도 가설)", "rule": "≥20%",
+         "result": f"{pct(gp7['pill'])} (v6 {pct(gp6['pill'])})", "ok": g["G2"]},
+        {"id": "G3", "name": "v7 — 정상품 자동 합격 (전체)", "rule": "≥50%",
+         "result": f"{pct(e7['good_pass'])} (v6 {pct(e6['good_pass'])})", "ok": g["G3"]},
+        {"id": "G4", "name": "v7 — 정상 오탐", "rule": "단독 불합격 정상 ≤2%",
+         "result": f"{pct(e7['good_reject'])} ({e7['good_reject_n']}/{n_good})", "ok": g["G4"]},
+        {"id": "G5", "name": "v7 — 속도", "rule": "장당 ≤1초 (CPU)", "result": f"{dec['sec']:.2f}초", "ok": g["G5"]},
+        {"id": "G6", "name": "v7 — 재현성·망분리", "rule": "3회 동일, 2회 차단 상태",
+         "result": "충족" if g["G6"] else "미충족", "ok": g["G6"]},
+    ]
+    rows = [
+        ["단독 유출", f"{e6['leak']}/{n_def}", f"{e7['leak']}/{n_def}"],
+        ["정상품 자동 합격 (전체)", pct(e6["good_pass"]), pct(e7["good_pass"])],
+        ["  pill", pct(gp6["pill"]), pct(gp7["pill"])],
+        ["  capsule", pct(gp6["capsule"]), pct(gp7["capsule"])],
+        ["정상 단독 불합격", pct(e6["good_reject"]), pct(e7["good_reject"])],
+        ["AUROC pill / capsule", f"{e6['auroc']['pill']:.3f} / {e6['auroc']['capsule']:.3f}",
+         f"{e7['auroc']['pill']:.3f} / {e7['auroc']['capsule']:.3f}"],
+        ["불량률 1% 라인 가정 재검사", pct(e6["line_review"]), pct(e7["line_review"])],
+    ]
+    PNAME = {"auto": "자동 합격 허용", "screen": "불량 선별 전용"}
+    summary["v7"] = {"cols": ["v6 (224px)", "v7 (448px)"], "rows": rows, "adopted": dec["model"],
+                     "default_local": dec["default_local"], "sec": dec["sec"],
+                     "policy": [{"cat": c, "name": PNAME[v["policy"]], **v} for c, v in pol.items()]}
+    md += [f"# v7 해상도 가설 + 제품별 정책 (평가: 불량 {n_def}, 정상 {n_good})", "",
+           "| | v6 (224px) | v7 (448px) |", "|---|---|---|"] + ["| " + " | ".join(r) + " |" for r in rows] + [
+           "", f"장당 시간 v7 {dec['sec']:.2f}초. 채택 모델: **{dec['model']}**, 기본 엔진 로컬 전환: {dec['default_local']}", "",
+           "| 제품 | 정책 (보정 정상 자동 합격) | 평가 정상 자동 합격 | 유출 | 라인 가정 재검사 |", "|---|---|---|---|---|"] + [
+           f"| {c} | {PNAME[v['policy']]} ({pct(v['calib_good_pass'])}) | {pct(v['good_pass'])} | {v['leak']} | {pct(v['line_review'])} |"
+           for c, v in pol.items()] + ["", " / ".join(f"{x['id']} {mark(x['ok'])}" for x in crit[-6:]), ""]
+
+
 def main():
     import sys
     sys.stdout.reconfigure(encoding="utf-8")  # Windows 콘솔(cp949)에서도 표·기호 출력
@@ -430,6 +524,8 @@ def main():
         v5(md, summary)
     if (R / "v6_random.json").exists():
         v6(md, summary)
+    if (R / "v7_run3.json").exists():
+        v7(md, summary)
     if summary["external"]:  # 운용 기준의 성능은 기준을 고른 데이터가 아니라 독립 데이터로 보여준다
         ext = summary["external"]
         n_def = sum(x["n_def"] for x in ext)

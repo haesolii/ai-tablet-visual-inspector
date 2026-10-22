@@ -7,6 +7,7 @@
 """
 import base64
 import hashlib
+import functools
 import io
 import json
 import random
@@ -166,26 +167,37 @@ _local = {}
 _local_lock = threading.Lock()
 
 
+@functools.cache
+def local_decision():
+    """§10 채택 규칙(어느 모델·제품별 정책·기본 엔진)을 결과 파일에서 계산. 결과 파일이 없으면 None"""
+    import analyze
+    try:
+        return analyze.local_decision()
+    except FileNotFoundError:
+        return None
+
+
 def local_engine():
-    """v6 로컬 모델 (F1·F3 적합으로 채택, §9). torch가 무거워서 처음 쓸 때 불러온다 (정상 패치 기억은 .cache에 저장해 재사용)"""
+    """채택된 로컬 모델 (v6 또는 v7). torch가 무거워서 처음 쓸 때 불러온다 (정상 패치 기억은 .cache에 저장해 재사용)"""
     with _local_lock:
         if not _local:
             import analyze
             import patchcore
-            m = patchcore.PatchCore()
+            dec = local_decision()
+            m = patchcore.PatchCore(dec["res"])
             data_dir = resolve_data_dir(None)
             for cat in ["pill", "capsule"]:   # 실험과 같은 정상 기억: train 정상 중 'bank' 몫, greedy coreset
-                m.fit(cat, [p for p in patchcore.train_goods(data_dir, cat) if patchcore.train_role(p) == "bank"])
-            run = json.loads((BASE / "results" / "v6_run1.json").read_text(encoding="utf-8"))
-            _local.update(model=m, th=analyze.v6_thresholds(run["results"]), disposition=analyze.v5_disposition)
+                m.fit(cat, [p for p in patchcore.train_goods(data_dir, cat) if patchcore.train_role(p) == "bank"],
+                      keep=dec["keep"])
+            _local.update(model=m, th=dec["th"], name=dec["model"], policy=dec["policy"],
+                          disposition=lambda r, th: analyze.policy_disposition(r, th, dec["policy"]))
     return _local
 
 
-def heatmap_data_url(path: str, d, t: dict) -> str:
-    """모델이 본 224×224 영역 위에, 정상 기준에서 먼 패치일수록 진한 파랑을 겹친다 (빨간 오염과 헷갈리지 않게)"""
+def heatmap_data_url(path: str, d, t: dict, tf) -> str:
+    """모델이 본 영역 위에, 정상 기준에서 먼 패치일수록 진한 파랑을 겹친다 (빨간 오염과 헷갈리지 않게)"""
     from PIL import Image
-    import patchcore
-    base = patchcore.TF.transforms[1](patchcore.TF.transforms[0](Image.open(path).convert("RGB")))
+    base = tf.transforms[1](tf.transforms[0](Image.open(path).convert("RGB")))
     v = ((d - t["pass"]) / (t["reject"] - t["pass"])).clamp(0, 1)
     mask = Image.fromarray((v * 170).byte().numpy(), "L").resize(base.size, Image.BILINEAR)
     out = Image.composite(Image.new("RGB", base.size, (0, 140, 255)), base, mask)
@@ -201,10 +213,11 @@ def inspect_local(s: dict, path: str) -> tuple[dict, dict]:
     score, d = eng["model"].score(s["category"], path)
     sec = time.perf_counter() - t0
     t = eng["th"][s["category"]]
-    rec = {"model": f"PatchCore v6 coreset/wide_resnet50_2 sha256:{eng['model'].weights_sha256[:12]}",
+    rec = {"model": f"PatchCore {eng['name']} {eng['model'].res}px/wide_resnet50_2 sha256:{eng['model'].weights_sha256[:12]}",
+           "policy": eng["policy"][s["category"]],
            "score": round(score, 4), "t_pass": round(t["pass"], 4), "t_reject": round(t["reject"], 4),
            "network": "미사용", "disposition": eng["disposition"]({"category": s["category"], "score": score}, eng["th"])}
-    return rec, {"heatmap": heatmap_data_url(path, d, t), "sec": round(sec, 3)}
+    return rec, {"heatmap": heatmap_data_url(path, d, t, eng["model"].tf), "sec": round(sec, 3)}
 
 
 @app.route("/")
@@ -215,7 +228,8 @@ def index():
 @app.route("/api/config")
 def api_config():
     return jsonify({"threshold": REVIEW_THRESHOLD, "use_reference": USE_REFERENCE, "engines": ENGINES,
-                    "local_ready": (BASE / "results" / "v6_run1.json").exists(),
+                    "local_ready": local_decision() is not None,
+                    "default_engine": "local" if (local_decision() or {}).get("default_local") else "claude",
                     "prompt_version": prompt_version(PROMPT_REF if USE_REFERENCE else PROMPT),
                     "gate": bool(quality_gate.load_limits()), "n_samples": len(build_pool())})
 

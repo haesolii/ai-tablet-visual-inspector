@@ -1,0 +1,3019 @@
+{
+ "meta": {
+  "weights_sha256": "95faca4d11227dddf8633dbb5ff6c8a9003c1aa5b8945c73834b8007b10950b8",
+  "keep": 0.01,
+  "res": 448,
+  "torch": "2.14.1+cpu",
+  "protocol": "v6",
+  "method": "coreset",
+  "threads": 4,
+  "offline": false,
+  "bank": {
+   "pill": 4923,
+   "capsule": 4014
+  },
+  "sec_per_image": 0.5307671966042835
+ },
+ "results": [
+  {
+   "image": "capsule/test/crack/000.png",
+   "category": "capsule",
+   "true_label": "crack",
+   "score": 2.2295825481414795
+  },
+  {
+   "image": "capsule/test/crack/001.png",
+   "category": "capsule",
+   "true_label": "crack",
+   "score": 3.6262595653533936
+  },
+  {
+   "image": "capsule/test/crack/002.png",
+   "category": "capsule",
+   "true_label": "crack",
+   "score": 2.561946153640747
+  },
+  {
+   "image": "capsule/test/crack/003.png",
+   "category": "capsule",
+   "true_label": "crack",
+   "score": 2.726989269256592
+  },
+  {
+   "image": "capsule/test/crack/004.png",
+   "category": "capsule",
+   "true_label": "crack",
+   "score": 3.5702035427093506
+  },
+  {
+   "image": "capsule/test/crack/005.png",
+   "category": "capsule",
+   "true_label": "crack",
+   "score": 2.2859723567962646
+  },
+  {
+   "image": "capsule/test/crack/006.png",
+   "category": "capsule",
+   "true_label": "crack",
+   "score": 2.7689599990844727
+  },
+  {
+   "image": "capsule/test/crack/007.png",
+   "category": "capsule",
+   "true_label": "crack",
+   "score": 2.7265701293945312
+  },
+  {
+   "image": "capsule/test/crack/008.png",
+   "category": "capsule",
+   "true_label": "crack",
+   "score": 2.232473134994507
+  },
+  {
+   "image": "capsule/test/crack/009.png",
+   "category": "capsule",
+   "true_label": "crack",
+   "score": 2.458350658416748
+  },
+  {
+   "image": "capsule/test/crack/010.png",
+   "category": "capsule",
+   "true_label": "crack",
+   "score": 3.4647090435028076
+  },
+  {
+   "image": "capsule/test/crack/011.png",
+   "category": "capsule",
+   "true_label": "crack",
+   "score": 3.0769267082214355
+  },
+  {
+   "image": "capsule/test/crack/012.png",
+   "category": "capsule",
+   "true_label": "crack",
+   "score": 2.8770499229431152
+  },
+  {
+   "image": "capsule/test/crack/013.png",
+   "category": "capsule",
+   "true_label": "crack",
+   "score": 2.6708688735961914
+  },
+  {
+   "image": "capsule/test/crack/014.png",
+   "category": "capsule",
+   "true_label": "crack",
+   "score": 2.8128323554992676
+  },
+  {
+   "image": "capsule/test/crack/015.png",
+   "category": "capsule",
+   "true_label": "crack",
+   "score": 3.1380066871643066
+  },
+  {
+   "image": "capsule/test/crack/016.png",
+   "category": "capsule",
+   "true_label": "crack",
+   "score": 2.0215702056884766
+  },
+  {
+   "image": "capsule/test/crack/017.png",
+   "category": "capsule",
+   "true_label": "crack",
+   "score": 3.312039375305176
+  },
+  {
+   "image": "capsule/test/crack/018.png",
+   "category": "capsule",
+   "true_label": "crack",
+   "score": 2.6787285804748535
+  },
+  {
+   "image": "capsule/test/crack/019.png",
+   "category": "capsule",
+   "true_label": "crack",
+   "score": 2.5646538734436035
+  },
+  {
+   "image": "capsule/test/crack/020.png",
+   "category": "capsule",
+   "true_label": "crack",
+   "score": 2.4757745265960693
+  },
+  {
+   "image": "capsule/test/crack/021.png",
+   "category": "capsule",
+   "true_label": "crack",
+   "score": 2.1536965370178223
+  },
+  {
+   "image": "capsule/test/crack/022.png",
+   "category": "capsule",
+   "true_label": "crack",
+   "score": 2.298975944519043
+  },
+  {
+   "image": "capsule/test/faulty_imprint/000.png",
+   "category": "capsule",
+   "true_label": "faulty_imprint",
+   "score": 2.769657850265503
+  },
+  {
+   "image": "capsule/test/faulty_imprint/001.png",
+   "category": "capsule",
+   "true_label": "faulty_imprint",
+   "score": 2.384472131729126
+  },
+  {
+   "image": "capsule/test/faulty_imprint/002.png",
+   "category": "capsule",
+   "true_label": "faulty_imprint",
+   "score": 2.6785221099853516
+  },
+  {
+   "image": "capsule/test/faulty_imprint/003.png",
+   "category": "capsule",
+   "true_label": "faulty_imprint",
+   "score": 2.3886263370513916
+  },
+  {
+   "image": "capsule/test/faulty_imprint/004.png",
+   "category": "capsule",
+   "true_label": "faulty_imprint",
+   "score": 2.167743444442749
+  },
+  {
+   "image": "capsule/test/faulty_imprint/005.png",
+   "category": "capsule",
+   "true_label": "faulty_imprint",
+   "score": 2.1942877769470215
+  },
+  {
+   "image": "capsule/test/faulty_imprint/006.png",
+   "category": "capsule",
+   "true_label": "faulty_imprint",
+   "score": 2.3216707706451416
+  },
+  {
+   "image": "capsule/test/faulty_imprint/007.png",
+   "category": "capsule",
+   "true_label": "faulty_imprint",
+   "score": 2.6376569271087646
+  },
+  {
+   "image": "capsule/test/faulty_imprint/008.png",
+   "category": "capsule",
+   "true_label": "faulty_imprint",
+   "score": 2.5063092708587646
+  },
+  {
+   "image": "capsule/test/faulty_imprint/009.png",
+   "category": "capsule",
+   "true_label": "faulty_imprint",
+   "score": 2.5723865032196045
+  },
+  {
+   "image": "capsule/test/faulty_imprint/010.png",
+   "category": "capsule",
+   "true_label": "faulty_imprint",
+   "score": 2.870598793029785
+  },
+  {
+   "image": "capsule/test/faulty_imprint/011.png",
+   "category": "capsule",
+   "true_label": "faulty_imprint",
+   "score": 2.294860363006592
+  },
+  {
+   "image": "capsule/test/faulty_imprint/012.png",
+   "category": "capsule",
+   "true_label": "faulty_imprint",
+   "score": 2.2343297004699707
+  },
+  {
+   "image": "capsule/test/faulty_imprint/013.png",
+   "category": "capsule",
+   "true_label": "faulty_imprint",
+   "score": 2.8081021308898926
+  },
+  {
+   "image": "capsule/test/faulty_imprint/014.png",
+   "category": "capsule",
+   "true_label": "faulty_imprint",
+   "score": 2.724822998046875
+  },
+  {
+   "image": "capsule/test/faulty_imprint/015.png",
+   "category": "capsule",
+   "true_label": "faulty_imprint",
+   "score": 2.3837311267852783
+  },
+  {
+   "image": "capsule/test/faulty_imprint/016.png",
+   "category": "capsule",
+   "true_label": "faulty_imprint",
+   "score": 2.7522358894348145
+  },
+  {
+   "image": "capsule/test/faulty_imprint/017.png",
+   "category": "capsule",
+   "true_label": "faulty_imprint",
+   "score": 2.4881577491760254
+  },
+  {
+   "image": "capsule/test/faulty_imprint/018.png",
+   "category": "capsule",
+   "true_label": "faulty_imprint",
+   "score": 2.1895132064819336
+  },
+  {
+   "image": "capsule/test/faulty_imprint/019.png",
+   "category": "capsule",
+   "true_label": "faulty_imprint",
+   "score": 2.071613073348999
+  },
+  {
+   "image": "capsule/test/faulty_imprint/020.png",
+   "category": "capsule",
+   "true_label": "faulty_imprint",
+   "score": 2.5743460655212402
+  },
+  {
+   "image": "capsule/test/faulty_imprint/021.png",
+   "category": "capsule",
+   "true_label": "faulty_imprint",
+   "score": 2.609492063522339
+  },
+  {
+   "image": "capsule/test/good/000.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.923810362815857
+  },
+  {
+   "image": "capsule/test/good/001.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.4959242343902588
+  },
+  {
+   "image": "capsule/test/good/002.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.6305214166641235
+  },
+  {
+   "image": "capsule/test/good/003.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.5962886810302734
+  },
+  {
+   "image": "capsule/test/good/004.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.7762885093688965
+  },
+  {
+   "image": "capsule/test/good/005.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.4870870113372803
+  },
+  {
+   "image": "capsule/test/good/006.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.9842971563339233
+  },
+  {
+   "image": "capsule/test/good/007.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.6478981971740723
+  },
+  {
+   "image": "capsule/test/good/008.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.701195478439331
+  },
+  {
+   "image": "capsule/test/good/009.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 2.0416929721832275
+  },
+  {
+   "image": "capsule/test/good/010.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.8257081508636475
+  },
+  {
+   "image": "capsule/test/good/011.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.5724682807922363
+  },
+  {
+   "image": "capsule/test/good/012.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.82990300655365
+  },
+  {
+   "image": "capsule/test/good/013.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.5177119970321655
+  },
+  {
+   "image": "capsule/test/good/014.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.6361931562423706
+  },
+  {
+   "image": "capsule/test/good/015.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.7801114320755005
+  },
+  {
+   "image": "capsule/test/good/016.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.48581862449646
+  },
+  {
+   "image": "capsule/test/good/017.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.637183666229248
+  },
+  {
+   "image": "capsule/test/good/018.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.671069860458374
+  },
+  {
+   "image": "capsule/test/good/019.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.7880275249481201
+  },
+  {
+   "image": "capsule/test/good/020.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.806379795074463
+  },
+  {
+   "image": "capsule/test/good/021.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 2.4034993648529053
+  },
+  {
+   "image": "capsule/test/good/022.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.4722495079040527
+  },
+  {
+   "image": "capsule/test/poke/000.png",
+   "category": "capsule",
+   "true_label": "poke",
+   "score": 3.6049418449401855
+  },
+  {
+   "image": "capsule/test/poke/001.png",
+   "category": "capsule",
+   "true_label": "poke",
+   "score": 2.5372390747070312
+  },
+  {
+   "image": "capsule/test/poke/002.png",
+   "category": "capsule",
+   "true_label": "poke",
+   "score": 2.242994546890259
+  },
+  {
+   "image": "capsule/test/poke/003.png",
+   "category": "capsule",
+   "true_label": "poke",
+   "score": 2.465810775756836
+  },
+  {
+   "image": "capsule/test/poke/004.png",
+   "category": "capsule",
+   "true_label": "poke",
+   "score": 2.8561973571777344
+  },
+  {
+   "image": "capsule/test/poke/005.png",
+   "category": "capsule",
+   "true_label": "poke",
+   "score": 2.4231181144714355
+  },
+  {
+   "image": "capsule/test/poke/006.png",
+   "category": "capsule",
+   "true_label": "poke",
+   "score": 2.2051987648010254
+  },
+  {
+   "image": "capsule/test/poke/007.png",
+   "category": "capsule",
+   "true_label": "poke",
+   "score": 2.248757839202881
+  },
+  {
+   "image": "capsule/test/poke/008.png",
+   "category": "capsule",
+   "true_label": "poke",
+   "score": 3.025146007537842
+  },
+  {
+   "image": "capsule/test/poke/009.png",
+   "category": "capsule",
+   "true_label": "poke",
+   "score": 2.365490674972534
+  },
+  {
+   "image": "capsule/test/poke/010.png",
+   "category": "capsule",
+   "true_label": "poke",
+   "score": 2.2592244148254395
+  },
+  {
+   "image": "capsule/test/poke/011.png",
+   "category": "capsule",
+   "true_label": "poke",
+   "score": 2.8212733268737793
+  },
+  {
+   "image": "capsule/test/poke/012.png",
+   "category": "capsule",
+   "true_label": "poke",
+   "score": 2.8770339488983154
+  },
+  {
+   "image": "capsule/test/poke/013.png",
+   "category": "capsule",
+   "true_label": "poke",
+   "score": 3.105565309524536
+  },
+  {
+   "image": "capsule/test/poke/014.png",
+   "category": "capsule",
+   "true_label": "poke",
+   "score": 2.9078378677368164
+  },
+  {
+   "image": "capsule/test/poke/015.png",
+   "category": "capsule",
+   "true_label": "poke",
+   "score": 2.39239239692688
+  },
+  {
+   "image": "capsule/test/poke/016.png",
+   "category": "capsule",
+   "true_label": "poke",
+   "score": 2.529520034790039
+  },
+  {
+   "image": "capsule/test/poke/017.png",
+   "category": "capsule",
+   "true_label": "poke",
+   "score": 2.3804235458374023
+  },
+  {
+   "image": "capsule/test/poke/018.png",
+   "category": "capsule",
+   "true_label": "poke",
+   "score": 2.6273655891418457
+  },
+  {
+   "image": "capsule/test/poke/019.png",
+   "category": "capsule",
+   "true_label": "poke",
+   "score": 2.6023337841033936
+  },
+  {
+   "image": "capsule/test/poke/020.png",
+   "category": "capsule",
+   "true_label": "poke",
+   "score": 2.497681140899658
+  },
+  {
+   "image": "capsule/test/scratch/000.png",
+   "category": "capsule",
+   "true_label": "scratch",
+   "score": 2.2951080799102783
+  },
+  {
+   "image": "capsule/test/scratch/001.png",
+   "category": "capsule",
+   "true_label": "scratch",
+   "score": 2.2315971851348877
+  },
+  {
+   "image": "capsule/test/scratch/002.png",
+   "category": "capsule",
+   "true_label": "scratch",
+   "score": 2.3945775032043457
+  },
+  {
+   "image": "capsule/test/scratch/003.png",
+   "category": "capsule",
+   "true_label": "scratch",
+   "score": 2.076385021209717
+  },
+  {
+   "image": "capsule/test/scratch/004.png",
+   "category": "capsule",
+   "true_label": "scratch",
+   "score": 2.3031022548675537
+  },
+  {
+   "image": "capsule/test/scratch/005.png",
+   "category": "capsule",
+   "true_label": "scratch",
+   "score": 1.9635658264160156
+  },
+  {
+   "image": "capsule/test/scratch/006.png",
+   "category": "capsule",
+   "true_label": "scratch",
+   "score": 2.301011562347412
+  },
+  {
+   "image": "capsule/test/scratch/007.png",
+   "category": "capsule",
+   "true_label": "scratch",
+   "score": 2.462230682373047
+  },
+  {
+   "image": "capsule/test/scratch/008.png",
+   "category": "capsule",
+   "true_label": "scratch",
+   "score": 2.955548048019409
+  },
+  {
+   "image": "capsule/test/scratch/009.png",
+   "category": "capsule",
+   "true_label": "scratch",
+   "score": 2.355445384979248
+  },
+  {
+   "image": "capsule/test/scratch/010.png",
+   "category": "capsule",
+   "true_label": "scratch",
+   "score": 2.658477306365967
+  },
+  {
+   "image": "capsule/test/scratch/011.png",
+   "category": "capsule",
+   "true_label": "scratch",
+   "score": 2.747875452041626
+  },
+  {
+   "image": "capsule/test/scratch/012.png",
+   "category": "capsule",
+   "true_label": "scratch",
+   "score": 2.2906334400177
+  },
+  {
+   "image": "capsule/test/scratch/013.png",
+   "category": "capsule",
+   "true_label": "scratch",
+   "score": 2.0378806591033936
+  },
+  {
+   "image": "capsule/test/scratch/014.png",
+   "category": "capsule",
+   "true_label": "scratch",
+   "score": 2.5952203273773193
+  },
+  {
+   "image": "capsule/test/scratch/015.png",
+   "category": "capsule",
+   "true_label": "scratch",
+   "score": 2.368638277053833
+  },
+  {
+   "image": "capsule/test/scratch/016.png",
+   "category": "capsule",
+   "true_label": "scratch",
+   "score": 2.41925311088562
+  },
+  {
+   "image": "capsule/test/scratch/017.png",
+   "category": "capsule",
+   "true_label": "scratch",
+   "score": 1.9746150970458984
+  },
+  {
+   "image": "capsule/test/scratch/018.png",
+   "category": "capsule",
+   "true_label": "scratch",
+   "score": 2.51168155670166
+  },
+  {
+   "image": "capsule/test/scratch/019.png",
+   "category": "capsule",
+   "true_label": "scratch",
+   "score": 2.7811403274536133
+  },
+  {
+   "image": "capsule/test/scratch/020.png",
+   "category": "capsule",
+   "true_label": "scratch",
+   "score": 2.474989414215088
+  },
+  {
+   "image": "capsule/test/scratch/021.png",
+   "category": "capsule",
+   "true_label": "scratch",
+   "score": 2.2593090534210205
+  },
+  {
+   "image": "capsule/test/scratch/022.png",
+   "category": "capsule",
+   "true_label": "scratch",
+   "score": 2.5292727947235107
+  },
+  {
+   "image": "capsule/test/squeeze/000.png",
+   "category": "capsule",
+   "true_label": "squeeze",
+   "score": 3.135641098022461
+  },
+  {
+   "image": "capsule/test/squeeze/001.png",
+   "category": "capsule",
+   "true_label": "squeeze",
+   "score": 2.921621561050415
+  },
+  {
+   "image": "capsule/test/squeeze/002.png",
+   "category": "capsule",
+   "true_label": "squeeze",
+   "score": 2.1548616886138916
+  },
+  {
+   "image": "capsule/test/squeeze/003.png",
+   "category": "capsule",
+   "true_label": "squeeze",
+   "score": 3.0877013206481934
+  },
+  {
+   "image": "capsule/test/squeeze/004.png",
+   "category": "capsule",
+   "true_label": "squeeze",
+   "score": 2.4339048862457275
+  },
+  {
+   "image": "capsule/test/squeeze/005.png",
+   "category": "capsule",
+   "true_label": "squeeze",
+   "score": 2.396644353866577
+  },
+  {
+   "image": "capsule/test/squeeze/006.png",
+   "category": "capsule",
+   "true_label": "squeeze",
+   "score": 3.099785089492798
+  },
+  {
+   "image": "capsule/test/squeeze/007.png",
+   "category": "capsule",
+   "true_label": "squeeze",
+   "score": 3.1659305095672607
+  },
+  {
+   "image": "capsule/test/squeeze/008.png",
+   "category": "capsule",
+   "true_label": "squeeze",
+   "score": 2.6748783588409424
+  },
+  {
+   "image": "capsule/test/squeeze/009.png",
+   "category": "capsule",
+   "true_label": "squeeze",
+   "score": 2.8105030059814453
+  },
+  {
+   "image": "capsule/test/squeeze/010.png",
+   "category": "capsule",
+   "true_label": "squeeze",
+   "score": 2.7622947692871094
+  },
+  {
+   "image": "capsule/test/squeeze/011.png",
+   "category": "capsule",
+   "true_label": "squeeze",
+   "score": 3.155052900314331
+  },
+  {
+   "image": "capsule/test/squeeze/012.png",
+   "category": "capsule",
+   "true_label": "squeeze",
+   "score": 2.876075506210327
+  },
+  {
+   "image": "capsule/test/squeeze/013.png",
+   "category": "capsule",
+   "true_label": "squeeze",
+   "score": 2.7718677520751953
+  },
+  {
+   "image": "capsule/test/squeeze/014.png",
+   "category": "capsule",
+   "true_label": "squeeze",
+   "score": 2.7296390533447266
+  },
+  {
+   "image": "capsule/test/squeeze/015.png",
+   "category": "capsule",
+   "true_label": "squeeze",
+   "score": 3.0387299060821533
+  },
+  {
+   "image": "capsule/test/squeeze/016.png",
+   "category": "capsule",
+   "true_label": "squeeze",
+   "score": 3.3290212154388428
+  },
+  {
+   "image": "capsule/test/squeeze/017.png",
+   "category": "capsule",
+   "true_label": "squeeze",
+   "score": 2.6828346252441406
+  },
+  {
+   "image": "capsule/test/squeeze/018.png",
+   "category": "capsule",
+   "true_label": "squeeze",
+   "score": 2.9470043182373047
+  },
+  {
+   "image": "capsule/test/squeeze/019.png",
+   "category": "capsule",
+   "true_label": "squeeze",
+   "score": 2.866530179977417
+  },
+  {
+   "image": "capsule/train/good/000.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.6310173273086548
+  },
+  {
+   "image": "capsule/train/good/002.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.6153749227523804
+  },
+  {
+   "image": "capsule/train/good/004.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.719336986541748
+  },
+  {
+   "image": "capsule/train/good/007.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.4878839254379272
+  },
+  {
+   "image": "capsule/train/good/011.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.9220645427703857
+  },
+  {
+   "image": "capsule/train/good/013.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 2.0685696601867676
+  },
+  {
+   "image": "capsule/train/good/015.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.6767348051071167
+  },
+  {
+   "image": "capsule/train/good/026.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.562750220298767
+  },
+  {
+   "image": "capsule/train/good/027.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.745466709136963
+  },
+  {
+   "image": "capsule/train/good/030.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.5917693376541138
+  },
+  {
+   "image": "capsule/train/good/032.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.7576041221618652
+  },
+  {
+   "image": "capsule/train/good/033.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.7242753505706787
+  },
+  {
+   "image": "capsule/train/good/035.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.5908176898956299
+  },
+  {
+   "image": "capsule/train/good/037.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.5705409049987793
+  },
+  {
+   "image": "capsule/train/good/038.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.713152289390564
+  },
+  {
+   "image": "capsule/train/good/039.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.5104224681854248
+  },
+  {
+   "image": "capsule/train/good/043.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.6760362386703491
+  },
+  {
+   "image": "capsule/train/good/047.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.751307487487793
+  },
+  {
+   "image": "capsule/train/good/051.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.706749677658081
+  },
+  {
+   "image": "capsule/train/good/052.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.4373176097869873
+  },
+  {
+   "image": "capsule/train/good/053.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.5019340515136719
+  },
+  {
+   "image": "capsule/train/good/062.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.716630220413208
+  },
+  {
+   "image": "capsule/train/good/063.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.7088816165924072
+  },
+  {
+   "image": "capsule/train/good/065.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.588566780090332
+  },
+  {
+   "image": "capsule/train/good/066.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.5784307718276978
+  },
+  {
+   "image": "capsule/train/good/069.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.6565425395965576
+  },
+  {
+   "image": "capsule/train/good/071.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.7991715669631958
+  },
+  {
+   "image": "capsule/train/good/073.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.6712610721588135
+  },
+  {
+   "image": "capsule/train/good/074.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.6375867128372192
+  },
+  {
+   "image": "capsule/train/good/077.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.537089467048645
+  },
+  {
+   "image": "capsule/train/good/079.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.506264567375183
+  },
+  {
+   "image": "capsule/train/good/080.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.7022501230239868
+  },
+  {
+   "image": "capsule/train/good/082.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.7785838842391968
+  },
+  {
+   "image": "capsule/train/good/083.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.79827880859375
+  },
+  {
+   "image": "capsule/train/good/084.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.7981610298156738
+  },
+  {
+   "image": "capsule/train/good/087.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.5820831060409546
+  },
+  {
+   "image": "capsule/train/good/089.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.665826678276062
+  },
+  {
+   "image": "capsule/train/good/090.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.8348296880722046
+  },
+  {
+   "image": "capsule/train/good/092.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.6346700191497803
+  },
+  {
+   "image": "capsule/train/good/093.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.6960155963897705
+  },
+  {
+   "image": "capsule/train/good/094.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.830930471420288
+  },
+  {
+   "image": "capsule/train/good/099.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.7120964527130127
+  },
+  {
+   "image": "capsule/train/good/101.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.8669004440307617
+  },
+  {
+   "image": "capsule/train/good/103.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.5658745765686035
+  },
+  {
+   "image": "capsule/train/good/110.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.5202327966690063
+  },
+  {
+   "image": "capsule/train/good/112.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.692117691040039
+  },
+  {
+   "image": "capsule/train/good/113.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.7787500619888306
+  },
+  {
+   "image": "capsule/train/good/114.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.7133103609085083
+  },
+  {
+   "image": "capsule/train/good/115.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.707169771194458
+  },
+  {
+   "image": "capsule/train/good/116.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.7026596069335938
+  },
+  {
+   "image": "capsule/train/good/117.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.5231281518936157
+  },
+  {
+   "image": "capsule/train/good/121.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.5962612628936768
+  },
+  {
+   "image": "capsule/train/good/122.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.5846043825149536
+  },
+  {
+   "image": "capsule/train/good/125.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.7832629680633545
+  },
+  {
+   "image": "capsule/train/good/126.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.8174055814743042
+  },
+  {
+   "image": "capsule/train/good/127.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.6574081182479858
+  },
+  {
+   "image": "capsule/train/good/128.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.8787702322006226
+  },
+  {
+   "image": "capsule/train/good/129.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.8037102222442627
+  },
+  {
+   "image": "capsule/train/good/132.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.4801201820373535
+  },
+  {
+   "image": "capsule/train/good/133.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.995146632194519
+  },
+  {
+   "image": "capsule/train/good/138.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 2.088521718978882
+  },
+  {
+   "image": "capsule/train/good/139.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.5036722421646118
+  },
+  {
+   "image": "capsule/train/good/141.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.8617011308670044
+  },
+  {
+   "image": "capsule/train/good/142.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.5194666385650635
+  },
+  {
+   "image": "capsule/train/good/147.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.6543043851852417
+  },
+  {
+   "image": "capsule/train/good/154.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.617215871810913
+  },
+  {
+   "image": "capsule/train/good/157.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.7037420272827148
+  },
+  {
+   "image": "capsule/train/good/158.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.5253655910491943
+  },
+  {
+   "image": "capsule/train/good/159.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.5512657165527344
+  },
+  {
+   "image": "capsule/train/good/160.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.5757288932800293
+  },
+  {
+   "image": "capsule/train/good/162.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.6475127935409546
+  },
+  {
+   "image": "capsule/train/good/163.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.76912260055542
+  },
+  {
+   "image": "capsule/train/good/166.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.7019498348236084
+  },
+  {
+   "image": "capsule/train/good/168.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.7656012773513794
+  },
+  {
+   "image": "capsule/train/good/170.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.5297894477844238
+  },
+  {
+   "image": "capsule/train/good/171.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.5405824184417725
+  },
+  {
+   "image": "capsule/train/good/175.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.643107533454895
+  },
+  {
+   "image": "capsule/train/good/180.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.5312674045562744
+  },
+  {
+   "image": "capsule/train/good/185.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.7078791856765747
+  },
+  {
+   "image": "capsule/train/good/186.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.5927205085754395
+  },
+  {
+   "image": "capsule/train/good/188.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.6404610872268677
+  },
+  {
+   "image": "capsule/train/good/190.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.82111394405365
+  },
+  {
+   "image": "capsule/train/good/192.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 2.506070137023926
+  },
+  {
+   "image": "capsule/train/good/196.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.5240007638931274
+  },
+  {
+   "image": "capsule/train/good/197.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.6973297595977783
+  },
+  {
+   "image": "capsule/train/good/203.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.5055572986602783
+  },
+  {
+   "image": "capsule/train/good/204.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.9619818925857544
+  },
+  {
+   "image": "capsule/train/good/206.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.6821281909942627
+  },
+  {
+   "image": "capsule/train/good/207.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 2.0326130390167236
+  },
+  {
+   "image": "capsule/train/good/214.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.6847546100616455
+  },
+  {
+   "image": "capsule/train/good/215.png",
+   "category": "capsule",
+   "true_label": "good",
+   "score": 1.7763100862503052
+  },
+  {
+   "image": "pill/test/color/000.png",
+   "category": "pill",
+   "true_label": "color",
+   "score": 2.08528733253479
+  },
+  {
+   "image": "pill/test/color/001.png",
+   "category": "pill",
+   "true_label": "color",
+   "score": 3.0629093647003174
+  },
+  {
+   "image": "pill/test/color/002.png",
+   "category": "pill",
+   "true_label": "color",
+   "score": 2.171333074569702
+  },
+  {
+   "image": "pill/test/color/003.png",
+   "category": "pill",
+   "true_label": "color",
+   "score": 3.0263116359710693
+  },
+  {
+   "image": "pill/test/color/004.png",
+   "category": "pill",
+   "true_label": "color",
+   "score": 3.2907848358154297
+  },
+  {
+   "image": "pill/test/color/005.png",
+   "category": "pill",
+   "true_label": "color",
+   "score": 2.3877997398376465
+  },
+  {
+   "image": "pill/test/color/006.png",
+   "category": "pill",
+   "true_label": "color",
+   "score": 3.0395030975341797
+  },
+  {
+   "image": "pill/test/color/007.png",
+   "category": "pill",
+   "true_label": "color",
+   "score": 2.5412070751190186
+  },
+  {
+   "image": "pill/test/color/008.png",
+   "category": "pill",
+   "true_label": "color",
+   "score": 2.719707489013672
+  },
+  {
+   "image": "pill/test/color/009.png",
+   "category": "pill",
+   "true_label": "color",
+   "score": 2.5632665157318115
+  },
+  {
+   "image": "pill/test/color/010.png",
+   "category": "pill",
+   "true_label": "color",
+   "score": 2.2958831787109375
+  },
+  {
+   "image": "pill/test/color/011.png",
+   "category": "pill",
+   "true_label": "color",
+   "score": 3.103109836578369
+  },
+  {
+   "image": "pill/test/color/012.png",
+   "category": "pill",
+   "true_label": "color",
+   "score": 3.22273850440979
+  },
+  {
+   "image": "pill/test/color/013.png",
+   "category": "pill",
+   "true_label": "color",
+   "score": 3.2280335426330566
+  },
+  {
+   "image": "pill/test/color/014.png",
+   "category": "pill",
+   "true_label": "color",
+   "score": 2.8109757900238037
+  },
+  {
+   "image": "pill/test/color/015.png",
+   "category": "pill",
+   "true_label": "color",
+   "score": 2.9791829586029053
+  },
+  {
+   "image": "pill/test/color/016.png",
+   "category": "pill",
+   "true_label": "color",
+   "score": 3.3668527603149414
+  },
+  {
+   "image": "pill/test/color/017.png",
+   "category": "pill",
+   "true_label": "color",
+   "score": 2.5485265254974365
+  },
+  {
+   "image": "pill/test/color/018.png",
+   "category": "pill",
+   "true_label": "color",
+   "score": 2.6681253910064697
+  },
+  {
+   "image": "pill/test/color/019.png",
+   "category": "pill",
+   "true_label": "color",
+   "score": 3.174880266189575
+  },
+  {
+   "image": "pill/test/color/020.png",
+   "category": "pill",
+   "true_label": "color",
+   "score": 3.049177885055542
+  },
+  {
+   "image": "pill/test/color/021.png",
+   "category": "pill",
+   "true_label": "color",
+   "score": 3.0503242015838623
+  },
+  {
+   "image": "pill/test/color/022.png",
+   "category": "pill",
+   "true_label": "color",
+   "score": 3.054361343383789
+  },
+  {
+   "image": "pill/test/color/023.png",
+   "category": "pill",
+   "true_label": "color",
+   "score": 2.8860831260681152
+  },
+  {
+   "image": "pill/test/color/024.png",
+   "category": "pill",
+   "true_label": "color",
+   "score": 2.6842668056488037
+  },
+  {
+   "image": "pill/test/combined/000.png",
+   "category": "pill",
+   "true_label": "combined",
+   "score": 2.773810863494873
+  },
+  {
+   "image": "pill/test/combined/001.png",
+   "category": "pill",
+   "true_label": "combined",
+   "score": 2.810086727142334
+  },
+  {
+   "image": "pill/test/combined/002.png",
+   "category": "pill",
+   "true_label": "combined",
+   "score": 3.115290641784668
+  },
+  {
+   "image": "pill/test/combined/003.png",
+   "category": "pill",
+   "true_label": "combined",
+   "score": 3.3842883110046387
+  },
+  {
+   "image": "pill/test/combined/004.png",
+   "category": "pill",
+   "true_label": "combined",
+   "score": 2.87440824508667
+  },
+  {
+   "image": "pill/test/combined/005.png",
+   "category": "pill",
+   "true_label": "combined",
+   "score": 2.5063304901123047
+  },
+  {
+   "image": "pill/test/combined/006.png",
+   "category": "pill",
+   "true_label": "combined",
+   "score": 2.4882736206054688
+  },
+  {
+   "image": "pill/test/combined/007.png",
+   "category": "pill",
+   "true_label": "combined",
+   "score": 2.6208913326263428
+  },
+  {
+   "image": "pill/test/combined/008.png",
+   "category": "pill",
+   "true_label": "combined",
+   "score": 2.9654150009155273
+  },
+  {
+   "image": "pill/test/combined/009.png",
+   "category": "pill",
+   "true_label": "combined",
+   "score": 3.2036662101745605
+  },
+  {
+   "image": "pill/test/combined/010.png",
+   "category": "pill",
+   "true_label": "combined",
+   "score": 2.9213201999664307
+  },
+  {
+   "image": "pill/test/combined/011.png",
+   "category": "pill",
+   "true_label": "combined",
+   "score": 2.979328155517578
+  },
+  {
+   "image": "pill/test/combined/012.png",
+   "category": "pill",
+   "true_label": "combined",
+   "score": 2.7431743144989014
+  },
+  {
+   "image": "pill/test/combined/013.png",
+   "category": "pill",
+   "true_label": "combined",
+   "score": 2.9822793006896973
+  },
+  {
+   "image": "pill/test/combined/014.png",
+   "category": "pill",
+   "true_label": "combined",
+   "score": 3.0646090507507324
+  },
+  {
+   "image": "pill/test/combined/015.png",
+   "category": "pill",
+   "true_label": "combined",
+   "score": 2.640939950942993
+  },
+  {
+   "image": "pill/test/combined/016.png",
+   "category": "pill",
+   "true_label": "combined",
+   "score": 2.9021623134613037
+  },
+  {
+   "image": "pill/test/contamination/000.png",
+   "category": "pill",
+   "true_label": "contamination",
+   "score": 2.633984327316284
+  },
+  {
+   "image": "pill/test/contamination/001.png",
+   "category": "pill",
+   "true_label": "contamination",
+   "score": 2.7267136573791504
+  },
+  {
+   "image": "pill/test/contamination/002.png",
+   "category": "pill",
+   "true_label": "contamination",
+   "score": 2.7402541637420654
+  },
+  {
+   "image": "pill/test/contamination/003.png",
+   "category": "pill",
+   "true_label": "contamination",
+   "score": 3.2888810634613037
+  },
+  {
+   "image": "pill/test/contamination/004.png",
+   "category": "pill",
+   "true_label": "contamination",
+   "score": 2.4626636505126953
+  },
+  {
+   "image": "pill/test/contamination/005.png",
+   "category": "pill",
+   "true_label": "contamination",
+   "score": 2.6696925163269043
+  },
+  {
+   "image": "pill/test/contamination/006.png",
+   "category": "pill",
+   "true_label": "contamination",
+   "score": 2.786531686782837
+  },
+  {
+   "image": "pill/test/contamination/007.png",
+   "category": "pill",
+   "true_label": "contamination",
+   "score": 2.843071699142456
+  },
+  {
+   "image": "pill/test/contamination/008.png",
+   "category": "pill",
+   "true_label": "contamination",
+   "score": 2.7321369647979736
+  },
+  {
+   "image": "pill/test/contamination/009.png",
+   "category": "pill",
+   "true_label": "contamination",
+   "score": 2.4370062351226807
+  },
+  {
+   "image": "pill/test/contamination/010.png",
+   "category": "pill",
+   "true_label": "contamination",
+   "score": 2.6107048988342285
+  },
+  {
+   "image": "pill/test/contamination/011.png",
+   "category": "pill",
+   "true_label": "contamination",
+   "score": 3.002948045730591
+  },
+  {
+   "image": "pill/test/contamination/012.png",
+   "category": "pill",
+   "true_label": "contamination",
+   "score": 2.8531761169433594
+  },
+  {
+   "image": "pill/test/contamination/013.png",
+   "category": "pill",
+   "true_label": "contamination",
+   "score": 2.6943604946136475
+  },
+  {
+   "image": "pill/test/contamination/014.png",
+   "category": "pill",
+   "true_label": "contamination",
+   "score": 2.7473278045654297
+  },
+  {
+   "image": "pill/test/contamination/015.png",
+   "category": "pill",
+   "true_label": "contamination",
+   "score": 2.947600841522217
+  },
+  {
+   "image": "pill/test/contamination/016.png",
+   "category": "pill",
+   "true_label": "contamination",
+   "score": 2.9960150718688965
+  },
+  {
+   "image": "pill/test/contamination/017.png",
+   "category": "pill",
+   "true_label": "contamination",
+   "score": 2.8847811222076416
+  },
+  {
+   "image": "pill/test/contamination/018.png",
+   "category": "pill",
+   "true_label": "contamination",
+   "score": 2.730329990386963
+  },
+  {
+   "image": "pill/test/contamination/019.png",
+   "category": "pill",
+   "true_label": "contamination",
+   "score": 2.692715644836426
+  },
+  {
+   "image": "pill/test/contamination/020.png",
+   "category": "pill",
+   "true_label": "contamination",
+   "score": 2.2790935039520264
+  },
+  {
+   "image": "pill/test/crack/000.png",
+   "category": "pill",
+   "true_label": "crack",
+   "score": 2.4302620887756348
+  },
+  {
+   "image": "pill/test/crack/001.png",
+   "category": "pill",
+   "true_label": "crack",
+   "score": 2.138087749481201
+  },
+  {
+   "image": "pill/test/crack/002.png",
+   "category": "pill",
+   "true_label": "crack",
+   "score": 2.575255870819092
+  },
+  {
+   "image": "pill/test/crack/003.png",
+   "category": "pill",
+   "true_label": "crack",
+   "score": 2.481900215148926
+  },
+  {
+   "image": "pill/test/crack/004.png",
+   "category": "pill",
+   "true_label": "crack",
+   "score": 2.6635563373565674
+  },
+  {
+   "image": "pill/test/crack/005.png",
+   "category": "pill",
+   "true_label": "crack",
+   "score": 2.8028676509857178
+  },
+  {
+   "image": "pill/test/crack/006.png",
+   "category": "pill",
+   "true_label": "crack",
+   "score": 2.422297477722168
+  },
+  {
+   "image": "pill/test/crack/007.png",
+   "category": "pill",
+   "true_label": "crack",
+   "score": 2.4029080867767334
+  },
+  {
+   "image": "pill/test/crack/008.png",
+   "category": "pill",
+   "true_label": "crack",
+   "score": 2.3909828662872314
+  },
+  {
+   "image": "pill/test/crack/009.png",
+   "category": "pill",
+   "true_label": "crack",
+   "score": 2.3980932235717773
+  },
+  {
+   "image": "pill/test/crack/010.png",
+   "category": "pill",
+   "true_label": "crack",
+   "score": 2.2884016036987305
+  },
+  {
+   "image": "pill/test/crack/011.png",
+   "category": "pill",
+   "true_label": "crack",
+   "score": 2.639662027359009
+  },
+  {
+   "image": "pill/test/crack/012.png",
+   "category": "pill",
+   "true_label": "crack",
+   "score": 2.8469340801239014
+  },
+  {
+   "image": "pill/test/crack/013.png",
+   "category": "pill",
+   "true_label": "crack",
+   "score": 2.2907607555389404
+  },
+  {
+   "image": "pill/test/crack/014.png",
+   "category": "pill",
+   "true_label": "crack",
+   "score": 2.223053455352783
+  },
+  {
+   "image": "pill/test/crack/015.png",
+   "category": "pill",
+   "true_label": "crack",
+   "score": 2.499452829360962
+  },
+  {
+   "image": "pill/test/crack/016.png",
+   "category": "pill",
+   "true_label": "crack",
+   "score": 2.2493624687194824
+  },
+  {
+   "image": "pill/test/crack/017.png",
+   "category": "pill",
+   "true_label": "crack",
+   "score": 2.7210803031921387
+  },
+  {
+   "image": "pill/test/crack/018.png",
+   "category": "pill",
+   "true_label": "crack",
+   "score": 2.6043829917907715
+  },
+  {
+   "image": "pill/test/crack/019.png",
+   "category": "pill",
+   "true_label": "crack",
+   "score": 2.5588769912719727
+  },
+  {
+   "image": "pill/test/crack/020.png",
+   "category": "pill",
+   "true_label": "crack",
+   "score": 2.3661696910858154
+  },
+  {
+   "image": "pill/test/crack/021.png",
+   "category": "pill",
+   "true_label": "crack",
+   "score": 2.5411007404327393
+  },
+  {
+   "image": "pill/test/crack/022.png",
+   "category": "pill",
+   "true_label": "crack",
+   "score": 2.708692789077759
+  },
+  {
+   "image": "pill/test/crack/023.png",
+   "category": "pill",
+   "true_label": "crack",
+   "score": 2.544571876525879
+  },
+  {
+   "image": "pill/test/crack/024.png",
+   "category": "pill",
+   "true_label": "crack",
+   "score": 2.257370710372925
+  },
+  {
+   "image": "pill/test/crack/025.png",
+   "category": "pill",
+   "true_label": "crack",
+   "score": 2.408548355102539
+  },
+  {
+   "image": "pill/test/faulty_imprint/000.png",
+   "category": "pill",
+   "true_label": "faulty_imprint",
+   "score": 2.5338995456695557
+  },
+  {
+   "image": "pill/test/faulty_imprint/001.png",
+   "category": "pill",
+   "true_label": "faulty_imprint",
+   "score": 2.590592384338379
+  },
+  {
+   "image": "pill/test/faulty_imprint/002.png",
+   "category": "pill",
+   "true_label": "faulty_imprint",
+   "score": 2.516895055770874
+  },
+  {
+   "image": "pill/test/faulty_imprint/003.png",
+   "category": "pill",
+   "true_label": "faulty_imprint",
+   "score": 2.5140459537506104
+  },
+  {
+   "image": "pill/test/faulty_imprint/004.png",
+   "category": "pill",
+   "true_label": "faulty_imprint",
+   "score": 2.448711633682251
+  },
+  {
+   "image": "pill/test/faulty_imprint/005.png",
+   "category": "pill",
+   "true_label": "faulty_imprint",
+   "score": 2.5115792751312256
+  },
+  {
+   "image": "pill/test/faulty_imprint/006.png",
+   "category": "pill",
+   "true_label": "faulty_imprint",
+   "score": 2.499185085296631
+  },
+  {
+   "image": "pill/test/faulty_imprint/007.png",
+   "category": "pill",
+   "true_label": "faulty_imprint",
+   "score": 2.5358166694641113
+  },
+  {
+   "image": "pill/test/faulty_imprint/008.png",
+   "category": "pill",
+   "true_label": "faulty_imprint",
+   "score": 2.7000951766967773
+  },
+  {
+   "image": "pill/test/faulty_imprint/009.png",
+   "category": "pill",
+   "true_label": "faulty_imprint",
+   "score": 2.6134774684906006
+  },
+  {
+   "image": "pill/test/faulty_imprint/010.png",
+   "category": "pill",
+   "true_label": "faulty_imprint",
+   "score": 2.78952956199646
+  },
+  {
+   "image": "pill/test/faulty_imprint/011.png",
+   "category": "pill",
+   "true_label": "faulty_imprint",
+   "score": 2.5102269649505615
+  },
+  {
+   "image": "pill/test/faulty_imprint/012.png",
+   "category": "pill",
+   "true_label": "faulty_imprint",
+   "score": 2.3969810009002686
+  },
+  {
+   "image": "pill/test/faulty_imprint/013.png",
+   "category": "pill",
+   "true_label": "faulty_imprint",
+   "score": 2.60593581199646
+  },
+  {
+   "image": "pill/test/faulty_imprint/014.png",
+   "category": "pill",
+   "true_label": "faulty_imprint",
+   "score": 2.549532175064087
+  },
+  {
+   "image": "pill/test/faulty_imprint/015.png",
+   "category": "pill",
+   "true_label": "faulty_imprint",
+   "score": 2.752669095993042
+  },
+  {
+   "image": "pill/test/faulty_imprint/016.png",
+   "category": "pill",
+   "true_label": "faulty_imprint",
+   "score": 2.692725419998169
+  },
+  {
+   "image": "pill/test/faulty_imprint/017.png",
+   "category": "pill",
+   "true_label": "faulty_imprint",
+   "score": 2.6202261447906494
+  },
+  {
+   "image": "pill/test/faulty_imprint/018.png",
+   "category": "pill",
+   "true_label": "faulty_imprint",
+   "score": 2.9700980186462402
+  },
+  {
+   "image": "pill/test/good/000.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.138582706451416
+  },
+  {
+   "image": "pill/test/good/001.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.226717472076416
+  },
+  {
+   "image": "pill/test/good/002.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.223587989807129
+  },
+  {
+   "image": "pill/test/good/003.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.1909186840057373
+  },
+  {
+   "image": "pill/test/good/004.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.0600714683532715
+  },
+  {
+   "image": "pill/test/good/005.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.2849509716033936
+  },
+  {
+   "image": "pill/test/good/006.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.218235969543457
+  },
+  {
+   "image": "pill/test/good/007.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.216928482055664
+  },
+  {
+   "image": "pill/test/good/008.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.1740000247955322
+  },
+  {
+   "image": "pill/test/good/009.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.081679344177246
+  },
+  {
+   "image": "pill/test/good/010.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.1415655612945557
+  },
+  {
+   "image": "pill/test/good/011.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.146440029144287
+  },
+  {
+   "image": "pill/test/good/012.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.32621693611145
+  },
+  {
+   "image": "pill/test/good/013.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.1597039699554443
+  },
+  {
+   "image": "pill/test/good/014.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.2710156440734863
+  },
+  {
+   "image": "pill/test/good/015.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.2070891857147217
+  },
+  {
+   "image": "pill/test/good/016.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.0573596954345703
+  },
+  {
+   "image": "pill/test/good/017.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.229222536087036
+  },
+  {
+   "image": "pill/test/good/018.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.175898790359497
+  },
+  {
+   "image": "pill/test/good/019.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.23591947555542
+  },
+  {
+   "image": "pill/test/good/020.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.147202253341675
+  },
+  {
+   "image": "pill/test/good/021.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.265479326248169
+  },
+  {
+   "image": "pill/test/good/022.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.144718885421753
+  },
+  {
+   "image": "pill/test/good/023.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.350024938583374
+  },
+  {
+   "image": "pill/test/good/024.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.304147958755493
+  },
+  {
+   "image": "pill/test/good/025.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.2203691005706787
+  },
+  {
+   "image": "pill/test/pill_type/000.png",
+   "category": "pill",
+   "true_label": "pill_type",
+   "score": 3.042949914932251
+  },
+  {
+   "image": "pill/test/pill_type/001.png",
+   "category": "pill",
+   "true_label": "pill_type",
+   "score": 3.005676031112671
+  },
+  {
+   "image": "pill/test/pill_type/002.png",
+   "category": "pill",
+   "true_label": "pill_type",
+   "score": 3.1859078407287598
+  },
+  {
+   "image": "pill/test/pill_type/003.png",
+   "category": "pill",
+   "true_label": "pill_type",
+   "score": 2.9826834201812744
+  },
+  {
+   "image": "pill/test/pill_type/004.png",
+   "category": "pill",
+   "true_label": "pill_type",
+   "score": 3.1042659282684326
+  },
+  {
+   "image": "pill/test/pill_type/005.png",
+   "category": "pill",
+   "true_label": "pill_type",
+   "score": 2.934894561767578
+  },
+  {
+   "image": "pill/test/pill_type/006.png",
+   "category": "pill",
+   "true_label": "pill_type",
+   "score": 2.9927196502685547
+  },
+  {
+   "image": "pill/test/pill_type/007.png",
+   "category": "pill",
+   "true_label": "pill_type",
+   "score": 3.1125564575195312
+  },
+  {
+   "image": "pill/test/pill_type/008.png",
+   "category": "pill",
+   "true_label": "pill_type",
+   "score": 3.0521974563598633
+  },
+  {
+   "image": "pill/test/scratch/000.png",
+   "category": "pill",
+   "true_label": "scratch",
+   "score": 2.856586217880249
+  },
+  {
+   "image": "pill/test/scratch/001.png",
+   "category": "pill",
+   "true_label": "scratch",
+   "score": 2.586872100830078
+  },
+  {
+   "image": "pill/test/scratch/002.png",
+   "category": "pill",
+   "true_label": "scratch",
+   "score": 2.3920254707336426
+  },
+  {
+   "image": "pill/test/scratch/003.png",
+   "category": "pill",
+   "true_label": "scratch",
+   "score": 2.688765048980713
+  },
+  {
+   "image": "pill/test/scratch/004.png",
+   "category": "pill",
+   "true_label": "scratch",
+   "score": 2.46535325050354
+  },
+  {
+   "image": "pill/test/scratch/005.png",
+   "category": "pill",
+   "true_label": "scratch",
+   "score": 2.2788584232330322
+  },
+  {
+   "image": "pill/test/scratch/006.png",
+   "category": "pill",
+   "true_label": "scratch",
+   "score": 2.575904130935669
+  },
+  {
+   "image": "pill/test/scratch/007.png",
+   "category": "pill",
+   "true_label": "scratch",
+   "score": 2.586702346801758
+  },
+  {
+   "image": "pill/test/scratch/008.png",
+   "category": "pill",
+   "true_label": "scratch",
+   "score": 2.4483580589294434
+  },
+  {
+   "image": "pill/test/scratch/009.png",
+   "category": "pill",
+   "true_label": "scratch",
+   "score": 2.6004745960235596
+  },
+  {
+   "image": "pill/test/scratch/010.png",
+   "category": "pill",
+   "true_label": "scratch",
+   "score": 3.0212268829345703
+  },
+  {
+   "image": "pill/test/scratch/011.png",
+   "category": "pill",
+   "true_label": "scratch",
+   "score": 3.053722381591797
+  },
+  {
+   "image": "pill/test/scratch/012.png",
+   "category": "pill",
+   "true_label": "scratch",
+   "score": 2.527871608734131
+  },
+  {
+   "image": "pill/test/scratch/013.png",
+   "category": "pill",
+   "true_label": "scratch",
+   "score": 2.5417912006378174
+  },
+  {
+   "image": "pill/test/scratch/014.png",
+   "category": "pill",
+   "true_label": "scratch",
+   "score": 2.5565452575683594
+  },
+  {
+   "image": "pill/test/scratch/015.png",
+   "category": "pill",
+   "true_label": "scratch",
+   "score": 2.766136407852173
+  },
+  {
+   "image": "pill/test/scratch/016.png",
+   "category": "pill",
+   "true_label": "scratch",
+   "score": 2.7383787631988525
+  },
+  {
+   "image": "pill/test/scratch/017.png",
+   "category": "pill",
+   "true_label": "scratch",
+   "score": 2.5037684440612793
+  },
+  {
+   "image": "pill/test/scratch/018.png",
+   "category": "pill",
+   "true_label": "scratch",
+   "score": 2.7749197483062744
+  },
+  {
+   "image": "pill/test/scratch/019.png",
+   "category": "pill",
+   "true_label": "scratch",
+   "score": 2.6833577156066895
+  },
+  {
+   "image": "pill/test/scratch/020.png",
+   "category": "pill",
+   "true_label": "scratch",
+   "score": 2.845702648162842
+  },
+  {
+   "image": "pill/test/scratch/021.png",
+   "category": "pill",
+   "true_label": "scratch",
+   "score": 3.1570773124694824
+  },
+  {
+   "image": "pill/test/scratch/022.png",
+   "category": "pill",
+   "true_label": "scratch",
+   "score": 2.464185953140259
+  },
+  {
+   "image": "pill/test/scratch/023.png",
+   "category": "pill",
+   "true_label": "scratch",
+   "score": 2.452523946762085
+  },
+  {
+   "image": "pill/train/good/000.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.298888683319092
+  },
+  {
+   "image": "pill/train/good/002.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.161334753036499
+  },
+  {
+   "image": "pill/train/good/004.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.0132086277008057
+  },
+  {
+   "image": "pill/train/good/007.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.126340627670288
+  },
+  {
+   "image": "pill/train/good/011.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.1460044384002686
+  },
+  {
+   "image": "pill/train/good/013.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.1965155601501465
+  },
+  {
+   "image": "pill/train/good/015.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.1447367668151855
+  },
+  {
+   "image": "pill/train/good/026.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.3316540718078613
+  },
+  {
+   "image": "pill/train/good/027.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.140256881713867
+  },
+  {
+   "image": "pill/train/good/030.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.172302722930908
+  },
+  {
+   "image": "pill/train/good/032.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.2000198364257812
+  },
+  {
+   "image": "pill/train/good/033.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.1018764972686768
+  },
+  {
+   "image": "pill/train/good/035.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.341844081878662
+  },
+  {
+   "image": "pill/train/good/037.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.226577043533325
+  },
+  {
+   "image": "pill/train/good/038.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.2685670852661133
+  },
+  {
+   "image": "pill/train/good/039.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.2201550006866455
+  },
+  {
+   "image": "pill/train/good/043.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.133117437362671
+  },
+  {
+   "image": "pill/train/good/047.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.193657636642456
+  },
+  {
+   "image": "pill/train/good/051.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.284916639328003
+  },
+  {
+   "image": "pill/train/good/052.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.057875633239746
+  },
+  {
+   "image": "pill/train/good/053.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.3084557056427
+  },
+  {
+   "image": "pill/train/good/062.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.1440465450286865
+  },
+  {
+   "image": "pill/train/good/063.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.237567901611328
+  },
+  {
+   "image": "pill/train/good/065.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.2350919246673584
+  },
+  {
+   "image": "pill/train/good/066.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.179408311843872
+  },
+  {
+   "image": "pill/train/good/069.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.1894993782043457
+  },
+  {
+   "image": "pill/train/good/071.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.2309765815734863
+  },
+  {
+   "image": "pill/train/good/073.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.1224844455718994
+  },
+  {
+   "image": "pill/train/good/074.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.3477959632873535
+  },
+  {
+   "image": "pill/train/good/077.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.1367695331573486
+  },
+  {
+   "image": "pill/train/good/079.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.1701231002807617
+  },
+  {
+   "image": "pill/train/good/080.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.304354429244995
+  },
+  {
+   "image": "pill/train/good/082.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.168718099594116
+  },
+  {
+   "image": "pill/train/good/083.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.1650774478912354
+  },
+  {
+   "image": "pill/train/good/084.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.213611125946045
+  },
+  {
+   "image": "pill/train/good/087.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.071690320968628
+  },
+  {
+   "image": "pill/train/good/089.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.2669456005096436
+  },
+  {
+   "image": "pill/train/good/090.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.316279411315918
+  },
+  {
+   "image": "pill/train/good/092.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.584878921508789
+  },
+  {
+   "image": "pill/train/good/093.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.837953805923462
+  },
+  {
+   "image": "pill/train/good/094.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.309619665145874
+  },
+  {
+   "image": "pill/train/good/099.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.253725051879883
+  },
+  {
+   "image": "pill/train/good/101.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.1581766605377197
+  },
+  {
+   "image": "pill/train/good/103.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.2772810459136963
+  },
+  {
+   "image": "pill/train/good/110.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.2728443145751953
+  },
+  {
+   "image": "pill/train/good/112.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.226566791534424
+  },
+  {
+   "image": "pill/train/good/113.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.1419949531555176
+  },
+  {
+   "image": "pill/train/good/114.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.1535184383392334
+  },
+  {
+   "image": "pill/train/good/115.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.0765328407287598
+  },
+  {
+   "image": "pill/train/good/116.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.2760703563690186
+  },
+  {
+   "image": "pill/train/good/117.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.4012081623077393
+  },
+  {
+   "image": "pill/train/good/121.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.270927667617798
+  },
+  {
+   "image": "pill/train/good/122.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.2443981170654297
+  },
+  {
+   "image": "pill/train/good/125.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.4283957481384277
+  },
+  {
+   "image": "pill/train/good/126.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.1407861709594727
+  },
+  {
+   "image": "pill/train/good/127.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.0741240978240967
+  },
+  {
+   "image": "pill/train/good/128.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.104360580444336
+  },
+  {
+   "image": "pill/train/good/129.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.4050304889678955
+  },
+  {
+   "image": "pill/train/good/132.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.217527151107788
+  },
+  {
+   "image": "pill/train/good/133.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.539928436279297
+  },
+  {
+   "image": "pill/train/good/138.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.2282519340515137
+  },
+  {
+   "image": "pill/train/good/139.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.203629732131958
+  },
+  {
+   "image": "pill/train/good/141.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.2191832065582275
+  },
+  {
+   "image": "pill/train/good/142.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.420642852783203
+  },
+  {
+   "image": "pill/train/good/147.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.284883975982666
+  },
+  {
+   "image": "pill/train/good/154.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.073458194732666
+  },
+  {
+   "image": "pill/train/good/157.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.2505738735198975
+  },
+  {
+   "image": "pill/train/good/158.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.1975884437561035
+  },
+  {
+   "image": "pill/train/good/159.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.2094194889068604
+  },
+  {
+   "image": "pill/train/good/160.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.1447954177856445
+  },
+  {
+   "image": "pill/train/good/162.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.229656219482422
+  },
+  {
+   "image": "pill/train/good/163.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.1742727756500244
+  },
+  {
+   "image": "pill/train/good/166.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.234703779220581
+  },
+  {
+   "image": "pill/train/good/168.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.123058557510376
+  },
+  {
+   "image": "pill/train/good/170.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.3753116130828857
+  },
+  {
+   "image": "pill/train/good/171.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.1532695293426514
+  },
+  {
+   "image": "pill/train/good/175.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.211432695388794
+  },
+  {
+   "image": "pill/train/good/180.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.5217196941375732
+  },
+  {
+   "image": "pill/train/good/185.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.3186776638031006
+  },
+  {
+   "image": "pill/train/good/186.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.3171563148498535
+  },
+  {
+   "image": "pill/train/good/188.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.21844220161438
+  },
+  {
+   "image": "pill/train/good/190.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.300844192504883
+  },
+  {
+   "image": "pill/train/good/192.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.4046807289123535
+  },
+  {
+   "image": "pill/train/good/196.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.2089905738830566
+  },
+  {
+   "image": "pill/train/good/197.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.156763792037964
+  },
+  {
+   "image": "pill/train/good/203.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.0684874057769775
+  },
+  {
+   "image": "pill/train/good/204.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.1460134983062744
+  },
+  {
+   "image": "pill/train/good/206.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.0654025077819824
+  },
+  {
+   "image": "pill/train/good/207.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.0485002994537354
+  },
+  {
+   "image": "pill/train/good/214.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.2615880966186523
+  },
+  {
+   "image": "pill/train/good/215.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.1110377311706543
+  },
+  {
+   "image": "pill/train/good/219.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.115109920501709
+  },
+  {
+   "image": "pill/train/good/220.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.1768338680267334
+  },
+  {
+   "image": "pill/train/good/224.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.0734212398529053
+  },
+  {
+   "image": "pill/train/good/227.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.1530508995056152
+  },
+  {
+   "image": "pill/train/good/229.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.1203320026397705
+  },
+  {
+   "image": "pill/train/good/230.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.1239235401153564
+  },
+  {
+   "image": "pill/train/good/232.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.2648274898529053
+  },
+  {
+   "image": "pill/train/good/235.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.020500898361206
+  },
+  {
+   "image": "pill/train/good/237.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.2707629203796387
+  },
+  {
+   "image": "pill/train/good/248.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.2500863075256348
+  },
+  {
+   "image": "pill/train/good/249.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.148139238357544
+  },
+  {
+   "image": "pill/train/good/250.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.2584924697875977
+  },
+  {
+   "image": "pill/train/good/253.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.399465560913086
+  },
+  {
+   "image": "pill/train/good/256.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.1412930488586426
+  },
+  {
+   "image": "pill/train/good/257.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.15571665763855
+  },
+  {
+   "image": "pill/train/good/259.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.2895374298095703
+  },
+  {
+   "image": "pill/train/good/263.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.1298978328704834
+  },
+  {
+   "image": "pill/train/good/264.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.2253336906433105
+  },
+  {
+   "image": "pill/train/good/265.png",
+   "category": "pill",
+   "true_label": "good",
+   "score": 2.071841239929199
+  }
+ ]
+}

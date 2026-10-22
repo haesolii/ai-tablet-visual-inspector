@@ -239,6 +239,10 @@ svg .lbl { fill: var(--ink-2); font-size: 11px; }
     <div class="card"><h2>재검사 기준값별 사람 재검사 비율 <span class="muted small">MVTec 299장</span></h2><div id="chReview"></div></div>
     <div class="card full" id="v5card" hidden><h2>v5 로컬 고정 모델 vs 클라우드 AI <span class="muted small">같은 홀드아웃 이미지</span></h2><div class="tablewrap"><table id="v5"></table></div>
       <p class="small muted" id="v5note"></p></div>
+    <div class="card full" id="v7card" hidden><h2>v7 해상도 가설 검증 + 제품별 운용 정책 (D9 CAPA) <span class="muted small" id="v7sub"></span></h2>
+      <div class="tablewrap"><table id="v7"></table></div>
+      <h2 style="margin-top:16px">제품별 운용 정책 <span class="muted small">보정 정상품 자동 합격 ≥30%인 제품만 자동 합격 허용</span></h2>
+      <div class="tablewrap"><table id="v7pol"></table></div></div>
     <div class="card full" id="v6card" hidden><h2>v6 사람 부담 기준 재정의 (D8 CAPA) <span class="muted small" id="v6sub"></span></h2><div class="tablewrap"><table id="v6"></table></div>
       <p class="small muted">실제 라인은 대부분 정상품이라, 사람 부담은 "정상품을 자동 합격시키는 비율"이 좌우합니다. 재검사 비율은 불량률 1% 라인을 가정해 환산했습니다.</p></div>
     <div class="card"><h2>외부 데이터 독립 검증 <span class="muted small">처음 보는 데이터</span></h2><div class="tablewrap"><table id="ext"></table></div></div>
@@ -286,6 +290,7 @@ document.querySelectorAll('nav button').forEach(b => b.onclick = () => {
 // ---- config ----
 async function loadConfig() {
   [, cfg] = await api('/api/config');
+  engine = cfg.default_engine || 'claude';
   $('#cfg').replaceChildren(
     el('span', {className: 'chip'}, '재검사 기준 ', el('b', {textContent: '신뢰도 < ' + cfg.threshold})),
     el('span', {className: 'chip'}, '프롬프트 ', el('b', {textContent: cfg.prompt_version})),
@@ -395,10 +400,13 @@ function renderResult(r) {
         el('div', {className: 'th', style: `left:${pos(r.score)}%`}))));
     add('불량 위치', el('div', {}, el('img', {className: 'heat', src: r.heatmap, alt: '이상 점수 히트맵 (파란 곳이 정상품과 다른 부분)'}),
       el('div', {className: 'small muted', textContent: '파란 곳 = 정상품과 다른 부분. 불량 유형은 말하지 않음'})));
+    add('운용 정책', r.policy === 'screen' ? '불량 선별 전용 — 이 제품은 자동 합격을 내지 않음 (v7 제품별 정책)' : '자동 합격 허용 (v7 제품별 정책)');
     add('처리', `${r.sec}초 · 네트워크 ${r.network} (이미지 외부 전송 없음)`);
     add('모델', r.model);
     parts.push(kv);
-    if (r.disposition === 'review') parts.push(el('div', {className: 'hint', textContent: '이상 점수가 합격·불합격 기준 사이라 모델이 처분을 확정하지 않았습니다. 사람이 최종 판정해야 합니다.'}));
+    if (r.disposition === 'review') parts.push(el('div', {className: 'hint', textContent: r.policy === 'screen' && r.score < r.t_pass
+      ? '점수는 합격 구간이지만, 이 제품은 정상품과 미세 불량을 구분하지 못해 자동 합격을 내지 않습니다. 사람이 최종 판정해야 합니다.'
+      : '이상 점수가 합격·불합격 기준 사이라 모델이 처분을 확정하지 않았습니다. 사람이 최종 판정해야 합니다.'}));
   } else {
     const c = r.confidence || 0;
     add('AI 판정', r.error ? '판정 실패' : (r.verdict === 'good' ? '정상' : '불량'));
@@ -482,6 +490,17 @@ async function loadDash() {
         row('같은 이미지 반복 결과', '100% 동일', '88.6% 일치'),
         row('이미지 외부 전송', '없음 (차단 상태로 검증)', '있음')));
     $('#v5note').textContent = '주의: 홀드아웃은 불량이 85%라 재검사 비율이 실제 라인보다 낮게 보입니다. 실제 라인은 대부분 정상품이라 "정상품 자동 합격"이 재검사 부담을 좌우하고, 두 엔진 모두 낮습니다 (일탈 D8).';
+  }
+  if (d.v7) {
+    const v = d.v7;
+    $('#v7card').hidden = false;
+    $('#v7sub').textContent = `채택: ${v.adopted} · v7 장당 ${v.sec.toFixed(2)}초`;
+    $('#v7').replaceChildren(el('thead', {}, el('tr', {}, el('th', {textContent: '항목'}), ...v.cols.map(c => el('th', {className: 'num', textContent: c})))),
+      el('tbody', {}, ...v.rows.map(r => el('tr', {}, el('td', {textContent: r[0]}), ...r.slice(1).map(x => el('td', {className: 'num', textContent: x}))))));
+    $('#v7pol').replaceChildren(el('thead', {}, el('tr', {}, ...['제품', '운용 정책', '보정 정상 자동 합격', '평가 정상 자동 합격', '유출', '라인 가정 재검사'].map((h, i) => el('th', {className: i > 1 ? 'num' : '', textContent: h})))),
+      el('tbody', {}, ...v.policy.map(p => el('tr', {}, el('td', {textContent: p.cat}), el('td', {textContent: p.name}),
+        el('td', {className: 'num', textContent: pct(p.calib_good_pass)}), el('td', {className: 'num', textContent: pct(p.good_pass)}),
+        el('td', {className: 'num', textContent: p.leak}), el('td', {className: 'num', textContent: pct(p.line_review)})))));
   }
   if (d.v6) {
     const v = d.v6;

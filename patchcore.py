@@ -5,6 +5,7 @@
     python patchcore.py --offline --out results/v6_run2.json    # 네트워크 차단 상태 재실행 (F5·F6)
     python patchcore.py --method random --out results/v6_random.json   # 참고: v5 보관 방식을 같은 분할로
     python patchcore.py --protocol v5 --method random --out results/v5_run1.json   # v5 재현
+    python patchcore.py --res 448 --keep 0.01 --out results/v7_run1.json          # v7 고해상도 (§10)
 """
 import argparse
 import hashlib
@@ -25,8 +26,15 @@ torch.use_deterministic_algorithms(True)
 torch.set_num_threads(4)   # 스레드 수가 바뀌면 부동소수 합산 순서가 바뀔 수 있어 고정 (C5)
 KEEP = 0.1                 # 정상 패치 10% 보관 (v5: 무작위, v6: greedy coreset)
 CACHE = Path(__file__).parent / ".cache"
-TF = transforms.Compose([transforms.Resize(256), transforms.CenterCrop(224), transforms.ToTensor(),
-                         transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])])
+
+
+def make_tf(res: int):
+    """224 → Resize 256·Crop 224 (v5·v6), 448 → Resize 512·Crop 448 (v7)"""
+    return transforms.Compose([transforms.Resize(res * 8 // 7), transforms.CenterCrop(res), transforms.ToTensor(),
+                               transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])])
+
+
+TF = make_tf(224)
 
 
 def block_network():
@@ -38,7 +46,8 @@ def block_network():
 
 
 class PatchCore:
-    def __init__(self):
+    def __init__(self, res: int = 224):
+        self.res, self.tf = res, make_tf(res)
         w = Wide_ResNet50_2_Weights.IMAGENET1K_V1
         self.net = wide_resnet50_2(weights=w).eval()
         ckpt = Path(torch.hub.get_dir()) / "checkpoints" / Path(w.url).name
@@ -47,18 +56,20 @@ class PatchCore:
 
     @torch.no_grad()
     def features(self, paths: list[str]) -> torch.Tensor:
-        """layer2·layer3 특징을 28×28 격자로 맞춰 이어붙임 → (B, 1536, 28, 28)"""
+        """layer2·layer3 특징을 layer2 격자(입력/8)로 맞춰 이어붙임 → (B, 1536, res/8, res/8)"""
         n = self.net
-        x = torch.stack([TF(Image.open(p).convert("RGB")) for p in paths])
+        x = torch.stack([self.tf(Image.open(p).convert("RGB")) for p in paths])
         x = n.maxpool(n.relu(n.bn1(n.conv1(x))))
         l2 = n.layer2(n.layer1(x))
         l3 = n.layer3(l2)
         l3 = F.interpolate(F.avg_pool2d(l3, 3, 1, 1), size=l2.shape[-2:], mode="bilinear", align_corners=False)
         return torch.cat([F.avg_pool2d(l2, 3, 1, 1), l3], 1)
 
-    def fit(self, category: str, good_paths: list[str], use_cache: bool = True, method: str = "coreset"):
+    def fit(self, category: str, good_paths: list[str], use_cache: bool = True, method: str = "coreset",
+            keep: float = KEEP):
         """정상품 패치 특징을 기억. 캐시는 데모 기동용 — 실험(main)은 매번 새로 만들어 재현성까지 확인한다"""
-        cached = CACHE / f"patchcore_{category}_{len(good_paths)}_{method}.pt"
+        tag = "" if (self.res, keep) == (224, KEEP) else f"_r{self.res}_k{keep}"   # v6 캐시 이름 유지
+        cached = CACHE / f"patchcore_{category}_{len(good_paths)}_{method}{tag}.pt"
         if use_cache and cached.exists():
             self.banks[category] = torch.load(cached)
             return
@@ -66,18 +77,20 @@ class PatchCore:
         feats = [self.features(good_paths[i:i + 8]).permute(0, 2, 3, 1).reshape(-1, 1536)
                  for i in range(0, len(good_paths), 8)]
         if method == "random":
-            self.banks[category] = torch.cat([f[torch.randperm(len(f), generator=g)[:int(len(f) * KEEP)]] for f in feats])
+            self.banks[category] = torch.cat([f[torch.randperm(len(f), generator=g)[:int(len(f) * keep)]] for f in feats])
         else:
             x = torch.cat(feats)
-            self.banks[category] = x[greedy_coreset(x, int(len(x) * KEEP), g)]
+            del feats
+            self.banks[category] = x[greedy_coreset(x, int(len(x) * keep), g)]
         CACHE.mkdir(exist_ok=True)
         torch.save(self.banks[category], cached)
 
     @torch.no_grad()
     def score(self, category: str, path: str) -> tuple[float, torch.Tensor]:
-        """이미지 점수(가장 이상한 패치의 정상 기준까지 거리)와 28×28 히트맵"""
-        f = self.features([path])[0].permute(1, 2, 0).reshape(-1, 1536)
-        d = torch.cdist(f, self.banks[category]).min(1).values.view(28, 28)
+        """이미지 점수(가장 이상한 패치의 정상 기준까지 거리)와 패치 격자 히트맵"""
+        f = self.features([path])[0]
+        h, w = f.shape[1:]
+        d = torch.cdist(f.permute(1, 2, 0).reshape(-1, 1536), self.banks[category]).min(1).values.view(h, w)
         return float(d.max()), d
 
 
@@ -110,11 +123,13 @@ def main():
     ap.add_argument("--out", default="results/v6_run1.json")
     ap.add_argument("--protocol", choices=["v5", "v6"], default="v6")
     ap.add_argument("--method", choices=["coreset", "random"], default="coreset")
+    ap.add_argument("--res", type=int, choices=[224, 448], default=224)
+    ap.add_argument("--keep", type=float, default=KEEP)
     ap.add_argument("--offline", action="store_true", help="가중치를 내려받은 뒤 네트워크 차단 상태로 실행")
     args = ap.parse_args()
 
     data_dir = b.resolve_data_dir(None)
-    model = PatchCore()           # 가중치 로딩(최초 1회 다운로드)까지는 차단 전
+    model = PatchCore(args.res)   # 가중치 로딩(최초 1회 다운로드)까지는 차단 전
     if args.offline:
         block_network()
         try:
@@ -129,13 +144,13 @@ def main():
         if args.protocol == "v6":   # 정상 기억에 쓴 이미지는 보정·평가에 쓰지 않는다
             samples += [{"category": cat, "label": "good", "path": p, "split": "train"} for p in goods if train_role(p) != "bank"]
             goods = [p for p in goods if train_role(p) == "bank"]
-        model.fit(cat, goods, use_cache=False, method=args.method)
+        model.fit(cat, goods, use_cache=False, method=args.method, keep=args.keep)
     for s in samples:
         t = time.perf_counter()
         sc, _ = model.score(s["category"], s["path"])
         times.append(time.perf_counter() - t)
         results.append({"image": b.image_id(s), "category": s["category"], "true_label": s["label"], "score": sc})
-    out = {"meta": {"weights_sha256": model.weights_sha256, "keep": KEEP, "torch": torch.__version__,
+    out = {"meta": {"weights_sha256": model.weights_sha256, "keep": args.keep, "res": args.res, "torch": torch.__version__,
                     "protocol": args.protocol, "method": args.method,
                     "threads": torch.get_num_threads(), "offline": args.offline,
                     "bank": {c: len(v) for c, v in model.banks.items()},

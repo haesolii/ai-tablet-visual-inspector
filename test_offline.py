@@ -191,11 +191,18 @@ for n in ("000.png", "001.png", "002.png", "003.png", "004.png", "005.png", "006
         assert an.v6_role(r) == role
 assert an.v6_role({"image": "pill/test/crack/001.png"}) == ("eval" if an.holdout("pill/test/crack/001.png") else "calib")
 
+# v7 제품별 정책: '불량 선별 전용'은 합격을 재검사로만 바꾼다 (불합격·재검사는 그대로)
+th7 = {"pill": {"pass": 1, "reject": 2}}
+for x, auto, screen in [(0.5, "pass", "review"), (1.5, "review", "review"), (2.5, "reject", "reject")]:
+    assert an.policy_disposition({"category": "pill", "score": x}, th7, {"pill": "auto"}) == auto
+    assert an.policy_disposition({"category": "pill", "score": x}, th7, {"pill": "screen"}) == screen
+
 import torch  # noqa: E402
 
-fake = type("M", (), {"weights_sha256": "0" * 64, "score": lambda self, c, p: (1.5, torch.full((28, 28), 1.5))})()
+fake = type("M", (), {"weights_sha256": "0" * 64, "tf": patchcore.TF, "res": 224, "score": lambda self, c, p: (1.5, torch.full((28, 28), 1.5))})()
 d.AUDIT_LOG.unlink()                              # 위에서 일부러 깨뜨린 로그 정리
-d.local_engine = lambda: {"model": fake, "th": {"pill": {"pass": 1.0, "reject": 2.0}}, "disposition": an.v5_disposition}
+d.local_engine = lambda: {"model": fake, "th": {"pill": {"pass": 1.0, "reject": 2.0}}, "disposition": an.v5_disposition,
+                          "name": "v6", "policy": {"pill": "auto"}}
 assert c.post(f"/api/inspect?id={s['id']}&engine=x", headers=H).status_code == 400
 r = c.post(f"/api/inspect?id={s['id']}&engine=local", headers=H).get_json()
 assert r["disposition"] == "review" and r["network"] == "미사용" and r["heatmap"].startswith("data:image/png")
