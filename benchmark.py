@@ -8,12 +8,19 @@
     python benchmark.py --data /path/to/mvtec --per-type 10
 """
 import argparse
+import hashlib
 import json
 import logging
+import math
 import os
 import random
 import re
+import shutil
 import subprocess
+import tempfile
+import time
+import uuid
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 BASE = Path(__file__).parent
@@ -39,6 +46,7 @@ PROMPT = """당신은 제약 품질관리(QC) 외관 검사 담당자입니다.
 불량 유형은 아래 후보 안에서만 고르세요:
 color, contamination, crack, faulty_imprint, pill_type, scratch, combined, poke, squeeze
 정상이면 verdict는 "good", defect_type은 null."""
+PROMPT_VERSION = hashlib.sha256(PROMPT.encode()).hexdigest()[:8]  # 감사추적용: 프롬프트가 바뀌면 값이 바뀐다
 
 
 def resolve_data_dir(cli_data: str | None) -> Path | None:
@@ -124,12 +132,28 @@ def extract_json(text: str) -> dict:
     raise ValueError("JSON을 찾을 수 없음")
 
 
+def claude_bin() -> str:
+    """Windows npm 설치는 claude.cmd 셸 스크립트라 여러 줄 프롬프트 인자가 cmd.exe에서 잘린다.
+    옆에 있는 실제 claude.exe를 직접 호출한다."""
+    found = shutil.which("claude") or "claude"
+    exe = Path(found).parent / "node_modules/@anthropic-ai/claude-code/bin/claude.exe"
+    return str(exe) if found.lower().endswith(".cmd") and exe.exists() else found
+
+
 def call_claude(image_path: str, prompt: str, timeout: int = 180) -> dict:
     """구독 인증된 claude CLI로 비전 판정. JSON dict 반환."""
-    img = Path(image_path).resolve()
+    # 라벨 누출 방지: MVTec 경로(.../test/crack/003.png)에 정답이 들어 있으므로
+    # 무작위 이름의 임시 파일로 복사해 모델이 경로를 보고 답할 수 없게 한다
+    with tempfile.TemporaryDirectory() as tmp:
+        img = Path(tmp) / f"{uuid.uuid4().hex}{Path(image_path).suffix}"
+        shutil.copy(image_path, img)
+        return _call_claude_cli(img, prompt, timeout)
+
+
+def _call_claude_cli(img: Path, prompt: str, timeout: int) -> dict:
     full_prompt = prompt.format(image_path=str(img))
     cmd = [
-        "claude", "-p", full_prompt,
+        claude_bin(), "-p", full_prompt,
         "--output-format", "json",
         "--json-schema", json.dumps(CLAUDE_SCHEMA),
         "--tools", "Read",
@@ -172,26 +196,66 @@ MODELS = {
 }
 
 
+ERROR = "error"  # 판정 실패 → 합격 처리하지 않고 재검사로 보낸다 (fail-safe)
+# 이 신뢰도 미만이면 AI가 확정하지 않고 사람 재검사로 넘긴다.
+# 실제 라인에선 밸리데이션 데이터로 누락 0%가 유지되는 값으로 조정할 것.
+REVIEW_THRESHOLD = 0.7
+
+
+def wilson_upper(k: int, n: int, z: float = 1.96) -> float:
+    """비율 k/n의 95% 신뢰구간 상한. 0/n이어도 '0%'가 아니라 '최대 x%'로 말하기 위함."""
+    if n == 0:
+        return 0.0
+    p = k / n
+    return (p + z * z / (2 * n) + z * math.sqrt(p * (1 - p) / n + z * z / (4 * n * n))) / (1 + z * z / n)
+
+
+def needs_review(r: dict) -> bool:
+    return r["pred_label"] == ERROR or (r.get("confidence") or 0) < REVIEW_THRESHOLD
+
+
 def score(results: list[dict]) -> dict:
-    """정확도 / 불량 누락률 / 정상 오탐율 집계"""
+    """정확도 / 불량 누락률 / 정상 오탐율 / 판정 실패율 / 유형별 정답률 집계.
+    판정 실패(ERROR)도 분모에 남겨 숨기지 않는다: 정확도에선 오답, 누락에선 제외(재검사행)."""
     total = len(results)
     correct = sum(1 for r in results if r["pred_label"] == r["true_label"])
     missed = sum(1 for r in results if r["true_label"] != "good" and r["pred_label"] == "good")
-    false_alarm = sum(1 for r in results if r["true_label"] == "good" and r["pred_label"] != "good")
+    false_alarm = sum(1 for r in results
+                      if r["true_label"] == "good" and r["pred_label"] not in ("good", ERROR))
+    errors = sum(1 for r in results if r["pred_label"] == ERROR)
     n_defective = sum(1 for r in results if r["true_label"] != "good")
     n_good = total - n_defective
+    per_type = {}
+    for r in results:
+        t = per_type.setdefault(r["true_label"], [0, 0])
+        t[0] += r["pred_label"] == r["true_label"]
+        t[1] += 1
+    # 2단계 판정: 저신뢰도·실패는 사람 재검사 → AI 단독 합격 처리된 불량만이 '유출'
+    reviewed = sum(1 for r in results if needs_review(r))
+    auto_missed = sum(1 for r in results
+                      if r["true_label"] != "good" and r["pred_label"] == "good" and not needs_review(r))
+    lat = [r["latency_s"] for r in results if r.get("latency_s") is not None]
     return {
         "n": total,
         "accuracy": round(correct / total, 4) if total else 0,
         "miss_rate": round(missed / n_defective, 4) if n_defective else 0,
+        "miss_rate_95ci_upper": round(wilson_upper(missed, n_defective), 4),
+        "review_threshold": REVIEW_THRESHOLD,
+        "review_rate": round(reviewed / total, 4) if total else 0,
+        "auto_pass_miss_rate": round(auto_missed / n_defective, 4) if n_defective else 0,
+        "avg_latency_s": round(sum(lat) / len(lat), 1) if lat else None,
         "false_alarm_rate": round(false_alarm / n_good, 4) if n_good else 0,
+        "error_rate": round(errors / total, 4) if total else 0,
+        "per_type": {k: f"{c}/{n}" for k, (c, n) in sorted(per_type.items())},
     }
 
 
-def run_model(name: str, fn, samples: list[dict]) -> tuple[list[dict], int]:
-    results, skipped = [], 0
-    for i, s in enumerate(samples, 1):
+def run_model(name: str, fn, samples: list[dict], workers: int = 1) -> tuple[list[dict], int]:
+    """판정 실패는 ERROR로 결과에 남긴다. 반환: (결과, 실패 건수)"""
+    def one(i_s):
+        i, s = i_s
         print(f"  [{i}/{len(samples)}] {s['category']}/{s['label']}/{Path(s['path']).name}")
+        t0 = time.monotonic()
         try:
             pred = fn(s["path"], PROMPT)
             verdict = pred.get("verdict")
@@ -199,13 +263,16 @@ def run_model(name: str, fn, samples: list[dict]) -> tuple[list[dict], int]:
         except NotImplementedError:
             raise
         except Exception as e:
-            log.warning("SKIP %s (%s/%s): %s", s["path"], s["category"], s["label"], e)
-            skipped += 1
-            continue
-        results.append({"true_label": s["label"], "pred_label": pred_label,
-                        "category": s["category"], "path": s["path"],
-                        "confidence": pred.get("confidence")})
-    return results, skipped
+            log.warning("ERROR %s (%s/%s): %s", s["path"], s["category"], s["label"], e)
+            pred, pred_label = {}, ERROR
+        return {"true_label": s["label"], "pred_label": pred_label,
+                "category": s["category"], "image": f"{s['category']}/{s['label']}/{Path(s['path']).name}",
+                "confidence": pred.get("confidence"),
+                "latency_s": round(time.monotonic() - t0, 1)}
+
+    with ThreadPoolExecutor(workers) as ex:
+        results = list(ex.map(one, enumerate(samples, 1)))
+    return results, sum(r["pred_label"] == ERROR for r in results)
 
 
 def main():
@@ -215,6 +282,7 @@ def main():
     ap.add_argument("--per-type", type=int, default=10)
     ap.add_argument("--data", default=None)
     ap.add_argument("--seed", type=int, default=42)
+    ap.add_argument("--workers", type=int, default=1, help="동시 호출 수 (구독 사용량 한도 주의)")
     ap.add_argument("--out", default=str(BASE / "benchmark_results.json"))
     args = ap.parse_args()
 
@@ -236,17 +304,19 @@ def main():
         print(f"=== {name} ===")
         fn = MODELS[name]
         try:
-            results, skipped = run_model(name, fn, samples)
+            results, skipped = run_model(name, fn, samples, args.workers)
         except NotImplementedError:
             print(f"[{name}] 미구현 — 계정 인증 후 실행")
             continue
         sc = score(results)
         sc["skipped"] = skipped
-        all_results[name] = {"score": sc, "results": results}
-        print(f"[{name}] {sc} (건너뜀 {skipped})")
+        all_results[name] = {"meta": {"prompt_version": PROMPT_VERSION, "seed": args.seed,
+                                      "per_type": args.per_type, "data": data_dir.name},
+                             "score": sc, "results": results}
+        print(f"[{name}] {sc} (판정 실패 {skipped})")
 
     out = Path(args.out)
-    out.write_text(json.dumps(all_results, ensure_ascii=False, indent=2))
+    out.write_text(json.dumps(all_results, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"저장: {out}")
 
 
