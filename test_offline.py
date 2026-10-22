@@ -21,13 +21,15 @@ seen = []
 lock = threading.Lock()
 
 
-def fake_cli(img, prompt, timeout):
+def fake_cli(full_prompt, img_dir, timeout):
+    paths = re.findall(r"(?:이미지 파일|정상품 사진): (.+)", full_prompt)
     with lock:
-        seen.append(img)
+        seen.extend(Path(x) for x in paths)
         fail = len(seen) == 2
-    assert img.exists()
-    # 라벨 누출 방지: 모델에 넘어가는 경로·프롬프트에 정답 라벨이 없어야 한다
-    assert not re.search(r"good|crack|scratch|test", prompt.format(image_path=str(img)).split("이미지 파일:")[1].split("\n")[0])
+    for x in paths:
+        assert Path(x).exists() and Path(x).parent == Path(img_dir)
+        # 라벨 누출 방지: 모델에 넘어가는 경로에 정답 라벨·폴더명이 없어야 한다 (레퍼런스 포함)
+        assert not re.search(r"good|crack|scratch|test|train|pill", x), x
     if fail:
         raise RuntimeError("boom")
     return {"verdict": "defective", "defect_type": "crack", "confidence": 0.9}
@@ -57,6 +59,21 @@ for name in b.PERTURBATIONS:
     assert Path(x).read_bytes() == Path(y).read_bytes(), name
     assert Image.open(x).tobytes() != Image.open(real).tobytes(), name
     assert "real" not in Path(x).name
+
+# 레퍼런스 동봉(CAPA D3): 레퍼런스 경로도 익명화되어 모델에 넘어간다
+seen.clear()
+ref = Path(tmp) / "pill" / "test" / "good" / "000.png"
+b.run_model("claude", b.call_claude, samples[:2], references={"pill": str(ref)})
+assert len(seen) == 4, seen                       # 판정 이미지 2 + 레퍼런스 2
+
+# 품질 게이트(CAPA D5): 정상 범위로 보정한 뒤 열화 이미지를 걸러낸다
+import quality_gate as q  # noqa: E402
+
+limits = q.calibrate([real])
+assert q.check(real, limits)["ok"]
+for name in ["noise25", "blur2", "dark60"]:
+    res = q.check(b.perturbed_copy(str(real), name, tmp), limits)
+    assert not res["ok"], (name, res)
 
 import demo_app as d  # noqa: E402
 

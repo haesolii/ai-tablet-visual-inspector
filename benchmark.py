@@ -46,7 +46,22 @@ PROMPT = """당신은 제약 품질관리(QC) 외관 검사 담당자입니다.
 불량 유형은 아래 후보 안에서만 고르세요:
 color, contamination, crack, faulty_imprint, pill_type, scratch, combined, poke, squeeze
 정상이면 verdict는 "good", defect_type은 null."""
-PROMPT_VERSION = hashlib.sha256(PROMPT.encode()).hexdigest()[:8]  # 감사추적용: 프롬프트가 바뀌면 값이 바뀐다
+# CAPA D3: 정상품 레퍼런스 동봉 프롬프트. MVTec pill은 정상품에도 붉은 반점이 있어 기준 없이 보면 오염으로 오인한다
+PROMPT_REF = PROMPT.replace("이미지 파일: {image_path}\n", """이미지 파일: {image_path}
+
+비교 기준: 아래는 같은 제품의 '정상품' 사진입니다. 정상품에도 있는 무늬·반점·인쇄·색조는 불량이 아닙니다.
+정상품과 달라진 부분만 불량으로 판단하세요.
+정상품 사진: {reference_path}
+""")
+assert PROMPT_REF != PROMPT
+
+
+def prompt_version(prompt: str) -> str:
+    """감사추적·변경관리용: 프롬프트가 한 글자라도 바뀌면 값이 바뀐다"""
+    return hashlib.sha256(prompt.encode()).hexdigest()[:8]
+
+
+PROMPT_VERSION = prompt_version(PROMPT)
 
 
 def resolve_data_dir(cli_data: str | None) -> Path | None:
@@ -139,6 +154,37 @@ def perturbed_copy(path: str, name: str, out_dir: str) -> str:
     return str(out)
 
 
+IMG_EXT = {".png", ".jpg", ".jpeg", ".bmp"}
+# 정상/불량 2분류 외부 데이터셋 (kagglehub 캐시). 학습을 안 하므로 모든 split을 평가에 쓴다.
+# 값: (kaggle 핸들, {폴더명: 라벨})
+EXTERNAL = {
+    "pharmavision": ("tahirlee/pharmaceutical-tablets-dataset", {"normal": "good", "defective": "defective"}),
+    "pilldefect": ("pudpawat/pill-defect-dataset", {"normal": "good", "defect all": "defective"}),
+}
+
+
+def load_external(name: str, per_type_max: int, seed: int) -> list[dict]:
+    """외부 데이터셋 층화 샘플링. category=데이터셋 이름, split=라벨 폴더의 상위 폴더명"""
+    import kagglehub
+    handle, labels = EXTERNAL[name]
+    root = Path(kagglehub.dataset_download(handle))
+    rng = random.Random(seed)
+    samples = []
+    for d in sorted(p for p in root.rglob("*") if p.is_dir() and p.name in labels):
+        imgs = sorted(f for f in d.iterdir() if f.suffix.lower() in IMG_EXT)
+        for img in rng.sample(imgs, min(per_type_max, len(imgs))):
+            samples.append({"category": name, "label": labels[d.name], "path": str(img),
+                            "split": d.parent.name.replace(" ", "_")})
+    rng.shuffle(samples)
+    return samples
+
+
+def reference_images(data_dir: Path, categories: list[str]) -> dict:
+    """카테고리별 정상품 레퍼런스: train/good 첫 장 (평가 표본에서는 제외한다)"""
+    return {c: str(sorted((find_category_dir(data_dir, c).parent / "train" / "good").glob("*.png"))[0])
+            for c in categories}
+
+
 CLAUDE_SCHEMA = {
     "type": "object",
     "properties": {
@@ -172,25 +218,28 @@ def claude_bin() -> str:
     return str(exe) if found.lower().endswith(".cmd") and exe.exists() else found
 
 
-def call_claude(image_path: str, prompt: str, timeout: int = 180) -> dict:
-    """구독 인증된 claude CLI로 비전 판정. JSON dict 반환."""
+def call_claude(image_path: str, prompt: str, reference: str | None = None, timeout: int = 180) -> dict:
+    """구독 인증된 claude CLI로 비전 판정. JSON dict 반환 (+ _model, _cost_usd)."""
     # 라벨 누출 방지: MVTec 경로(.../test/crack/003.png)에 정답이 들어 있으므로
-    # 무작위 이름의 임시 파일로 복사해 모델이 경로를 보고 답할 수 없게 한다
+    # 무작위 이름의 임시 파일로 복사해 모델이 경로를 보고 답할 수 없게 한다 (레퍼런스도 동일)
     with tempfile.TemporaryDirectory() as tmp:
-        img = Path(tmp) / f"{uuid.uuid4().hex}{Path(image_path).suffix}"
-        shutil.copy(image_path, img)
-        return _call_claude_cli(img, prompt, timeout)
+        def anon(src):
+            dst = Path(tmp) / f"{uuid.uuid4().hex}{Path(src).suffix}"
+            shutil.copy(src, dst)
+            return str(dst)
+        full_prompt = prompt.format(image_path=anon(image_path),
+                                    reference_path=anon(reference) if reference else "")
+        return _call_claude_cli(full_prompt, tmp, timeout)
 
 
-def _call_claude_cli(img: Path, prompt: str, timeout: int) -> dict:
-    full_prompt = prompt.format(image_path=str(img))
+def _call_claude_cli(full_prompt: str, img_dir: str, timeout: int) -> dict:
     cmd = [
         claude_bin(), "-p", full_prompt,
         "--output-format", "json",
         "--json-schema", json.dumps(CLAUDE_SCHEMA),
         "--tools", "Read",
         "--allowedTools", "Read",
-        "--add-dir", str(img.parent),
+        "--add-dir", img_dir,
         "--permission-mode", "dontAsk",
         "--no-session-persistence",
         "--strict-mcp-config",
@@ -206,9 +255,11 @@ def _call_claude_cli(img: Path, prompt: str, timeout: int) -> dict:
     except json.JSONDecodeError:
         raise RuntimeError(f"CLI 출력 파싱 실패: {proc.stdout[-300:]}")
     # structured_output 우선, 없으면 result 텍스트에서 JSON 추출
-    if isinstance(out.get("structured_output"), dict):
-        return out["structured_output"]
-    return extract_json(out.get("result", ""))
+    pred = out["structured_output"] if isinstance(out.get("structured_output"), dict) \
+        else extract_json(out.get("result", ""))
+    # 감사추적: 실제로 응답한 모델 ID와 API 환산 비용 (구독 인증이라 실제 과금은 없음)
+    return pred | {"_model": ",".join(out.get("modelUsage") or {}) or None,
+                   "_cost_usd": out.get("total_cost_usd")}
 
 
 def call_gpt(image_path: str, prompt: str) -> dict:
@@ -287,18 +338,21 @@ def image_id(s: dict) -> str:
 
 
 def run_model(name: str, fn, samples: list[dict], workers: int = 1,
-              perturb: str | None = None) -> tuple[list[dict], int]:
+              perturb: str | None = None, references: dict | None = None) -> tuple[list[dict], int]:
     """판정 실패는 ERROR로 결과에 남긴다. 반환: (결과, 실패 건수)"""
     def one(i_s):
         i, s = i_s
         print(f"  [{i}/{len(samples)}] {s['category']}/{s['label']}/{Path(s['path']).name}")
         t0 = time.monotonic()
         try:
+            ref = (references or {}).get(s["category"])
+            kw = {"reference": ref} if ref else {}
+            prompt = PROMPT_REF if ref else PROMPT
             if perturb:
                 with tempfile.TemporaryDirectory() as tmp:
-                    pred = fn(perturbed_copy(s["path"], perturb, tmp), PROMPT)
+                    pred = fn(perturbed_copy(s["path"], perturb, tmp), prompt, **kw)
             else:
-                pred = fn(s["path"], PROMPT)
+                pred = fn(s["path"], prompt, **kw)
             verdict = pred.get("verdict")
             pred_label = "good" if verdict == "good" else (pred.get("defect_type") or "defective")
         except NotImplementedError:
@@ -309,6 +363,7 @@ def run_model(name: str, fn, samples: list[dict], workers: int = 1,
         return {"true_label": s["label"], "pred_label": pred_label,
                 "category": s["category"], "image": image_id(s),
                 "confidence": pred.get("confidence"),
+                "model": pred.get("_model"), "cost_usd": pred.get("_cost_usd"),
                 "latency_s": round(time.monotonic() - t0, 1)}
 
     with ThreadPoolExecutor(workers) as ex:
@@ -327,6 +382,9 @@ def main():
     ap.add_argument("--splits", nargs="+", default=["test"], choices=["test", "train"],
                     help="train = MVTec 학습용 정상 이미지 (특이성 표본 확대용)")
     ap.add_argument("--perturb", choices=PERTURBATIONS, default=None, help="강건성 시험용 이미지 열화")
+    ap.add_argument("--dataset", choices=["mvtec", *EXTERNAL], default="mvtec",
+                    help="외부 데이터셋은 정상/불량 2분류로만 채점 (독립 검증용)")
+    ap.add_argument("--reference", action="store_true", help="정상품 레퍼런스 이미지 동봉 (MVTec만)")
     ap.add_argument("--out", default=str(BASE / "benchmark_results.json"))
     args = ap.parse_args()
 
@@ -338,7 +396,13 @@ def main():
         print("    또는: ln -s <캐시>/versions/2 ~/workspace/sideproject-qc-vision/data")
         return
 
-    samples = load_test_set(data_dir, args.categories, args.per_type, args.seed, tuple(args.splits))
+    if args.dataset == "mvtec":
+        samples = load_test_set(data_dir, args.categories, args.per_type, args.seed, tuple(args.splits))
+    else:
+        samples = load_external(args.dataset, args.per_type, args.seed)
+    refs = reference_images(data_dir, args.categories) if args.reference else None
+    if refs:  # 레퍼런스 이미지 자체는 평가하지 않는다
+        samples = [s for s in samples if s["path"] not in refs.values()]
     print(f"데이터: {data_dir} / 샘플 {len(samples)}장")
     if not samples:
         return
@@ -348,15 +412,16 @@ def main():
         print(f"=== {name} ===")
         fn = MODELS[name]
         try:
-            results, skipped = run_model(name, fn, samples, args.workers, args.perturb)
+            results, skipped = run_model(name, fn, samples, args.workers, args.perturb, refs)
         except NotImplementedError:
             print(f"[{name}] 미구현 — 계정 인증 후 실행")
             continue
         sc = score(results)
         sc["skipped"] = skipped
-        all_results[name] = {"meta": {"prompt_version": PROMPT_VERSION, "seed": args.seed,
-                                      "per_type": args.per_type, "data": data_dir.name,
-                                      "splits": args.splits, "perturb": args.perturb},
+        all_results[name] = {"meta": {"prompt_version": prompt_version(PROMPT_REF if refs else PROMPT),
+                                      "seed": args.seed, "per_type": args.per_type, "dataset": args.dataset,
+                                      "splits": args.splits, "perturb": args.perturb,
+                                      "reference": refs and {c: Path(p).name for c, p in refs.items()}},
                              "score": sc, "results": results}
         print(f"[{name}] {sc} (판정 실패 {skipped})")
 
