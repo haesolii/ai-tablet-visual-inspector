@@ -1,0 +1,6434 @@
+{
+  "claude": {
+    "meta": {
+      "prompt_version": "d041b4f4",
+      "seed": 42,
+      "per_type": 10000,
+      "dataset": "pharmavision",
+      "splits": [
+        "test"
+      ],
+      "perturb": null,
+      "reference": null
+    },
+    "score": {
+      "n": 640,
+      "accuracy": 0.4188,
+      "miss_rate": 0.0312,
+      "miss_rate_95ci_upper": 0.0566,
+      "review_threshold": 0.7,
+      "review_rate": 0.4094,
+      "auto_pass_miss_rate": 0.0,
+      "avg_latency_s": 6.8,
+      "false_alarm_rate": 0.0875,
+      "error_rate": 0.075,
+      "per_type": {
+        "defective": "0/320",
+        "good": "268/320"
+      },
+      "skipped": 48
+    },
+    "results": [
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/52.jpeg",
+        "confidence": 0.72,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0402362,
+        "latency_s": 7.1
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/97.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0398092,
+        "latency_s": 8.4
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "poke",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/101.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0367488,
+        "latency_s": 7.2
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "color",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/65.jpeg",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0404486,
+        "latency_s": 7.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/33.jpeg",
+        "confidence": 0.72,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.041357,
+        "latency_s": 6.5
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "contamination",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/37.jpeg",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.039441000000000004,
+        "latency_s": 7.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/173.jpeg",
+        "confidence": 0.75,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0373734,
+        "latency_s": 8.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/104.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0346528,
+        "latency_s": 6.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/validation/defective/9.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.048256999999999994,
+        "latency_s": 11.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/119.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.035870400000000004,
+        "latency_s": 9.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "faulty_imprint",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/52.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.035275,
+        "latency_s": 6.5
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/88.jpeg",
+        "confidence": 0.5,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0493778,
+        "latency_s": 9.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/187.jpeg",
+        "confidence": 0.75,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.034088600000000004,
+        "latency_s": 6.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/7.jpg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0460736,
+        "latency_s": 7.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "color",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/187.jpeg",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0377418,
+        "latency_s": 8.3
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/8.jpeg",
+        "confidence": 0.93,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0386768,
+        "latency_s": 8.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/2.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.043619,
+        "latency_s": 6.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/93.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.035213,
+        "latency_s": 6.4
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/17.jpg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.036945,
+        "latency_s": 6.4
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/170.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0387302,
+        "latency_s": 8.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "faulty_imprint",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/166.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0356424,
+        "latency_s": 6.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/175.jpeg",
+        "confidence": 0.72,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0371338,
+        "latency_s": 6.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/validation/good/8.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0382262,
+        "latency_s": 6.1
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/73.jpeg",
+        "confidence": 0.92,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0350178,
+        "latency_s": 5.9
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/10.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.034129400000000004,
+        "latency_s": 7.7
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/46.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0392984,
+        "latency_s": 10.1
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "error",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/10.jpeg",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "error",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/124.jpeg",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "error",
+        "category": "pharmavision",
+        "image": "pharmavision/validation/defective/13.jpeg",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "error",
+        "category": "pharmavision",
+        "image": "pharmavision/validation/good/2.jpeg",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "error",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/182.jpeg",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "error",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/158.jpeg",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "error",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/1.jpeg",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "error",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/74.jpeg",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "error",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/40.jpeg",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "error",
+        "category": "pharmavision",
+        "image": "pharmavision/validation/defective/5.jpeg",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "error",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/51.jpeg",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "error",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/85.jpeg",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "error",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/189.jpeg",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "error",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/168.jpeg",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "error",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/111.jpeg",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "error",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/54.jpeg",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.1
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "error",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/76.jpeg",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "error",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/66.jpeg",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "error",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/21.jpeg",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "error",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/44.jpeg",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "error",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/129.jpeg",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.1
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "error",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/25.jpeg",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "error",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/33.jpeg",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "error",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/75.jpeg",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.1
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "error",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/97.jpeg",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.1
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "error",
+        "category": "pharmavision",
+        "image": "pharmavision/validation/defective/1.jpeg",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "error",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/87.jpeg",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.1
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "error",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/77.jpeg",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.1
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "error",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/58.jpeg",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.2
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "error",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/20.jpeg",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "error",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/178.jpeg",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "error",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/57.jpeg",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "error",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/83.jpeg",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.2
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "error",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/75.jpeg",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "error",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/141.jpeg",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "error",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/134.jpeg",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "error",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/98.jpeg",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.2
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "error",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/37.jpeg",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "error",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/45.jpeg",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "error",
+        "category": "pharmavision",
+        "image": "pharmavision/validation/good/10.jpeg",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "error",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/147.jpeg",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "error",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/9.jpeg",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "error",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/95.jpeg",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "error",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/20.jpg",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "error",
+        "category": "pharmavision",
+        "image": "pharmavision/validation/defective/2.jpeg",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "error",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/44.jpeg",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "error",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/31.jpeg",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "error",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/123.jpeg",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "faulty_imprint",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/115.jpeg",
+        "confidence": 0.85,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.035885600000000004,
+        "latency_s": 7.9
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/83.jpeg",
+        "confidence": 0.72,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.03697400000000001,
+        "latency_s": 7.6
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "combined",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/83.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.039146,
+        "latency_s": 6.9
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/149.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0344782,
+        "latency_s": 7.1
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "color",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/11.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.043206600000000005,
+        "latency_s": 9.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/107.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0391938,
+        "latency_s": 6.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/16.jpg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0374862,
+        "latency_s": 6.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/135.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0354574,
+        "latency_s": 6.4
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/131.jpeg",
+        "confidence": 0.9,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.035665,
+        "latency_s": 7.9
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/validation/good/25.jpeg",
+        "confidence": 0.75,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0357654,
+        "latency_s": 6.4
+      },
+      {
+        "true_label": "good",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/151.jpeg",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0383028,
+        "latency_s": 7.2
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/89.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.036149200000000006,
+        "latency_s": 6.8
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/92.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0361188,
+        "latency_s": 7.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/29.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0367956,
+        "latency_s": 7.4
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "combined",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/99.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0431274,
+        "latency_s": 8.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/69.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.044016200000000005,
+        "latency_s": 7.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/8.jpeg",
+        "confidence": 0.65,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0347236,
+        "latency_s": 11.4
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/53.jpeg",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0416522,
+        "latency_s": 7.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/25.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0357564,
+        "latency_s": 6.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/161.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.034732799999999994,
+        "latency_s": 6.2
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/69.jpeg",
+        "confidence": 0.85,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.038534200000000005,
+        "latency_s": 6.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/78.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.047040799999999994,
+        "latency_s": 10.7
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "color",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/22.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0397614,
+        "latency_s": 9.2
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "faulty_imprint",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/111.jpeg",
+        "confidence": 0.85,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0355738,
+        "latency_s": 6.1
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/43.jpeg",
+        "confidence": 0.93,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0462986,
+        "latency_s": 6.6
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/45.jpeg",
+        "confidence": 0.93,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.047977599999999995,
+        "latency_s": 7.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/41.jpeg",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.038698,
+        "latency_s": 8.9
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/75.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.043008000000000005,
+        "latency_s": 6.2
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "faulty_imprint",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/110.jpeg",
+        "confidence": 0.85,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0351206,
+        "latency_s": 6.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/128.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0371338,
+        "latency_s": 9.9
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/171.jpeg",
+        "confidence": 0.75,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0375688,
+        "latency_s": 6.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/133.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0354294,
+        "latency_s": 6.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/45.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.041085800000000006,
+        "latency_s": 7.2
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/validation/defective/25.jpeg",
+        "confidence": 0.92,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.036985000000000004,
+        "latency_s": 6.2
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "color",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/41.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0388014,
+        "latency_s": 8.9
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "faulty_imprint",
+        "category": "pharmavision",
+        "image": "pharmavision/validation/defective/23.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.041838,
+        "latency_s": 10.9
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/54.jpeg",
+        "confidence": 0.75,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0348256,
+        "latency_s": 8.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/77.jpeg",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0461846,
+        "latency_s": 7.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/142.jpeg",
+        "confidence": 0.75,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0345532,
+        "latency_s": 6.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/59.jpeg",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.040353200000000006,
+        "latency_s": 8.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/43.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.035530000000000006,
+        "latency_s": 5.8
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/102.jpeg",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0392214,
+        "latency_s": 7.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/163.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037297399999999994,
+        "latency_s": 7.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/36.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0384656,
+        "latency_s": 7.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/157.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.035017,
+        "latency_s": 6.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/114.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0359646,
+        "latency_s": 7.7
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "color",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/175.jpeg",
+        "confidence": 0.65,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.040938,
+        "latency_s": 8.6
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "combined",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/36.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0458412,
+        "latency_s": 9.8
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/47.jpeg",
+        "confidence": 0.75,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.03765,
+        "latency_s": 7.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/160.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.035105,
+        "latency_s": 8.3
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "scratch",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/28.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0463894,
+        "latency_s": 6.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/56.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0347538,
+        "latency_s": 6.2
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/73.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0407542,
+        "latency_s": 8.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/108.jpeg",
+        "confidence": 0.75,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0367132,
+        "latency_s": 7.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "contamination",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/116.jpeg",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037232,
+        "latency_s": 8.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/99.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0397582,
+        "latency_s": 6.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/validation/good/5.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0386008,
+        "latency_s": 6.5
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/142.jpeg",
+        "confidence": 0.93,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0365968,
+        "latency_s": 5.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/70.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0373256,
+        "latency_s": 8.4
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/66.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0379418,
+        "latency_s": 7.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/106.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.047077,
+        "latency_s": 6.7
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "scratch",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/81.jpeg",
+        "confidence": 0.85,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.044856400000000005,
+        "latency_s": 6.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/167.jpeg",
+        "confidence": 0.75,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.036397399999999996,
+        "latency_s": 6.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/validation/defective/18.jpeg",
+        "confidence": 0.85,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0368982,
+        "latency_s": 7.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/23.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0377608,
+        "latency_s": 6.7
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "faulty_imprint",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/116.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.036060800000000004,
+        "latency_s": 6.4
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/15.jpg",
+        "confidence": 0.72,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0367764,
+        "latency_s": 7.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/94.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0349806,
+        "latency_s": 6.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/76.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.03719,
+        "latency_s": 6.8
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/39.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0369688,
+        "latency_s": 8.3
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "color",
+        "category": "pharmavision",
+        "image": "pharmavision/validation/defective/24.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0440782,
+        "latency_s": 9.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/24.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.034665,
+        "latency_s": 6.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/59.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.034504400000000005,
+        "latency_s": 6.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/validation/good/19.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0423066,
+        "latency_s": 6.7
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/84.jpeg",
+        "confidence": 0.9,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0394378,
+        "latency_s": 5.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/62.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0385148,
+        "latency_s": 6.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/48.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.034799000000000004,
+        "latency_s": 7.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/3.jpg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0373458,
+        "latency_s": 7.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/97.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0378474,
+        "latency_s": 7.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/138.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0354138,
+        "latency_s": 7.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/56.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0412422,
+        "latency_s": 7.9
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/188.jpeg",
+        "confidence": 0.75,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.046075000000000005,
+        "latency_s": 6.3
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "combined",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/186.jpeg",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.038361,
+        "latency_s": 9.9
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/60.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.036342799999999995,
+        "latency_s": 6.4
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "faulty_imprint",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/108.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0368338,
+        "latency_s": 6.6
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "faulty_imprint",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/88.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037979399999999996,
+        "latency_s": 6.9
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "faulty_imprint",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/3.jpeg",
+        "confidence": 0.85,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0373034,
+        "latency_s": 6.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/6.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0396342,
+        "latency_s": 8.3
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "faulty_imprint",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/79.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037018800000000004,
+        "latency_s": 6.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/18.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0379462,
+        "latency_s": 11.5
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "color",
+        "category": "pharmavision",
+        "image": "pharmavision/validation/defective/28.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0374984,
+        "latency_s": 9.4
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/143.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0376424,
+        "latency_s": 7.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/125.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.034643,
+        "latency_s": 6.8
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "contamination",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/173.jpeg",
+        "confidence": 0.75,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.036450800000000005,
+        "latency_s": 6.4
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/94.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0396228,
+        "latency_s": 10.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/validation/good/28.jpeg",
+        "confidence": 0.65,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0419466,
+        "latency_s": 6.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/62.jpeg",
+        "confidence": 0.5,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.04979,
+        "latency_s": 7.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/32.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0409346,
+        "latency_s": 6.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/37.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0370584,
+        "latency_s": 7.2
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "scratch",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/57.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.044726,
+        "latency_s": 12.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/validation/defective/3.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0388634,
+        "latency_s": 7.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/139.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.035062,
+        "latency_s": 6.3
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/172.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0397862,
+        "latency_s": 7.6
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/48.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0518326,
+        "latency_s": 6.5
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "color",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/87.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.044713199999999995,
+        "latency_s": 7.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/14.jpg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0348466,
+        "latency_s": 6.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/30.jpeg",
+        "confidence": 0.5,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0390182,
+        "latency_s": 9.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/85.jpeg",
+        "confidence": 0.72,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0377188,
+        "latency_s": 7.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/159.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0356584,
+        "latency_s": 7.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/190.jpeg",
+        "confidence": 0.93,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0364294,
+        "latency_s": 5.8
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/91.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0392056,
+        "latency_s": 6.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/validation/good/22.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.036137,
+        "latency_s": 6.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/34.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0401068,
+        "latency_s": 11.4
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "scratch",
+        "category": "pharmavision",
+        "image": "pharmavision/validation/defective/27.jpeg",
+        "confidence": 0.5,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.039633800000000004,
+        "latency_s": 9.8
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/19.jpg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.042249800000000004,
+        "latency_s": 9.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "contamination",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/66.jpeg",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0468652,
+        "latency_s": 8.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/184.jpeg",
+        "confidence": 0.75,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0366312,
+        "latency_s": 6.2
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/21.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.039084,
+        "latency_s": 6.9
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/46.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.04170840000000001,
+        "latency_s": 7.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/80.jpeg",
+        "confidence": 0.75,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.035959200000000004,
+        "latency_s": 6.5
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/76.jpeg",
+        "confidence": 0.75,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0362714,
+        "latency_s": 6.8
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "faulty_imprint",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/70.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0369476,
+        "latency_s": 7.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "faulty_imprint",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/65.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0375366,
+        "latency_s": 7.4
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/66.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0379118,
+        "latency_s": 7.8
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "faulty_imprint",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/183.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.039651200000000004,
+        "latency_s": 8.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/validation/good/11.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037727,
+        "latency_s": 7.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/115.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0379074,
+        "latency_s": 6.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/47.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0349242,
+        "latency_s": 7.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/validation/good/21.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0373594,
+        "latency_s": 6.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/121.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0353722,
+        "latency_s": 6.9
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "color",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/23.jpg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0379718,
+        "latency_s": 7.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/162.jpeg",
+        "confidence": 0.72,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0354366,
+        "latency_s": 6.9
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/70.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0373912,
+        "latency_s": 6.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/49.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0347582,
+        "latency_s": 7.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/19.jpg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0344662,
+        "latency_s": 9.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/81.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0384406,
+        "latency_s": 7.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "contamination",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/63.jpeg",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.049890199999999996,
+        "latency_s": 7.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/113.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.036567600000000006,
+        "latency_s": 6.2
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "combined",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/78.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0423756,
+        "latency_s": 9.9
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "contamination",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/7.jpg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0404192,
+        "latency_s": 8.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/95.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037263199999999996,
+        "latency_s": 8.3
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "faulty_imprint",
+        "category": "pharmavision",
+        "image": "pharmavision/validation/defective/11.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0388436,
+        "latency_s": 6.8
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/50.jpeg",
+        "confidence": 0.95,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0358788,
+        "latency_s": 6.6
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/51.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.051203399999999996,
+        "latency_s": 7.6
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "faulty_imprint",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/57.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.038107600000000005,
+        "latency_s": 7.7
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/31.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037919800000000004,
+        "latency_s": 10.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "poke",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/82.jpeg",
+        "confidence": 0.5,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.039027400000000004,
+        "latency_s": 7.7
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "poke",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/130.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0384998,
+        "latency_s": 6.7
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/114.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0373026,
+        "latency_s": 7.4
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/126.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0397386,
+        "latency_s": 7.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/13.jpg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.038347,
+        "latency_s": 10.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/65.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.038023600000000005,
+        "latency_s": 9.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/69.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0368992,
+        "latency_s": 6.1
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/152.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0362516,
+        "latency_s": 6.3
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "combined",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/26.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0463796,
+        "latency_s": 9.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/92.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0374674,
+        "latency_s": 7.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/71.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0407876,
+        "latency_s": 6.9
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/6.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0365674,
+        "latency_s": 8.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/1.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0364762,
+        "latency_s": 6.4
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "contamination",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/50.jpeg",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.051169200000000005,
+        "latency_s": 7.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/20.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.036443,
+        "latency_s": 5.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/122.jpeg",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0351558,
+        "latency_s": 6.9
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/validation/good/4.jpeg",
+        "confidence": 0.45,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037648,
+        "latency_s": 6.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/179.jpeg",
+        "confidence": 0.75,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0366432,
+        "latency_s": 6.1
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "faulty_imprint",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/160.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037252400000000005,
+        "latency_s": 6.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/50.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.044300599999999996,
+        "latency_s": 6.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/78.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.036280400000000004,
+        "latency_s": 9.2
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/72.jpeg",
+        "confidence": 0.93,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.035531599999999997,
+        "latency_s": 5.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/39.jpeg",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0393728,
+        "latency_s": 7.8
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/16.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0377106,
+        "latency_s": 7.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/93.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0391554,
+        "latency_s": 6.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/validation/good/23.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0354664,
+        "latency_s": 7.6
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/53.jpeg",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.053335999999999995,
+        "latency_s": 8.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "contamination",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/88.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0429436,
+        "latency_s": 6.7
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/27.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0391724,
+        "latency_s": 7.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/validation/good/7.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.036699999999999997,
+        "latency_s": 6.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "scratch",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/30.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.041223800000000005,
+        "latency_s": 7.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/53.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0393758,
+        "latency_s": 7.4
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/144.jpeg",
+        "confidence": 0.72,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0350628,
+        "latency_s": 6.3
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/2.jpeg",
+        "confidence": 0.95,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0365674,
+        "latency_s": 6.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/32.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0351632,
+        "latency_s": 6.4
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/105.jpeg",
+        "confidence": 0.93,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.036039999999999996,
+        "latency_s": 5.9
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/61.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.036879800000000004,
+        "latency_s": 8.1
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/17.jpg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0413958,
+        "latency_s": 7.4
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/100.jpeg",
+        "confidence": 0.85,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0379474,
+        "latency_s": 5.8
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/63.jpeg",
+        "confidence": 0.93,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.035311,
+        "latency_s": 6.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/130.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0377032,
+        "latency_s": 7.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/97.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0453388,
+        "latency_s": 6.5
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "color",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/78.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.048376,
+        "latency_s": 8.6
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "faulty_imprint",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/68.jpeg",
+        "confidence": 0.85,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0367672,
+        "latency_s": 6.3
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "scratch",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/12.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0470236,
+        "latency_s": 7.3
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "squeeze",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/56.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.044836,
+        "latency_s": 9.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/86.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.038796,
+        "latency_s": 6.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/137.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.034867800000000004,
+        "latency_s": 7.3
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/144.jpeg",
+        "confidence": 0.93,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0366118,
+        "latency_s": 5.8
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "combined",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/62.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0404916,
+        "latency_s": 5.9
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/42.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.034848199999999996,
+        "latency_s": 7.9
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/79.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.034607,
+        "latency_s": 6.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/22.jpeg",
+        "confidence": 0.72,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0383406,
+        "latency_s": 11.6
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "poke",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/16.jpg",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0446874,
+        "latency_s": 10.2
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/62.jpeg",
+        "confidence": 0.9,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0351638,
+        "latency_s": 7.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/5.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0346832,
+        "latency_s": 8.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/74.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0386348,
+        "latency_s": 8.3
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "contamination",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/17.jpeg",
+        "confidence": 0.45,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0394556,
+        "latency_s": 10.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/73.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.03632440000000001,
+        "latency_s": 6.6
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/91.jpeg",
+        "confidence": 0.95,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0348518,
+        "latency_s": 5.7
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/120.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.039963,
+        "latency_s": 8.7
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "poke",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/90.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.038244400000000005,
+        "latency_s": 8.5
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "scratch",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/82.jpeg",
+        "confidence": 0.85,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0478712,
+        "latency_s": 8.1
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/104.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.039776,
+        "latency_s": 9.5
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/71.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037813,
+        "latency_s": 7.9
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/41.jpeg",
+        "confidence": 0.65,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0400698,
+        "latency_s": 7.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/152.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0357096,
+        "latency_s": 8.4
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/14.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0362534,
+        "latency_s": 6.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/19.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037281800000000004,
+        "latency_s": 6.5
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/23.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0373978,
+        "latency_s": 7.4
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "contamination",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/107.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0396696,
+        "latency_s": 8.3
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "combined",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/35.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0430886,
+        "latency_s": 7.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/validation/good/12.jpeg",
+        "confidence": 0.5,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0391942,
+        "latency_s": 8.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/85.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0354656,
+        "latency_s": 6.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/95.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0370776,
+        "latency_s": 7.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/validation/defective/26.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.03905,
+        "latency_s": 7.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "contamination",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/151.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0407336,
+        "latency_s": 7.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/72.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0376292,
+        "latency_s": 7.4
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/92.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.040553000000000006,
+        "latency_s": 8.3
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/validation/defective/17.jpeg",
+        "confidence": 0.95,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037681400000000004,
+        "latency_s": 5.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/3.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0380298,
+        "latency_s": 7.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/43.jpeg",
+        "confidence": 0.45,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0426816,
+        "latency_s": 10.2
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/38.jpeg",
+        "confidence": 0.95,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0355336,
+        "latency_s": 11.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/40.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0397964,
+        "latency_s": 8.4
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "combined",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/40.jpeg",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0398454,
+        "latency_s": 8.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/147.jpeg",
+        "confidence": 0.72,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.03471,
+        "latency_s": 6.4
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/158.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0345054,
+        "latency_s": 8.3
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "faulty_imprint",
+        "category": "pharmavision",
+        "image": "pharmavision/validation/defective/4.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.036897200000000005,
+        "latency_s": 7.9
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/132.jpeg",
+        "confidence": 0.93,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0366774,
+        "latency_s": 5.8
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/72.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0383858,
+        "latency_s": 8.4
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/4.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0420622,
+        "latency_s": 6.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/16.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0376016,
+        "latency_s": 6.4
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "faulty_imprint",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/161.jpeg",
+        "confidence": 0.75,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0372814,
+        "latency_s": 7.6
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "contamination",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/45.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.04267700000000001,
+        "latency_s": 7.5
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/75.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.041468200000000004,
+        "latency_s": 6.5
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "faulty_imprint",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/94.jpeg",
+        "confidence": 0.85,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.036648599999999996,
+        "latency_s": 5.9
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/156.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0352576,
+        "latency_s": 6.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/48.jpeg",
+        "confidence": 0.75,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0353254,
+        "latency_s": 7.4
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/2.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.034375800000000005,
+        "latency_s": 8.5
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/29.jpeg",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.038197999999999996,
+        "latency_s": 7.2
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "poke",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/80.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0390504,
+        "latency_s": 6.9
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "color",
+        "category": "pharmavision",
+        "image": "pharmavision/validation/defective/29.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0392932,
+        "latency_s": 7.8
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "scratch",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/55.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.042429800000000004,
+        "latency_s": 8.8
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "color",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/58.jpeg",
+        "confidence": 0.85,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0400416,
+        "latency_s": 8.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/165.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0364538,
+        "latency_s": 6.3
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "combined",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/43.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.035779399999999996,
+        "latency_s": 6.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "contamination",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/98.jpeg",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.042948599999999997,
+        "latency_s": 6.6
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "scratch",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/86.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0366088,
+        "latency_s": 7.8
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/validation/defective/14.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0406654,
+        "latency_s": 7.5
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/176.jpeg",
+        "confidence": 0.75,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0383622,
+        "latency_s": 15.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/154.jpeg",
+        "confidence": 0.75,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.035109,
+        "latency_s": 5.9
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/125.jpeg",
+        "confidence": 0.93,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.035849400000000003,
+        "latency_s": 6.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/51.jpeg",
+        "confidence": 0.96,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0353218,
+        "latency_s": 7.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/50.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0353812,
+        "latency_s": 7.4
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/140.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0389656,
+        "latency_s": 7.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/15.jpg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0347936,
+        "latency_s": 6.9
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/177.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0416816,
+        "latency_s": 8.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/64.jpeg",
+        "confidence": 0.75,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0372132,
+        "latency_s": 6.8
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/180.jpeg",
+        "confidence": 0.93,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.036407999999999996,
+        "latency_s": 7.9
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "scratch",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/98.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.039297399999999996,
+        "latency_s": 6.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/validation/good/30.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0377334,
+        "latency_s": 6.5
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/48.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0382184,
+        "latency_s": 8.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/109.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0361536,
+        "latency_s": 7.8
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/138.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0411532,
+        "latency_s": 7.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/49.jpeg",
+        "confidence": 0.75,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.035717,
+        "latency_s": 6.2
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/5.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.035874199999999995,
+        "latency_s": 9.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/25.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0359082,
+        "latency_s": 5.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/164.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0368342,
+        "latency_s": 7.8
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/32.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0458062,
+        "latency_s": 6.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/10.jpg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0394818,
+        "latency_s": 7.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/17.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0346628,
+        "latency_s": 6.7
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "color",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/14.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.039666,
+        "latency_s": 8.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/57.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.039305599999999996,
+        "latency_s": 8.2
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/64.jpeg",
+        "confidence": 0.95,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.034906,
+        "latency_s": 6.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/77.jpeg",
+        "confidence": 0.45,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0372618,
+        "latency_s": 7.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/validation/good/27.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0387898,
+        "latency_s": 6.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/91.jpeg",
+        "confidence": 0.72,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.041678,
+        "latency_s": 6.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/105.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0434698,
+        "latency_s": 7.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/validation/good/3.jpeg",
+        "confidence": 0.72,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0403012,
+        "latency_s": 6.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/126.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0347894,
+        "latency_s": 6.2
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/98.jpeg",
+        "confidence": 0.9,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0361692,
+        "latency_s": 6.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/55.jpeg",
+        "confidence": 0.75,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0445062,
+        "latency_s": 6.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/181.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.038045999999999996,
+        "latency_s": 6.3
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/7.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0371846,
+        "latency_s": 7.9
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/103.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0356706,
+        "latency_s": 6.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/186.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0347328,
+        "latency_s": 6.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/177.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0378736,
+        "latency_s": 7.5
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "faulty_imprint",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/122.jpeg",
+        "confidence": 0.85,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0365018,
+        "latency_s": 8.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "contamination",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/28.jpeg",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0368424,
+        "latency_s": 7.9
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/190.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0352904,
+        "latency_s": 7.8
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "color",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/89.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0438136,
+        "latency_s": 8.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/72.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0396212,
+        "latency_s": 8.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/172.jpeg",
+        "confidence": 0.75,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0375448,
+        "latency_s": 8.7
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "contamination",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/179.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0413858,
+        "latency_s": 8.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/149.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0413138,
+        "latency_s": 7.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/136.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0343654,
+        "latency_s": 8.2
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/55.jpeg",
+        "confidence": 0.95,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0359266,
+        "latency_s": 7.7
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/21.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0382764,
+        "latency_s": 8.5
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "faulty_imprint",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/162.jpeg",
+        "confidence": 0.85,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0370022,
+        "latency_s": 6.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "combined",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/13.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0408976,
+        "latency_s": 7.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/52.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.036261800000000004,
+        "latency_s": 6.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/58.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0364932,
+        "latency_s": 6.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/89.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0420054,
+        "latency_s": 7.3
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/42.jpeg",
+        "confidence": 0.95,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.043781200000000006,
+        "latency_s": 6.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/validation/defective/20.jpeg",
+        "confidence": 0.85,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0400106,
+        "latency_s": 6.6
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/136.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.038589399999999996,
+        "latency_s": 7.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/38.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037886199999999995,
+        "latency_s": 6.4
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/13.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0353256,
+        "latency_s": 7.1
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/28.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0362294,
+        "latency_s": 6.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/54.jpeg",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0426736,
+        "latency_s": 8.2
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/4.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.038561,
+        "latency_s": 7.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/166.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.036600799999999996,
+        "latency_s": 6.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "color",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/117.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0390502,
+        "latency_s": 7.8
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "scratch",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/27.jpeg",
+        "confidence": 0.75,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0408638,
+        "latency_s": 6.6
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/81.jpeg",
+        "confidence": 0.75,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0367942,
+        "latency_s": 6.9
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/18.jpg",
+        "confidence": 0.85,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0397808,
+        "latency_s": 6.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/40.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0349424,
+        "latency_s": 6.7
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/106.jpeg",
+        "confidence": 0.93,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0360496,
+        "latency_s": 6.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "contamination",
+        "category": "pharmavision",
+        "image": "pharmavision/validation/defective/16.jpeg",
+        "confidence": 0.45,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0422002,
+        "latency_s": 8.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/35.jpeg",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0367332,
+        "latency_s": 6.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/148.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0391216,
+        "latency_s": 7.2
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "color",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/60.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0375504,
+        "latency_s": 8.9
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/30.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0353732,
+        "latency_s": 6.4
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "faulty_imprint",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/87.jpeg",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0400016,
+        "latency_s": 9.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/176.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.035648200000000005,
+        "latency_s": 7.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/9.jpg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0370606,
+        "latency_s": 7.3
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/12.jpeg",
+        "confidence": 0.85,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.035358,
+        "latency_s": 6.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/26.jpeg",
+        "confidence": 0.75,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.034665,
+        "latency_s": 7.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/24.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.034857,
+        "latency_s": 6.4
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "faulty_imprint",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/157.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.036958000000000005,
+        "latency_s": 6.4
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/10.jpg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.042953200000000004,
+        "latency_s": 9.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/12.jpg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.036504400000000006,
+        "latency_s": 6.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/44.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0352304,
+        "latency_s": 7.1
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/2.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.042641399999999996,
+        "latency_s": 7.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/21.jpeg",
+        "confidence": 0.72,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0349776,
+        "latency_s": 6.6
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/61.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0374886,
+        "latency_s": 7.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/67.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.036565,
+        "latency_s": 7.3
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "faulty_imprint",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/83.jpeg",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0370174,
+        "latency_s": 7.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/132.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.035942,
+        "latency_s": 6.4
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/96.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0401446,
+        "latency_s": 6.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/174.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037173,
+        "latency_s": 7.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/150.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.035096800000000004,
+        "latency_s": 6.5
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "poke",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/128.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0403976,
+        "latency_s": 7.4
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "poke",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/127.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0403458,
+        "latency_s": 10.6
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "combined",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/181.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0421174,
+        "latency_s": 7.5
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/14.jpg",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0397456,
+        "latency_s": 7.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/84.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0352856,
+        "latency_s": 6.7
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "faulty_imprint",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/113.jpeg",
+        "confidence": 0.75,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0359864,
+        "latency_s": 6.2
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "scratch",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/80.jpeg",
+        "confidence": 0.75,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0445054,
+        "latency_s": 6.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/183.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.036721000000000004,
+        "latency_s": 6.5
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "color",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/3.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0428928,
+        "latency_s": 10.7
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/validation/defective/7.jpeg",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0411288,
+        "latency_s": 8.4
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/validation/defective/21.jpeg",
+        "confidence": 0.93,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.041173600000000005,
+        "latency_s": 7.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/67.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037138,
+        "latency_s": 6.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/99.jpeg",
+        "confidence": 0.75,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.040917800000000004,
+        "latency_s": 6.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/31.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0348256,
+        "latency_s": 6.5
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "contamination",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/4.jpeg",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0378142,
+        "latency_s": 7.2
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/84.jpeg",
+        "confidence": 0.85,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0366938,
+        "latency_s": 8.7
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/25.jpg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0361294,
+        "latency_s": 6.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/7.jpeg",
+        "confidence": 0.72,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0380662,
+        "latency_s": 6.8
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/99.jpeg",
+        "confidence": 0.92,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.035725200000000006,
+        "latency_s": 5.7
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/34.jpeg",
+        "confidence": 0.9,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0395766,
+        "latency_s": 8.3
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/63.jpeg",
+        "confidence": 0.75,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.041693,
+        "latency_s": 7.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/118.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0487618,
+        "latency_s": 10.1
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/139.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.038222,
+        "latency_s": 7.4
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/36.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0350782,
+        "latency_s": 6.2
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/185.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.038658,
+        "latency_s": 7.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/120.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0349444,
+        "latency_s": 6.6
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "poke",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/165.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0387778,
+        "latency_s": 8.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/90.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0382408,
+        "latency_s": 8.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/34.jpeg",
+        "confidence": 0.75,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0356886,
+        "latency_s": 6.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/validation/good/26.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0423698,
+        "latency_s": 7.7
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/31.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0415574,
+        "latency_s": 6.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "contamination",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/65.jpeg",
+        "confidence": 0.5,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0481582,
+        "latency_s": 7.7
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/49.jpeg",
+        "confidence": 0.92,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037114,
+        "latency_s": 6.3
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/118.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0391976,
+        "latency_s": 8.1
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/82.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.040365399999999996,
+        "latency_s": 9.7
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/24.jpeg",
+        "confidence": 0.85,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.034757,
+        "latency_s": 6.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/23.jpg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.047325200000000005,
+        "latency_s": 11.9
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "faulty_imprint",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/22.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0412338,
+        "latency_s": 10.9
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/12.jpg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037677,
+        "latency_s": 7.9
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/76.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.041433,
+        "latency_s": 5.9
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/18.jpg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0361842,
+        "latency_s": 6.2
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/47.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0553092,
+        "latency_s": 6.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/180.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0348696,
+        "latency_s": 7.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/validation/good/16.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037297800000000006,
+        "latency_s": 8.9
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/79.jpeg",
+        "confidence": 0.75,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0418254,
+        "latency_s": 8.9
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/135.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.039769399999999996,
+        "latency_s": 8.3
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "contamination",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/109.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0395648,
+        "latency_s": 11.2
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/36.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0377624,
+        "latency_s": 6.9
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/26.jpg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0367648,
+        "latency_s": 8.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/41.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0372144,
+        "latency_s": 7.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/6.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0359426,
+        "latency_s": 7.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "poke",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/88.jpeg",
+        "confidence": 0.45,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0411938,
+        "latency_s": 8.2
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/124.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0384648,
+        "latency_s": 7.9
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "contamination",
+        "category": "pharmavision",
+        "image": "pharmavision/validation/defective/22.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0438576,
+        "latency_s": 8.3
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "color",
+        "category": "pharmavision",
+        "image": "pharmavision/validation/defective/8.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.039241200000000004,
+        "latency_s": 8.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/54.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.052278,
+        "latency_s": 8.6
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "faulty_imprint",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/170.jpeg",
+        "confidence": 0.75,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0371046,
+        "latency_s": 8.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/110.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0364818,
+        "latency_s": 5.9
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/185.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0368006,
+        "latency_s": 6.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/133.jpeg",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.039042400000000005,
+        "latency_s": 7.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/96.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.035961599999999996,
+        "latency_s": 7.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/47.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0383972,
+        "latency_s": 6.5
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/46.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0468494,
+        "latency_s": 6.4
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/188.jpeg",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.036497,
+        "latency_s": 6.8
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/86.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0441736,
+        "latency_s": 7.4
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/95.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.039866,
+        "latency_s": 6.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/26.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0360498,
+        "latency_s": 6.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/63.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.038494799999999996,
+        "latency_s": 6.9
+      },
+      {
+        "true_label": "good",
+        "pred_label": "scratch",
+        "category": "pharmavision",
+        "image": "pharmavision/validation/good/15.jpeg",
+        "confidence": 0.45,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.040193000000000006,
+        "latency_s": 8.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "faulty_imprint",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/155.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0404448,
+        "latency_s": 8.2
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "faulty_imprint",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/159.jpeg",
+        "confidence": 0.85,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0373568,
+        "latency_s": 6.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/127.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0347834,
+        "latency_s": 6.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/validation/good/18.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0456866,
+        "latency_s": 6.8
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/32.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0354504,
+        "latency_s": 6.6
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "color",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/184.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0367216,
+        "latency_s": 6.9
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/117.jpeg",
+        "confidence": 0.72,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0421926,
+        "latency_s": 6.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/81.jpeg",
+        "confidence": 0.75,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0398294,
+        "latency_s": 7.5
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/49.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0367698,
+        "latency_s": 6.8
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/1.jpeg",
+        "confidence": 0.92,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0360332,
+        "latency_s": 6.1
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/35.jpeg",
+        "confidence": 0.85,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.038925600000000005,
+        "latency_s": 6.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/86.jpeg",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0426648,
+        "latency_s": 7.9
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/44.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0384722,
+        "latency_s": 8.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "color",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/182.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.038825200000000004,
+        "latency_s": 7.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/131.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0356964,
+        "latency_s": 8.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/94.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.041324200000000005,
+        "latency_s": 7.1
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "faulty_imprint",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/119.jpeg",
+        "confidence": 0.85,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0371528,
+        "latency_s": 6.7
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "faulty_imprint",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/103.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0365684,
+        "latency_s": 6.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/73.jpeg",
+        "confidence": 0.75,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.036920400000000006,
+        "latency_s": 8.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/96.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.045011999999999996,
+        "latency_s": 6.8
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "color",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/68.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0400766,
+        "latency_s": 6.6
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/33.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037840799999999994,
+        "latency_s": 7.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/90.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0338286,
+        "latency_s": 7.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "contamination",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/112.jpeg",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0372686,
+        "latency_s": 6.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/143.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.035329,
+        "latency_s": 7.9
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/20.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0432738,
+        "latency_s": 6.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/37.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0352244,
+        "latency_s": 6.4
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/27.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.036862599999999995,
+        "latency_s": 6.6
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/93.jpeg",
+        "confidence": 0.95,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0361924,
+        "latency_s": 8.7
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/59.jpeg",
+        "confidence": 0.85,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0399612,
+        "latency_s": 7.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/42.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0393684,
+        "latency_s": 7.7
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/71.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.040433,
+        "latency_s": 7.5
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/74.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0368842,
+        "latency_s": 6.9
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "faulty_imprint",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/19.jpg",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0378078,
+        "latency_s": 6.7
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "faulty_imprint",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/141.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0374886,
+        "latency_s": 9.6
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "faulty_imprint",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/174.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0405096,
+        "latency_s": 7.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "color",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/5.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0362126,
+        "latency_s": 8.4
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/9.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0403444,
+        "latency_s": 6.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/validation/good/14.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.036357600000000004,
+        "latency_s": 6.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/validation/good/20.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0355928,
+        "latency_s": 6.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/169.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.040371199999999996,
+        "latency_s": 8.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/146.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0350284,
+        "latency_s": 6.4
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "pharmavision",
+        "image": "pharmavision/validation/good/17.jpeg",
+        "confidence": 0.5,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0427356,
+        "latency_s": 10.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/validation/good/24.jpeg",
+        "confidence": 0.72,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0364972,
+        "latency_s": 6.7
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "faulty_imprint",
+        "category": "pharmavision",
+        "image": "pharmavision/validation/defective/10.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0389896,
+        "latency_s": 8.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/29.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0367232,
+        "latency_s": 7.5
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/96.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037823800000000005,
+        "latency_s": 7.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/38.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0365412,
+        "latency_s": 8.2
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/85.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0395146,
+        "latency_s": 7.3
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "faulty_imprint",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/18.jpeg",
+        "confidence": 0.45,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0377748,
+        "latency_s": 9.3
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/67.jpeg",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.039313,
+        "latency_s": 8.7
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/137.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0385408,
+        "latency_s": 6.8
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/146.jpeg",
+        "confidence": 0.95,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.03776,
+        "latency_s": 5.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/validation/good/29.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0401604,
+        "latency_s": 6.2
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/validation/defective/19.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0408368,
+        "latency_s": 7.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/28.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0351854,
+        "latency_s": 7.5
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "faulty_imprint",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/154.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0392804,
+        "latency_s": 6.9
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/46.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0348722,
+        "latency_s": 6.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/100.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0437924,
+        "latency_s": 5.9
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/15.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.035477,
+        "latency_s": 6.4
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/validation/defective/30.jpeg",
+        "confidence": 0.9,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037493,
+        "latency_s": 5.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/101.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0364002,
+        "latency_s": 7.4
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "color",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/189.jpeg",
+        "confidence": 0.45,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0401696,
+        "latency_s": 8.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/8.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0355054,
+        "latency_s": 8.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "contamination",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/61.jpeg",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0454088,
+        "latency_s": 10.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/51.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0352736,
+        "latency_s": 5.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/153.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0363648,
+        "latency_s": 6.4
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/77.jpeg",
+        "confidence": 0.93,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0476844,
+        "latency_s": 8.3
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/13.jpeg",
+        "confidence": 0.93,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0367362,
+        "latency_s": 5.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/9.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.035156599999999996,
+        "latency_s": 8.7
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "scratch",
+        "category": "pharmavision",
+        "image": "pharmavision/validation/defective/12.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0389234,
+        "latency_s": 7.7
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/100.jpeg",
+        "confidence": 0.9,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0366052,
+        "latency_s": 7.4
+      },
+      {
+        "true_label": "good",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/validation/good/6.jpeg",
+        "confidence": 0.5,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.040725,
+        "latency_s": 7.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "contamination",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/35.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.035453,
+        "latency_s": 6.9
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/56.jpeg",
+        "confidence": 0.95,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0360134,
+        "latency_s": 6.4
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/70.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.040235599999999996,
+        "latency_s": 6.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/68.jpeg",
+        "confidence": 0.72,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0422362,
+        "latency_s": 6.1
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "combined",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/178.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.038853,
+        "latency_s": 6.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/84.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037652,
+        "latency_s": 6.7
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/123.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.039228,
+        "latency_s": 8.4
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/38.jpeg",
+        "confidence": 0.9,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0382446,
+        "latency_s": 6.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "contamination",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/156.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0404562,
+        "latency_s": 9.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/100.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.039268,
+        "latency_s": 6.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "poke",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/167.jpeg",
+        "confidence": 0.75,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037676799999999996,
+        "latency_s": 6.3
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/33.jpeg",
+        "confidence": 0.85,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.036621,
+        "latency_s": 6.8
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "combined",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/93.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.047328999999999996,
+        "latency_s": 7.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/39.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0481052,
+        "latency_s": 7.1
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/164.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0372156,
+        "latency_s": 6.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/64.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.040104799999999996,
+        "latency_s": 7.5
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/validation/defective/6.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.038,
+        "latency_s": 7.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/11.jpg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.039424799999999996,
+        "latency_s": 9.4
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/69.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0367006,
+        "latency_s": 6.9
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/59.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037800799999999996,
+        "latency_s": 7.4
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/102.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.039848800000000004,
+        "latency_s": 9.3
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/153.jpeg",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.041588,
+        "latency_s": 8.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/validation/good/9.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0358168,
+        "latency_s": 6.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/58.jpeg",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.041053,
+        "latency_s": 8.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/169.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0351924,
+        "latency_s": 6.4
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/27.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0365804,
+        "latency_s": 6.7
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/121.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0401202,
+        "latency_s": 7.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/82.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0428968,
+        "latency_s": 9.5
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/79.jpeg",
+        "confidence": 0.92,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0495478,
+        "latency_s": 6.4
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/150.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0404406,
+        "latency_s": 6.9
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "scratch",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/30.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0362406,
+        "latency_s": 6.9
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/90.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0386006,
+        "latency_s": 6.9
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "scratch",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/29.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0522412,
+        "latency_s": 8.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/39.jpeg",
+        "confidence": 0.95,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0371366,
+        "latency_s": 6.5
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/6.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0382282,
+        "latency_s": 7.1
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "contamination",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/8.jpeg",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.038536799999999996,
+        "latency_s": 8.2
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "combined",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/64.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0419486,
+        "latency_s": 6.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/155.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.035288,
+        "latency_s": 8.5
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "color",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/67.jpeg",
+        "confidence": 0.75,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.039469000000000004,
+        "latency_s": 7.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/71.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0360692,
+        "latency_s": 6.4
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/52.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0381202,
+        "latency_s": 7.5
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/34.jpeg",
+        "confidence": 0.9,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0352754,
+        "latency_s": 5.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/89.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0361162,
+        "latency_s": 6.8
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/53.jpeg",
+        "confidence": 0.93,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.035712400000000005,
+        "latency_s": 7.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/validation/good/13.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0353372,
+        "latency_s": 6.3
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/134.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.036565,
+        "latency_s": 6.1
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/171.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0385234,
+        "latency_s": 9.4
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/4.jpg",
+        "confidence": 0.72,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037328,
+        "latency_s": 10.4
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "faulty_imprint",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/112.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0384812,
+        "latency_s": 8.3
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/42.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.038064799999999996,
+        "latency_s": 7.3
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/11.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037932,
+        "latency_s": 8.8
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/24.jpeg",
+        "confidence": 0.9,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0369836,
+        "latency_s": 5.7
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "contamination",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/15.jpg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.038641,
+        "latency_s": 6.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/60.jpeg",
+        "confidence": 0.72,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.03588040000000001,
+        "latency_s": 6.9
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/91.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0371172,
+        "latency_s": 9.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/80.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0435696,
+        "latency_s": 6.9
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/68.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0351116,
+        "latency_s": 6.2
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "faulty_imprint",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/74.jpeg",
+        "confidence": 0.5,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.042824799999999996,
+        "latency_s": 8.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/validation/good/1.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.036275999999999996,
+        "latency_s": 8.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/148.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0353246,
+        "latency_s": 6.4
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/validation/defective/15.jpeg",
+        "confidence": 0.85,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0379728,
+        "latency_s": 6.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/55.jpeg",
+        "confidence": 0.5,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0393808,
+        "latency_s": 8.2
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/60.jpeg",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.042165,
+        "latency_s": 6.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/11.jpg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.040428,
+        "latency_s": 6.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/92.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0413122,
+        "latency_s": 8.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/168.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0360596,
+        "latency_s": 6.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/test/good/22.jpeg",
+        "confidence": 0.72,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.034671999999999994,
+        "latency_s": 6.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/87.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.035627400000000004,
+        "latency_s": 7.7
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "contamination",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/61.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.041165,
+        "latency_s": 8.4
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/129.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.035508,
+        "latency_s": 6.1
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/test/defective/1.jpeg",
+        "confidence": 0.93,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.041369,
+        "latency_s": 5.9
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/140.jpeg",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0353766,
+        "latency_s": 6.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/145.jpeg",
+        "confidence": 0.75,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0364254,
+        "latency_s": 6.5
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/145.jpeg",
+        "confidence": 0.9,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.036504800000000004,
+        "latency_s": 8.8
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pharmavision",
+        "image": "pharmavision/train/defective/163.jpeg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0387438,
+        "latency_s": 7.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pharmavision",
+        "image": "pharmavision/train/good/5.jpg",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0373198,
+        "latency_s": 7.3
+      }
+    ]
+  }
+}

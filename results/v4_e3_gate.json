@@ -1,0 +1,22 @@
+{
+  "clean": {
+    "blocked": 4,
+    "n": 299
+  },
+  "noise10": {
+    "blocked": 299,
+    "n": 299
+  },
+  "noise25": {
+    "blocked": 299,
+    "n": 299
+  },
+  "blur2": {
+    "blocked": 299,
+    "n": 299
+  },
+  "dark60": {
+    "blocked": 299,
+    "n": 299
+  }
+}

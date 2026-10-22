@@ -1,11 +1,13 @@
 """
-3-모델 비전 벤치마크 하네스
-- MVTec AD pill/capsule 테스트셋 로드 → 모델별 분류 → 채점
-- 모델 호출: claude(구현됨, 구독 인증 CLI), gpt/gemini(스텁, 계정 인증 후 구현)
+정제 외관검사 비전 AI 벤치마크 하네스
+- 데이터: MVTec AD pill/capsule (유형 분류), 외부 2분류 데이터셋 (독립 검증)
+- 시험: 기본 / 강건성(--perturb) / 특이성 확대(--splits train) / 레퍼런스 동봉(--reference)
+- 모델: claude (구독 인증 CLI). gpt/gemini는 인터페이스만 있는 스텁
+- 정답 누출 방지: 모델에는 무작위 파일명 복사본만 넘긴다 (v1 일탈의 CAPA)
 
-사용법:
-    python benchmark.py --models claude --categories pill --per-type 2
-    python benchmark.py --data /path/to/mvtec --per-type 10
+사용법 (README 참고):
+    python benchmark.py --categories pill --per-type 2
+    python benchmark.py --per-type 1000 --workers 4 --out results/run.json
 """
 import argparse
 import hashlib
@@ -32,8 +34,6 @@ logging.basicConfig(
     format="%(asctime)s %(levelname)s %(message)s",
 )
 log = logging.getLogger("benchmark")
-
-CATEGORIES = ["pill", "capsule"]
 
 PROMPT = """당신은 제약 품질관리(QC) 외관 검사 담당자입니다.
 아래 정제 이미지를 보고 판정하세요.
@@ -146,6 +146,8 @@ PERTURBATIONS = ["noise10", "noise25", "blur2", "dark60"]
 
 def perturbed_copy(path: str, name: str, out_dir: str) -> str:
     """강건성 시험용 열화 이미지. 재현성을 위해 이미지 경로로 시드를 고정한다."""
+    # ponytail: 시드가 절대 경로 기준이라 다른 PC에선 노이즈 패턴이 달라진다(통계적으로는 동등).
+    # 기기 간 완전 재현이 필요하면 이미지 바이트 해시로 바꾸되, 그러면 v3 결과와 패턴이 달라진다
     from PIL import Image
     rng = random.Random(hashlib.md5(f"{Path(path).as_posix()}{name}".encode()).hexdigest())
     im = Image.open(path).convert("RGB")
@@ -247,9 +249,9 @@ def _call_claude_cli(full_prompt: str, img_dir: str, timeout: int) -> dict:
     # API 키를 제거해 구독(OAuth) 인증만 사용 — 과금 방지
     env = {k: v for k, v in os.environ.items() if k != "ANTHROPIC_API_KEY"}
     proc = subprocess.run(cmd, capture_output=True, text=True, timeout=timeout,
-                          env=env, stdin=subprocess.DEVNULL)
-    if proc.returncode != 0:
-        raise RuntimeError(f"claude CLI 실패: {proc.stderr[-500:]}")
+                          env=env, stdin=subprocess.DEVNULL, cwd=img_dir)  # 프로젝트 폴더(결과 파일)를 작업 경로로 주지 않는다
+    if proc.returncode != 0:  # 사용량 한도 등은 stderr가 비고 stdout JSON에만 나온다
+        raise RuntimeError(f"claude CLI 실패 ({proc.returncode}): {(proc.stderr or proc.stdout)[-500:]}")
     try:
         out = json.loads(proc.stdout)
     except json.JSONDecodeError:
@@ -262,12 +264,12 @@ def _call_claude_cli(full_prompt: str, img_dir: str, timeout: int) -> dict:
                    "_cost_usd": out.get("total_cost_usd")}
 
 
-def call_gpt(image_path: str, prompt: str) -> dict:
+def call_gpt(image_path: str, prompt: str, reference: str | None = None) -> dict:
     """TODO: Codex 계정 인증 후 구현"""
     raise NotImplementedError
 
 
-def call_gemini(image_path: str, prompt: str) -> dict:
+def call_gemini(image_path: str, prompt: str, reference: str | None = None) -> dict:
     """TODO: Gemini 계정 인증 후 구현"""
     raise NotImplementedError
 
@@ -280,9 +282,14 @@ MODELS = {
 
 
 ERROR = "error"  # 판정 실패 → 합격 처리하지 않고 재검사로 보낸다 (fail-safe)
+# ---- 운용 설정: 바꾸면 변경관리 대상 (PROJECT_PLAN §4·§7 기준으로 승인된 값만) ----
 # 이 신뢰도 미만이면 AI가 확정하지 않고 사람 재검사로 넘긴다.
-# 실제 라인에선 밸리데이션 데이터로 누락 0%가 유지되는 값으로 조정할 것.
-REVIEW_THRESHOLD = 0.7
+# 변경 이력: 0.7 → 0.75 (CAPA D1. v3 유출 14건 전부 신뢰도 0.7 경계값.
+#            v4 B1·B2 적합 — 처음 쓰는 외부 데이터 995장에서 AI 단독 유출 0, AI 단독 오탐 0)
+REVIEW_THRESHOLD = 0.75
+# 정상품 레퍼런스 동봉 프롬프트 사용 여부 (CAPA D3).
+# v4 B3 부적합(정상 오탐 10.9% → 53.6%)으로 채택하지 않음. 일탈 D6 참고
+USE_REFERENCE = False
 
 
 def wilson_upper(k: int, n: int, z: float = 1.96) -> float:
@@ -354,6 +361,8 @@ def run_model(name: str, fn, samples: list[dict], workers: int = 1,
             else:
                 pred = fn(s["path"], prompt, **kw)
             verdict = pred.get("verdict")
+            if verdict not in ("good", "defective"):  # 형식이 깨진 응답을 '불량 검출'로 세지 않는다
+                raise ValueError(f"verdict 없음/형식 오류: {verdict!r}")
             pred_label = "good" if verdict == "good" else (pred.get("defect_type") or "defective")
         except NotImplementedError:
             raise
@@ -386,14 +395,13 @@ def main():
                     help="외부 데이터셋은 정상/불량 2분류로만 채점 (독립 검증용)")
     ap.add_argument("--reference", action="store_true", help="정상품 레퍼런스 이미지 동봉 (MVTec만)")
     ap.add_argument("--out", default=str(BASE / "benchmark_results.json"))
+    ap.add_argument("--resume", action="store_true",
+                    help="--out 파일의 판정 실패(error) 건만 다시 돌려 합친다 (일시적 실패 재시험용)")
     args = ap.parse_args()
 
     data_dir = resolve_data_dir(args.data)
     if data_dir is None:
-        print("[!] 데이터 디렉토리를 찾지 못했습니다.")
-        print("    다운로드가 끝나면 다음 중 하나로 연결하세요:")
-        print("      python benchmark.py --data ~/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2")
-        print("    또는: ln -s <캐시>/versions/2 ~/workspace/sideproject-qc-vision/data")
+        print("[!] MVTec AD 데이터를 찾지 못했습니다. README의 다운로드 안내를 따르거나 --data로 경로를 지정하세요.")
         return
 
     if args.dataset == "mvtec":
@@ -403,6 +411,19 @@ def main():
     refs = reference_images(data_dir, args.categories) if args.reference else None
     if refs:  # 레퍼런스 이미지 자체는 평가하지 않는다
         samples = [s for s in samples if s["path"] not in refs.values()]
+    prev = {}
+    if args.resume:  # 성공한 판정은 그대로 두고 실패 건만 재시험
+        out = Path(args.out)
+        old = json.loads(out.read_text(encoding="utf-8"))["claude"]
+        for k, v in {"dataset": args.dataset, "perturb": args.perturb,
+                     "prompt_version": prompt_version(PROMPT_REF if refs else PROMPT)}.items():
+            if k in old.get("meta", {}) and old["meta"][k] != v:
+                raise SystemExit(f"[!] --resume 조건 불일치: 기존 {k}={old['meta'][k]!r}, 지금 {v!r}")
+        prev = {r["image"]: r for r in old["results"]}
+        samples = [s for s in samples if prev.get(image_id(s), {}).get("pred_label", ERROR) == ERROR]
+        backup = out.with_name(out.stem + "_before_resume.json")
+        if samples and not backup.exists():  # 최초 실패 기록(일탈 증거)은 덮어쓰지 않는다
+            backup.write_text(out.read_text(encoding="utf-8"), encoding="utf-8")
     print(f"데이터: {data_dir} / 샘플 {len(samples)}장")
     if not samples:
         return
@@ -413,6 +434,9 @@ def main():
         fn = MODELS[name]
         try:
             results, skipped = run_model(name, fn, samples, args.workers, args.perturb, refs)
+            if prev:
+                results = list((prev | {r["image"]: r for r in results}).values())
+                skipped = sum(r["pred_label"] == ERROR for r in results)
         except NotImplementedError:
             print(f"[{name}] 미구현 — 계정 인증 후 실행")
             continue
@@ -420,7 +444,8 @@ def main():
         sc["skipped"] = skipped
         all_results[name] = {"meta": {"prompt_version": prompt_version(PROMPT_REF if refs else PROMPT),
                                       "seed": args.seed, "per_type": args.per_type, "dataset": args.dataset,
-                                      "splits": args.splits, "perturb": args.perturb,
+                                      "splits": args.splits if args.dataset == "mvtec" else None,
+                                      "perturb": args.perturb,
                                       "reference": refs and {c: Path(p).name for c, p in refs.items()}},
                              "score": sc, "results": results}
         print(f"[{name}] {sc} (판정 실패 {skipped})")

@@ -1,0 +1,3035 @@
+{
+  "claude": {
+    "meta": {
+      "prompt_version": "93b7fafa",
+      "seed": 42,
+      "per_type": 1000,
+      "dataset": "mvtec",
+      "splits": [
+        "test"
+      ],
+      "perturb": null,
+      "reference": {
+        "pill": "000.png",
+        "capsule": "000.png"
+      }
+    },
+    "score": {
+      "n": 299,
+      "accuracy": 0.0502,
+      "miss_rate": 0.0,
+      "miss_rate_95ci_upper": 0.0151,
+      "review_threshold": 0.7,
+      "review_rate": 0.9231,
+      "auto_pass_miss_rate": 0.0,
+      "avg_latency_s": 3.1,
+      "false_alarm_rate": 0.102,
+      "error_rate": 0.8829,
+      "per_type": {
+        "color": "1/25",
+        "combined": "1/17",
+        "contamination": "0/21",
+        "crack": "3/49",
+        "faulty_imprint": "2/41",
+        "good": "4/49",
+        "pill_type": "1/9",
+        "poke": "0/21",
+        "scratch": "3/47",
+        "squeeze": "0/20"
+      },
+      "skipped": 264
+    },
+    "results": [
+      {
+        "true_label": "scratch",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/test/scratch/005.png",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0666958,
+        "latency_s": 11.0
+      },
+      {
+        "true_label": "scratch",
+        "pred_label": "scratch",
+        "category": "capsule",
+        "image": "capsule/test/scratch/012.png",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.059618199999999996,
+        "latency_s": 9.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "capsule",
+        "image": "capsule/test/good/014.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.060848,
+        "latency_s": 8.5
+      },
+      {
+        "true_label": "crack",
+        "pred_label": "crack",
+        "category": "pill",
+        "image": "pill/test/crack/019.png",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0529124,
+        "latency_s": 9.3
+      },
+      {
+        "true_label": "faulty_imprint",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/test/faulty_imprint/016.png",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0615928,
+        "latency_s": 8.3
+      },
+      {
+        "true_label": "color",
+        "pred_label": "color",
+        "category": "pill",
+        "image": "pill/test/color/001.png",
+        "confidence": 0.85,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.052829600000000004,
+        "latency_s": 7.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "image": "pill/test/good/015.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.052788999999999996,
+        "latency_s": 7.8
+      },
+      {
+        "true_label": "contamination",
+        "pred_label": "crack",
+        "category": "pill",
+        "image": "pill/test/contamination/002.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.055906399999999995,
+        "latency_s": 8.9
+      },
+      {
+        "true_label": "poke",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/test/poke/002.png",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0676952,
+        "latency_s": 10.4
+      },
+      {
+        "true_label": "good",
+        "pred_label": "contamination",
+        "category": "pill",
+        "image": "pill/test/good/021.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.053869,
+        "latency_s": 12.8
+      },
+      {
+        "true_label": "color",
+        "pred_label": "contamination",
+        "category": "pill",
+        "image": "pill/test/color/003.png",
+        "confidence": 0.85,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0524458,
+        "latency_s": 8.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/test/good/001.png",
+        "confidence": 0.85,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.060735,
+        "latency_s": 7.2
+      },
+      {
+        "true_label": "poke",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/test/poke/015.png",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0632178,
+        "latency_s": 11.5
+      },
+      {
+        "true_label": "crack",
+        "pred_label": "crack",
+        "category": "pill",
+        "image": "pill/test/crack/021.png",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.054395000000000006,
+        "latency_s": 8.4
+      },
+      {
+        "true_label": "scratch",
+        "pred_label": "scratch",
+        "category": "capsule",
+        "image": "capsule/test/scratch/004.png",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0641978,
+        "latency_s": 9.4
+      },
+      {
+        "true_label": "scratch",
+        "pred_label": "poke",
+        "category": "pill",
+        "image": "pill/test/scratch/019.png",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.052275,
+        "latency_s": 6.6
+      },
+      {
+        "true_label": "contamination",
+        "pred_label": "poke",
+        "category": "pill",
+        "image": "pill/test/contamination/006.png",
+        "confidence": 0.75,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0524988,
+        "latency_s": 6.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/test/good/010.png",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.061478399999999996,
+        "latency_s": 10.0
+      },
+      {
+        "true_label": "crack",
+        "pred_label": "scratch",
+        "category": "pill",
+        "image": "pill/test/crack/010.png",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0528454,
+        "latency_s": 6.9
+      },
+      {
+        "true_label": "pill_type",
+        "pred_label": "pill_type",
+        "category": "pill",
+        "image": "pill/test/pill_type/000.png",
+        "confidence": 0.75,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.055177199999999996,
+        "latency_s": 9.5
+      },
+      {
+        "true_label": "combined",
+        "pred_label": "combined",
+        "category": "pill",
+        "image": "pill/test/combined/001.png",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0531782,
+        "latency_s": 8.4
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "pill",
+        "image": "pill/test/good/000.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0533064,
+        "latency_s": 9.3
+      },
+      {
+        "true_label": "crack",
+        "pred_label": "combined",
+        "category": "capsule",
+        "image": "capsule/test/crack/014.png",
+        "confidence": 0.75,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0621588,
+        "latency_s": 8.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "image": "pill/test/good/009.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0527972,
+        "latency_s": 9.7
+      },
+      {
+        "true_label": "crack",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/test/crack/010.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0649098,
+        "latency_s": 14.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "image": "pill/test/good/006.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0531908,
+        "latency_s": 7.4
+      },
+      {
+        "true_label": "scratch",
+        "pred_label": "crack",
+        "category": "pill",
+        "image": "pill/test/scratch/021.png",
+        "confidence": 0.85,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0520734,
+        "latency_s": 6.5
+      },
+      {
+        "true_label": "contamination",
+        "pred_label": "faulty_imprint",
+        "category": "pill",
+        "image": "pill/test/contamination/017.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.056969,
+        "latency_s": 10.4
+      },
+      {
+        "true_label": "scratch",
+        "pred_label": "crack",
+        "category": "pill",
+        "image": "pill/test/scratch/005.png",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0537994,
+        "latency_s": 9.0
+      },
+      {
+        "true_label": "contamination",
+        "pred_label": "faulty_imprint",
+        "category": "pill",
+        "image": "pill/test/contamination/004.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0573864,
+        "latency_s": 14.9
+      },
+      {
+        "true_label": "poke",
+        "pred_label": "crack",
+        "category": "capsule",
+        "image": "capsule/test/poke/011.png",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0619696,
+        "latency_s": 8.1
+      },
+      {
+        "true_label": "crack",
+        "pred_label": "crack",
+        "category": "pill",
+        "image": "pill/test/crack/015.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.055927000000000004,
+        "latency_s": 10.1
+      },
+      {
+        "true_label": "faulty_imprint",
+        "pred_label": "faulty_imprint",
+        "category": "pill",
+        "image": "pill/test/faulty_imprint/010.png",
+        "confidence": 0.85,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.052866399999999994,
+        "latency_s": 7.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "crack",
+        "category": "pill",
+        "image": "pill/test/good/023.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0525246,
+        "latency_s": 7.0
+      },
+      {
+        "true_label": "poke",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/poke/009.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.0
+      },
+      {
+        "true_label": "faulty_imprint",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/faulty_imprint/005.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.0
+      },
+      {
+        "true_label": "pill_type",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/pill_type/007.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.0
+      },
+      {
+        "true_label": "color",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/color/018.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.0
+      },
+      {
+        "true_label": "scratch",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/scratch/019.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.0
+      },
+      {
+        "true_label": "crack",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/crack/023.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.0
+      },
+      {
+        "true_label": "scratch",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/scratch/002.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.0
+      },
+      {
+        "true_label": "color",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/color/002.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.0
+      },
+      {
+        "true_label": "contamination",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/contamination/009.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.0
+      },
+      {
+        "true_label": "scratch",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/scratch/022.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.0
+      },
+      {
+        "true_label": "color",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/color/021.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.2
+      },
+      {
+        "true_label": "scratch",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/scratch/009.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.2
+      },
+      {
+        "true_label": "faulty_imprint",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/faulty_imprint/017.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.2
+      },
+      {
+        "true_label": "squeeze",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/squeeze/016.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/good/012.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.2
+      },
+      {
+        "true_label": "poke",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/poke/017.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.2
+      },
+      {
+        "true_label": "scratch",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/scratch/015.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.2
+      },
+      {
+        "true_label": "color",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/color/011.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.2
+      },
+      {
+        "true_label": "faulty_imprint",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/faulty_imprint/012.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.2
+      },
+      {
+        "true_label": "pill_type",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/pill_type/004.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.2
+      },
+      {
+        "true_label": "crack",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/crack/015.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.2
+      },
+      {
+        "true_label": "squeeze",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/squeeze/011.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.2
+      },
+      {
+        "true_label": "faulty_imprint",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/faulty_imprint/001.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/good/003.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.2
+      },
+      {
+        "true_label": "crack",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/crack/022.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.2
+      },
+      {
+        "true_label": "crack",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/crack/020.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.2
+      },
+      {
+        "true_label": "contamination",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/contamination/003.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.2
+      },
+      {
+        "true_label": "faulty_imprint",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/faulty_imprint/016.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.2
+      },
+      {
+        "true_label": "scratch",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/scratch/013.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.2
+      },
+      {
+        "true_label": "pill_type",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/pill_type/001.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.2
+      },
+      {
+        "true_label": "poke",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/poke/004.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.2
+      },
+      {
+        "true_label": "crack",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/crack/012.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.0
+      },
+      {
+        "true_label": "crack",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/crack/002.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/good/013.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.0
+      },
+      {
+        "true_label": "crack",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/crack/021.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.0
+      },
+      {
+        "true_label": "faulty_imprint",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/faulty_imprint/018.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 0.0
+      },
+      {
+        "true_label": "scratch",
+        "pred_label": "scratch",
+        "category": "pill",
+        "image": "pill/test/scratch/011.png",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.051978399999999994,
+        "latency_s": 7.6
+      },
+      {
+        "true_label": "squeeze",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/squeeze/003.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 10.5
+      },
+      {
+        "true_label": "poke",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/poke/000.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 6.5
+      },
+      {
+        "true_label": "color",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/color/024.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 4.9
+      },
+      {
+        "true_label": "color",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/color/008.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.4
+      },
+      {
+        "true_label": "color",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/color/005.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "combined",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/combined/000.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/good/016.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "faulty_imprint",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/faulty_imprint/010.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "combined",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/combined/004.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "poke",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/poke/012.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "contamination",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/contamination/014.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/good/010.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "crack",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/crack/012.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "faulty_imprint",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/faulty_imprint/001.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "faulty_imprint",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/faulty_imprint/009.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "faulty_imprint",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/faulty_imprint/006.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/good/018.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.7
+      },
+      {
+        "true_label": "color",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/color/019.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "faulty_imprint",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/faulty_imprint/002.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "pill_type",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/pill_type/005.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "squeeze",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/squeeze/006.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/good/001.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/good/020.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "poke",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/poke/010.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "scratch",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/scratch/001.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/good/024.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "crack",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/crack/013.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "crack",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/crack/016.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "crack",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/crack/017.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "faulty_imprint",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/faulty_imprint/004.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "contamination",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/contamination/000.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "faulty_imprint",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/faulty_imprint/011.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "combined",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/combined/009.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/good/005.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "faulty_imprint",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/faulty_imprint/020.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "faulty_imprint",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/faulty_imprint/005.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/good/003.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/good/014.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/good/013.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "crack",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/crack/002.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "crack",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/crack/016.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "color",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/color/009.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "faulty_imprint",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/faulty_imprint/007.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "crack",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/crack/024.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "poke",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/poke/019.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/good/017.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.9
+      },
+      {
+        "true_label": "faulty_imprint",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/faulty_imprint/019.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.8
+      },
+      {
+        "true_label": "color",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/color/016.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "color",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/color/015.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.4
+      },
+      {
+        "true_label": "poke",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/poke/018.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "poke",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/poke/014.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "squeeze",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/squeeze/008.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "squeeze",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/squeeze/017.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "faulty_imprint",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/faulty_imprint/000.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.7
+      },
+      {
+        "true_label": "poke",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/poke/013.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "crack",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/crack/011.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "scratch",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/scratch/010.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "crack",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/crack/003.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "combined",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/combined/002.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "scratch",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/scratch/016.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.8
+      },
+      {
+        "true_label": "scratch",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/scratch/015.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.8
+      },
+      {
+        "true_label": "poke",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/poke/020.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "faulty_imprint",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/faulty_imprint/004.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "faulty_imprint",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/faulty_imprint/015.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "contamination",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/contamination/015.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "squeeze",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/squeeze/004.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "poke",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/poke/007.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "scratch",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/scratch/008.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.4
+      },
+      {
+        "true_label": "poke",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/poke/006.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "crack",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/crack/020.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "contamination",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/contamination/013.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "faulty_imprint",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/faulty_imprint/012.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "scratch",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/scratch/000.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "squeeze",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/squeeze/007.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "scratch",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/scratch/008.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "scratch",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/scratch/022.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "crack",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/crack/009.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/good/016.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/good/011.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "crack",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/crack/009.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "poke",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/poke/001.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "scratch",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/scratch/006.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "crack",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/crack/007.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 3.0
+      },
+      {
+        "true_label": "crack",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/crack/011.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "combined",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/combined/015.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "color",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/color/023.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "scratch",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/scratch/017.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "pill_type",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/pill_type/003.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.7
+      },
+      {
+        "true_label": "scratch",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/scratch/003.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/good/020.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "crack",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/crack/018.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "scratch",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/scratch/018.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "color",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/color/010.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "crack",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/crack/025.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "crack",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/crack/000.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "faulty_imprint",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/faulty_imprint/011.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "contamination",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/contamination/010.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.8
+      },
+      {
+        "true_label": "crack",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/crack/001.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "contamination",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/contamination/008.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "contamination",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/contamination/016.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "faulty_imprint",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/faulty_imprint/008.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "faulty_imprint",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/faulty_imprint/008.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/good/005.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.8
+      },
+      {
+        "true_label": "squeeze",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/squeeze/015.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "contamination",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/contamination/011.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/good/019.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 3.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/good/007.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "faulty_imprint",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/faulty_imprint/013.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.7
+      },
+      {
+        "true_label": "combined",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/combined/011.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "crack",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/crack/003.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.7
+      },
+      {
+        "true_label": "combined",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/combined/008.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.7
+      },
+      {
+        "true_label": "scratch",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/scratch/018.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "faulty_imprint",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/faulty_imprint/014.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.7
+      },
+      {
+        "true_label": "crack",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/crack/004.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/good/009.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "poke",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/poke/003.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.8
+      },
+      {
+        "true_label": "faulty_imprint",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/faulty_imprint/007.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 3.1
+      },
+      {
+        "true_label": "color",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/color/004.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "faulty_imprint",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/faulty_imprint/014.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "contamination",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/contamination/012.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/good/000.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "contamination",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/contamination/020.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "combined",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/combined/007.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "faulty_imprint",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/faulty_imprint/021.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "scratch",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/scratch/007.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "squeeze",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/squeeze/014.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "scratch",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/scratch/020.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "faulty_imprint",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/faulty_imprint/002.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "combined",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/combined/005.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "crack",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/crack/017.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "crack",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/crack/008.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "crack",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/crack/005.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "scratch",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/scratch/000.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "faulty_imprint",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/faulty_imprint/006.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "faulty_imprint",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/faulty_imprint/009.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "faulty_imprint",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/faulty_imprint/013.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "faulty_imprint",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/faulty_imprint/003.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "crack",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/crack/007.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "color",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/color/022.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.7
+      },
+      {
+        "true_label": "combined",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/combined/003.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/good/004.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "squeeze",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/squeeze/019.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/good/008.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "scratch",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/scratch/004.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.8
+      },
+      {
+        "true_label": "faulty_imprint",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/faulty_imprint/015.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 3.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/good/004.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.7
+      },
+      {
+        "true_label": "color",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/color/013.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "scratch",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/scratch/021.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "combined",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/combined/010.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "crack",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/crack/008.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "color",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/color/006.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "combined",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/combined/006.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.7
+      },
+      {
+        "true_label": "color",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/color/000.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "scratch",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/scratch/020.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "scratch",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/scratch/003.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.7
+      },
+      {
+        "true_label": "crack",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/crack/013.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "pill_type",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/pill_type/008.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/good/002.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.7
+      },
+      {
+        "true_label": "scratch",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/scratch/011.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.7
+      },
+      {
+        "true_label": "combined",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/combined/014.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "poke",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/poke/005.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "scratch",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/scratch/001.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "combined",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/combined/012.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.9
+      },
+      {
+        "true_label": "faulty_imprint",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/faulty_imprint/017.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "crack",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/crack/001.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "color",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/color/020.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "color",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/color/014.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "crack",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/crack/006.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/good/017.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/good/011.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "poke",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/poke/016.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "color",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/color/012.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "color",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/color/017.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/good/015.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/good/022.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/good/021.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "crack",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/crack/014.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "scratch",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/scratch/017.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/good/022.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.8
+      },
+      {
+        "true_label": "squeeze",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/squeeze/001.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/good/019.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "scratch",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/scratch/010.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.7
+      },
+      {
+        "true_label": "poke",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/poke/008.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "contamination",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/contamination/019.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "crack",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/crack/019.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "faulty_imprint",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/faulty_imprint/000.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "scratch",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/scratch/009.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.7
+      },
+      {
+        "true_label": "pill_type",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/pill_type/002.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "crack",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/crack/018.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "contamination",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/contamination/001.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "contamination",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/contamination/007.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "scratch",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/scratch/014.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "crack",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/crack/022.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.7
+      },
+      {
+        "true_label": "contamination",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/contamination/018.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 3.0
+      },
+      {
+        "true_label": "squeeze",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/squeeze/002.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "squeeze",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/squeeze/005.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "scratch",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/scratch/014.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/good/006.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.7
+      },
+      {
+        "true_label": "crack",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/crack/004.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "scratch",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/scratch/023.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.7
+      },
+      {
+        "true_label": "crack",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/crack/000.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/good/008.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.7
+      },
+      {
+        "true_label": "combined",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/combined/016.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "crack",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/crack/006.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.7
+      },
+      {
+        "true_label": "squeeze",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/squeeze/012.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "squeeze",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/squeeze/010.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "scratch",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/scratch/006.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/good/007.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "scratch",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/scratch/016.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "squeeze",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/squeeze/000.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.8
+      },
+      {
+        "true_label": "contamination",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/contamination/005.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.7
+      },
+      {
+        "true_label": "squeeze",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/squeeze/018.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.8
+      },
+      {
+        "true_label": "color",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/color/007.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.7
+      },
+      {
+        "true_label": "combined",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/combined/013.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.5
+      },
+      {
+        "true_label": "squeeze",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/squeeze/013.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/good/002.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.7
+      },
+      {
+        "true_label": "scratch",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/scratch/012.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.7
+      },
+      {
+        "true_label": "crack",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/crack/005.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.8
+      },
+      {
+        "true_label": "faulty_imprint",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/faulty_imprint/003.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "pill_type",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/pill_type/006.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/good/012.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.9
+      },
+      {
+        "true_label": "scratch",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/scratch/013.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.7
+      },
+      {
+        "true_label": "faulty_imprint",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/faulty_imprint/018.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.9
+      },
+      {
+        "true_label": "good",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/good/025.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.7
+      },
+      {
+        "true_label": "scratch",
+        "pred_label": "error",
+        "category": "pill",
+        "image": "pill/test/scratch/002.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 3.8
+      },
+      {
+        "true_label": "scratch",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/scratch/007.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      },
+      {
+        "true_label": "squeeze",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/squeeze/009.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "error",
+        "category": "capsule",
+        "image": "capsule/test/good/018.png",
+        "confidence": null,
+        "model": null,
+        "cost_usd": null,
+        "latency_s": 2.6
+      }
+    ]
+  }
+}

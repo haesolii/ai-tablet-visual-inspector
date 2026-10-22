@@ -6,7 +6,8 @@
 - bright: 평균 밝기
 허용 범위 = 카테고리별 정상 학습 이미지(train/good)의 최소~최대 ± MARGIN. test 이미지는 보정에 쓰지 않는다.
 
-    python quality_gate.py   # MVTec train/good으로 보정 → results/quality_gate_limits.json
+    python quality_gate.py              # MVTec train/good으로 보정 → results/quality_gate_limits.json
+    python quality_gate.py --evaluate   # test 원본·열화본 차단율 → results/v4_e3_gate.json
 """
 import json
 from pathlib import Path
@@ -44,10 +45,33 @@ def load_limits() -> dict:
     return json.loads(LIMITS_FILE.read_text(encoding="utf-8")) if LIMITS_FILE.exists() else {}
 
 
+def evaluate(data, limits: dict) -> dict:
+    """v4 E3: test 이미지(보정에 안 쓴 것)의 원본·열화본 차단율"""
+    import tempfile
+    from benchmark import PERTURBATIONS, find_category_dir, perturbed_copy
+
+    out = {}
+    with tempfile.TemporaryDirectory() as tmp:
+        for cat in limits:
+            for img in sorted(find_category_dir(data, cat).rglob("*.png")):
+                for cond in ["clean", *PERTURBATIONS]:
+                    path = img if cond == "clean" else perturbed_copy(str(img), cond, tmp)
+                    out.setdefault(cond, []).append(not check(path, limits[cat])["ok"])
+                    if cond != "clean":
+                        Path(path).unlink()
+    return {c: {"blocked": sum(v), "n": len(v)} for c, v in out.items()}
+
+
 if __name__ == "__main__":
+    import sys
     from benchmark import find_category_dir, resolve_data_dir
 
     data = resolve_data_dir(None)
+    if "--evaluate" in sys.argv:
+        res = evaluate(data, load_limits())
+        (LIMITS_FILE.parent / "v4_e3_gate.json").write_text(json.dumps(res, indent=2), encoding="utf-8")
+        print(res)
+        sys.exit()
     limits = {}
     for cat in ["pill", "capsule"]:
         train = sorted((find_category_dir(data, cat).parent / "train" / "good").glob("*.png"))

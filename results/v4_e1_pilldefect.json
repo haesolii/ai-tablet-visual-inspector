@@ -1,0 +1,3582 @@
+{
+  "claude": {
+    "meta": {
+      "prompt_version": "d041b4f4",
+      "seed": 42,
+      "per_type": 10000,
+      "dataset": "pilldefect",
+      "splits": null,
+      "perturb": null,
+      "reference": null
+    },
+    "score": {
+      "n": 355,
+      "accuracy": 0.3944,
+      "miss_rate": 0.0,
+      "miss_rate_95ci_upper": 0.0176,
+      "review_threshold": 0.7,
+      "review_rate": 0.9887,
+      "auto_pass_miss_rate": 0.0,
+      "avg_latency_s": 7.6,
+      "false_alarm_rate": 0.0,
+      "error_rate": 0.0,
+      "per_type": {
+        "defective": "0/215",
+        "good": "140/140"
+      },
+      "skipped": 0
+    },
+    "results": [
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.6447.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0387344,
+        "latency_s": 9.9
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.599.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037407,
+        "latency_s": 6.4
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.7.589.0.png",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0370232,
+        "latency_s": 6.8
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.1569.0.png",
+        "confidence": 0.5,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0412508,
+        "latency_s": 8.5
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.628.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0404398,
+        "latency_s": 16.2
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.6864.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0395544,
+        "latency_s": 7.4
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.518.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037046800000000005,
+        "latency_s": 6.4
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.4143.0.png",
+        "confidence": 0.45,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0383438,
+        "latency_s": 6.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.465.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0371924,
+        "latency_s": 6.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.494.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037163,
+        "latency_s": 6.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.527.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037408,
+        "latency_s": 8.2
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.1567.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037878800000000004,
+        "latency_s": 6.7
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.588.0.png",
+        "confidence": 0.5,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0389556,
+        "latency_s": 9.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.497.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037363600000000004,
+        "latency_s": 6.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.485.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037347000000000005,
+        "latency_s": 6.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.490.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037175,
+        "latency_s": 6.1
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.2433.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.039875,
+        "latency_s": 9.2
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.622.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0378004,
+        "latency_s": 6.2
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.615.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0384838,
+        "latency_s": 7.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.6454.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037922,
+        "latency_s": 8.1
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.603.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0378318,
+        "latency_s": 6.9
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.463.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0374832,
+        "latency_s": 13.2
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.2933.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.040319999999999995,
+        "latency_s": 9.2
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.620.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0377108,
+        "latency_s": 7.5
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.4122.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0380398,
+        "latency_s": 6.7
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.2429.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.039251799999999996,
+        "latency_s": 7.4
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.528.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037495,
+        "latency_s": 6.1
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.586.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0380442,
+        "latency_s": 8.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.500.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0376966,
+        "latency_s": 6.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.532.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0370912,
+        "latency_s": 7.1
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "squeeze",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.1599.0.png",
+        "confidence": 0.45,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0402276,
+        "latency_s": 7.7
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "poke",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.1595.0.png",
+        "confidence": 0.5,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0400194,
+        "latency_s": 7.6
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.6877.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.040001,
+        "latency_s": 7.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.453.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037744200000000006,
+        "latency_s": 6.8
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.1585.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.04044,
+        "latency_s": 8.3
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.1563.0.png",
+        "confidence": 0.45,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0386268,
+        "latency_s": 8.2
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.6006.0.png",
+        "confidence": 0.5,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.041266800000000006,
+        "latency_s": 8.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.537.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0373112,
+        "latency_s": 6.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.512.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.03788,
+        "latency_s": 6.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.533.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0376518,
+        "latency_s": 7.9
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.7.617.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037391799999999996,
+        "latency_s": 6.1
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.619.0.png",
+        "confidence": 0.45,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.03784,
+        "latency_s": 6.5
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.4134.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0384394,
+        "latency_s": 7.4
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.6876.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0383512,
+        "latency_s": 7.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.4133.0.png",
+        "confidence": 0.45,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0397594,
+        "latency_s": 7.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.536.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0371842,
+        "latency_s": 6.4
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.7.590.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037511199999999995,
+        "latency_s": 6.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.487.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0373274,
+        "latency_s": 6.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.7.595.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037571799999999995,
+        "latency_s": 6.4
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.613.0.png",
+        "confidence": 0.45,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.04044,
+        "latency_s": 7.8
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.604.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.038942599999999994,
+        "latency_s": 7.2
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.5999.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0403074,
+        "latency_s": 8.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.7.613.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0377026,
+        "latency_s": 6.7
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.1597.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0386994,
+        "latency_s": 7.2
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.607.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0379712,
+        "latency_s": 7.9
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.6448.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0381562,
+        "latency_s": 6.6
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.1575.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037726800000000005,
+        "latency_s": 6.5
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.2936.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0410362,
+        "latency_s": 8.1
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.6446.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0397556,
+        "latency_s": 10.6
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.2431.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0388874,
+        "latency_s": 7.6
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.2428.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0378474,
+        "latency_s": 6.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.7.584.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.038475999999999996,
+        "latency_s": 7.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.531.0.png",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0373794,
+        "latency_s": 6.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.530.0.png",
+        "confidence": 0.65,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0371788,
+        "latency_s": 6.1
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.589.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0397038,
+        "latency_s": 8.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.575.0.png",
+        "confidence": 0.45,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.040715600000000005,
+        "latency_s": 9.4
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.7.606.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0375676,
+        "latency_s": 6.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.526.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037343799999999996,
+        "latency_s": 6.3
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "squeeze",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.6001.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.039439999999999996,
+        "latency_s": 7.2
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.621.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037951,
+        "latency_s": 6.6
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.617.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0381762,
+        "latency_s": 6.8
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.585.0.png",
+        "confidence": 0.45,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.038278599999999996,
+        "latency_s": 7.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.4125.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0412152,
+        "latency_s": 10.3
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.2942.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0384286,
+        "latency_s": 7.2
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.598.0.png",
+        "confidence": 0.45,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0384912,
+        "latency_s": 7.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.1601.0.png",
+        "confidence": 0.5,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0405518,
+        "latency_s": 9.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.444.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0372264,
+        "latency_s": 7.5
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.6457.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.04016,
+        "latency_s": 7.5
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.2931.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.038115,
+        "latency_s": 6.7
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.571.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.039222599999999996,
+        "latency_s": 7.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.7.585.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.038604200000000005,
+        "latency_s": 6.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.483.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037303600000000006,
+        "latency_s": 7.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.496.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037383799999999995,
+        "latency_s": 6.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.450.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.03752,
+        "latency_s": 7.2
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.6866.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.040450799999999995,
+        "latency_s": 8.2
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.6005.0.png",
+        "confidence": 0.5,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.040679400000000004,
+        "latency_s": 8.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.471.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0380874,
+        "latency_s": 6.6
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.6445.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.040070800000000004,
+        "latency_s": 8.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.7.600.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037211799999999996,
+        "latency_s": 6.2
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.577.0.png",
+        "confidence": 0.4,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0410238,
+        "latency_s": 8.3
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.623.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0376508,
+        "latency_s": 6.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.472.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037356200000000006,
+        "latency_s": 5.9
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.2437.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0371756,
+        "latency_s": 7.5
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "squeeze",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.626.0.png",
+        "confidence": 0.45,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0404042,
+        "latency_s": 7.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.498.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037538800000000004,
+        "latency_s": 8.2
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.1581.0.png",
+        "confidence": 0.45,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0400756,
+        "latency_s": 7.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.1600.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0402362,
+        "latency_s": 8.6
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.1576.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0381598,
+        "latency_s": 7.6
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.5994.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0389,
+        "latency_s": 7.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.447.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0374592,
+        "latency_s": 7.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.492.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0373794,
+        "latency_s": 6.3
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.5992.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0400642,
+        "latency_s": 7.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.477.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037731799999999996,
+        "latency_s": 6.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.467.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0375394,
+        "latency_s": 7.8
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.572.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.039135,
+        "latency_s": 6.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.523.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037843600000000005,
+        "latency_s": 6.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.7.598.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037187000000000005,
+        "latency_s": 7.5
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.4123.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0376144,
+        "latency_s": 7.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.475.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037227,
+        "latency_s": 6.9
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.455.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0371112,
+        "latency_s": 6.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.459.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0376004,
+        "latency_s": 7.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.486.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0371842,
+        "latency_s": 7.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.489.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0379686,
+        "latency_s": 6.5
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.627.0.png",
+        "confidence": 0.45,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0396638,
+        "latency_s": 7.6
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.6443.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.038016,
+        "latency_s": 6.7
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "poke",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.576.0.png",
+        "confidence": 0.45,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0393236,
+        "latency_s": 7.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.1583.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0378362,
+        "latency_s": 6.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.501.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0374032,
+        "latency_s": 6.5
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.4128.0.png",
+        "confidence": 0.45,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0404874,
+        "latency_s": 8.1
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.4137.0.png",
+        "confidence": 0.5,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0389988,
+        "latency_s": 8.6
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.1588.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037883799999999995,
+        "latency_s": 8.6
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.609.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037848,
+        "latency_s": 6.8
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.624.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.038378800000000005,
+        "latency_s": 6.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.478.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0374944,
+        "latency_s": 9.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.587.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.038855600000000004,
+        "latency_s": 9.3
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.1574.0.png",
+        "confidence": 0.5,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.041767000000000006,
+        "latency_s": 8.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.513.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037075000000000004,
+        "latency_s": 6.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.505.0.png",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0371956,
+        "latency_s": 6.1
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.6863.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0390842,
+        "latency_s": 7.6
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.590.0.png",
+        "confidence": 0.45,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037755000000000004,
+        "latency_s": 6.9
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.594.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.040712399999999996,
+        "latency_s": 7.6
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.4121.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0375906,
+        "latency_s": 6.7
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.4141.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0378832,
+        "latency_s": 12.9
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.443.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0372998,
+        "latency_s": 6.5
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.6867.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.038615000000000003,
+        "latency_s": 6.6
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.1578.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.041451,
+        "latency_s": 8.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.7.588.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037571799999999995,
+        "latency_s": 6.9
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.7.583.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0371262,
+        "latency_s": 6.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.510.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.038175600000000004,
+        "latency_s": 9.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.630.0.png",
+        "confidence": 0.45,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.039431799999999996,
+        "latency_s": 7.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.495.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037571799999999995,
+        "latency_s": 7.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.2423.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0371638,
+        "latency_s": 6.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "poke",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.6002.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0418988,
+        "latency_s": 8.9
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.6875.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0391832,
+        "latency_s": 9.1
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.6869.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.040783,
+        "latency_s": 8.1
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.6003.0.png",
+        "confidence": 0.5,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0385238,
+        "latency_s": 6.6
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.4132.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.038747000000000004,
+        "latency_s": 8.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.7.615.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037107,
+        "latency_s": 6.2
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.6868.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0373112,
+        "latency_s": 6.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.7.586.0.png",
+        "confidence": 0.65,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0371678,
+        "latency_s": 6.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.502.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0376156,
+        "latency_s": 6.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.514.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0375036,
+        "latency_s": 15.4
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.508.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0375956,
+        "latency_s": 6.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.449.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037528599999999995,
+        "latency_s": 7.5
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.595.0.png",
+        "confidence": 0.45,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0381588,
+        "latency_s": 7.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.7.612.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.038131399999999996,
+        "latency_s": 6.4
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.7.609.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0371702,
+        "latency_s": 6.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.516.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037328,
+        "latency_s": 6.3
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.6444.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0390992,
+        "latency_s": 7.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.479.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037536200000000006,
+        "latency_s": 7.9
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.1602.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0381204,
+        "latency_s": 7.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.5996.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0381226,
+        "latency_s": 6.7
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.2937.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0380356,
+        "latency_s": 7.1
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "contamination",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.1593.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0390042,
+        "latency_s": 7.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.2935.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0404194,
+        "latency_s": 8.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.2939.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.038707000000000005,
+        "latency_s": 12.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.507.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0386238,
+        "latency_s": 6.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.7.602.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0371914,
+        "latency_s": 12.1
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "poke",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.6455.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0389436,
+        "latency_s": 11.6
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.6449.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.03899179999999999,
+        "latency_s": 6.8
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.6456.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.038756200000000005,
+        "latency_s": 6.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.7.616.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.038367399999999996,
+        "latency_s": 8.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.7.580.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0374528,
+        "latency_s": 6.6
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.578.0.png",
+        "confidence": 0.45,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0387794,
+        "latency_s": 7.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.7.578.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037099400000000005,
+        "latency_s": 6.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.464.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037135600000000005,
+        "latency_s": 7.9
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.592.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0402382,
+        "latency_s": 8.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.7.611.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.03732,
+        "latency_s": 7.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.534.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0376194,
+        "latency_s": 6.5
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.1582.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0375472,
+        "latency_s": 6.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.466.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0372874,
+        "latency_s": 7.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.1580.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.038756599999999995,
+        "latency_s": 7.4
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.7.593.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0374838,
+        "latency_s": 6.5
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.2435.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0388762,
+        "latency_s": 7.1
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.1570.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0383188,
+        "latency_s": 6.7
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "squeeze",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.1591.0.png",
+        "confidence": 0.45,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0405708,
+        "latency_s": 7.9
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.4117.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0380798,
+        "latency_s": 7.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.493.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0377916,
+        "latency_s": 7.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.7.594.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037511199999999995,
+        "latency_s": 6.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.7.592.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0377324,
+        "latency_s": 6.2
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.6007.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.039271799999999996,
+        "latency_s": 8.9
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.2430.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.039875,
+        "latency_s": 8.6
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.2938.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0380956,
+        "latency_s": 7.1
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.1571.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.040266800000000005,
+        "latency_s": 7.3
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.579.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0380268,
+        "latency_s": 8.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.7.604.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037391400000000005,
+        "latency_s": 7.7
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.6870.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037882,
+        "latency_s": 6.9
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.446.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0375356,
+        "latency_s": 6.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.503.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037596599999999994,
+        "latency_s": 6.5
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.4115.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0387912,
+        "latency_s": 7.2
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.611.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.039257799999999995,
+        "latency_s": 7.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.511.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0373274,
+        "latency_s": 6.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.7.581.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0379362,
+        "latency_s": 6.8
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.6874.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.039519399999999996,
+        "latency_s": 7.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.7.582.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0373038,
+        "latency_s": 6.8
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.4127.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.038586800000000004,
+        "latency_s": 7.2
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.4140.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0388356,
+        "latency_s": 6.8
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.2943.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.038431799999999995,
+        "latency_s": 7.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.468.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037170800000000004,
+        "latency_s": 10.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.470.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.039555599999999996,
+        "latency_s": 9.5
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.6452.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0408318,
+        "latency_s": 12.4
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.7.576.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0372914,
+        "latency_s": 6.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.506.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037739800000000004,
+        "latency_s": 6.5
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.6871.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.040263600000000004,
+        "latency_s": 9.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.469.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0372556,
+        "latency_s": 6.6
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.1590.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0380388,
+        "latency_s": 7.6
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.608.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0373038,
+        "latency_s": 6.1
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.1561.0.png",
+        "confidence": 0.45,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.038159399999999996,
+        "latency_s": 6.7
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.614.0.png",
+        "confidence": 0.5,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.038326400000000004,
+        "latency_s": 6.6
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.1587.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.03776259999999999,
+        "latency_s": 6.4
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.7.596.0.png",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037075000000000004,
+        "latency_s": 6.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.1598.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.038595000000000004,
+        "latency_s": 6.8
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.4136.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0381362,
+        "latency_s": 7.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.7.608.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037419999999999995,
+        "latency_s": 7.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.6865.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.038468,
+        "latency_s": 7.5
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.1596.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0408156,
+        "latency_s": 7.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.7.607.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0373588,
+        "latency_s": 6.1
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.4120.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0390184,
+        "latency_s": 6.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.529.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0373232,
+        "latency_s": 6.1
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.4138.0.png",
+        "confidence": 0.45,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0391838,
+        "latency_s": 7.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.7.619.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0370474,
+        "latency_s": 7.3
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.4119.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.04116,
+        "latency_s": 12.3
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.4124.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037911799999999996,
+        "latency_s": 6.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.522.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037906800000000004,
+        "latency_s": 6.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.7.597.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0377874,
+        "latency_s": 6.5
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.1566.0.png",
+        "confidence": 0.45,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.038558800000000004,
+        "latency_s": 7.1
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.1568.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0413416,
+        "latency_s": 8.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.458.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0377998,
+        "latency_s": 7.3
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.580.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.038267999999999996,
+        "latency_s": 6.9
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.2940.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0382118,
+        "latency_s": 7.8
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.596.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0391232,
+        "latency_s": 6.9
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.6451.0.png",
+        "confidence": 0.5,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.039887000000000006,
+        "latency_s": 7.7
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.1573.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.038268399999999994,
+        "latency_s": 6.6
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.2436.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0389486,
+        "latency_s": 7.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.520.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037341,
+        "latency_s": 6.2
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.2946.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037383,
+        "latency_s": 6.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.460.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037063799999999994,
+        "latency_s": 6.2
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.625.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0379076,
+        "latency_s": 7.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.456.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0372604,
+        "latency_s": 7.9
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.1579.0.png",
+        "confidence": 0.5,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.039644200000000004,
+        "latency_s": 9.2
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.4144.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0414296,
+        "latency_s": 8.5
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "poke",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.6004.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0386556,
+        "latency_s": 9.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.7.599.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037415000000000004,
+        "latency_s": 10.7
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.2424.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.040495,
+        "latency_s": 8.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.7.610.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0372594,
+        "latency_s": 6.3
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.600.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0377286,
+        "latency_s": 6.4
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.474.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0374556,
+        "latency_s": 7.9
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.2434.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0373114,
+        "latency_s": 6.4
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.616.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.038539000000000004,
+        "latency_s": 10.6
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.4135.0.png",
+        "confidence": 0.45,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0399476,
+        "latency_s": 7.4
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.605.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.039558800000000005,
+        "latency_s": 10.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.2427.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0371658,
+        "latency_s": 6.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.517.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037428,
+        "latency_s": 6.7
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.597.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0388712,
+        "latency_s": 7.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.509.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037528,
+        "latency_s": 7.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.4142.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0384562,
+        "latency_s": 8.1
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.5995.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0386864,
+        "latency_s": 6.8
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.4118.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0384804,
+        "latency_s": 6.5
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.1565.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0380518,
+        "latency_s": 7.2
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.6000.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0393912,
+        "latency_s": 7.1
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.2425.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0378086,
+        "latency_s": 6.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.482.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0381642,
+        "latency_s": 6.7
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.2944.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.038588,
+        "latency_s": 8.1
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.573.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0393354,
+        "latency_s": 7.7
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.581.0.png",
+        "confidence": 0.45,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0388676,
+        "latency_s": 8.6
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.6450.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.040144200000000005,
+        "latency_s": 8.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.7.618.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037251799999999995,
+        "latency_s": 6.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.1564.0.png",
+        "confidence": 0.5,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0400362,
+        "latency_s": 7.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.2438.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0404108,
+        "latency_s": 7.6
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.4145.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.039116200000000004,
+        "latency_s": 11.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.1577.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0386594,
+        "latency_s": 6.9
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.593.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.038267999999999996,
+        "latency_s": 7.8
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.2945.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0409476,
+        "latency_s": 9.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.461.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0378318,
+        "latency_s": 6.4
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.4129.0.png",
+        "confidence": 0.4,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0398794,
+        "latency_s": 8.9
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.7.601.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037508,
+        "latency_s": 14.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.491.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0374198,
+        "latency_s": 9.5
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.1584.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.03795659999999999,
+        "latency_s": 13.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.7.579.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0370076,
+        "latency_s": 8.3
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.2432.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0385794,
+        "latency_s": 7.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.4126.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.038546800000000006,
+        "latency_s": 7.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "poke",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.5997.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0399138,
+        "latency_s": 12.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.445.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037607,
+        "latency_s": 6.4
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.504.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0375,
+        "latency_s": 9.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.499.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0372826,
+        "latency_s": 9.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.454.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0378994,
+        "latency_s": 6.4
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.7.614.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037668599999999997,
+        "latency_s": 7.4
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.582.0.png",
+        "confidence": 0.45,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.040926199999999996,
+        "latency_s": 8.1
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.583.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037355,
+        "latency_s": 8.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.606.0.png",
+        "confidence": 0.45,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0401952,
+        "latency_s": 7.5
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.618.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0381642,
+        "latency_s": 6.6
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.1589.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.038488,
+        "latency_s": 10.4
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.602.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037703600000000004,
+        "latency_s": 6.3
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.6873.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.039603,
+        "latency_s": 7.4
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.448.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0373362,
+        "latency_s": 6.6
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.4130.0.png",
+        "confidence": 0.45,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0391068,
+        "latency_s": 7.4
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.6442.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0384476,
+        "latency_s": 6.7
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.591.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0381388,
+        "latency_s": 6.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.488.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0375118,
+        "latency_s": 7.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.525.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0377,
+        "latency_s": 8.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.476.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037416000000000005,
+        "latency_s": 7.1
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.2934.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0376718,
+        "latency_s": 7.9
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.2426.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0375248,
+        "latency_s": 9.2
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.629.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.038475,
+        "latency_s": 7.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.519.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037343,
+        "latency_s": 6.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.4139.0.png",
+        "confidence": 0.45,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.039655,
+        "latency_s": 9.4
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.612.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0375956,
+        "latency_s": 6.5
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.2422.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0384744,
+        "latency_s": 6.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.524.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037528,
+        "latency_s": 6.5
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.1592.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0380382,
+        "latency_s": 8.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.4131.0.png",
+        "confidence": 0.45,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0385,
+        "latency_s": 7.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.7.577.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0373118,
+        "latency_s": 6.7
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.1586.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0384756,
+        "latency_s": 8.3
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "squeeze",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.5993.0.png",
+        "confidence": 0.5,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0437038,
+        "latency_s": 11.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.7.605.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0382714,
+        "latency_s": 6.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.473.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0377912,
+        "latency_s": 8.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.515.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037187399999999995,
+        "latency_s": 6.4
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.7.591.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037443199999999996,
+        "latency_s": 8.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.480.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0379112,
+        "latency_s": 7.9
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.5998.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0392238,
+        "latency_s": 7.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.538.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.03749179999999999,
+        "latency_s": 6.4
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.451.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037507399999999996,
+        "latency_s": 6.8
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.6872.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.040275000000000005,
+        "latency_s": 7.9
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.584.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037347000000000005,
+        "latency_s": 7.3
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.2421.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0378798,
+        "latency_s": 6.7
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.574.0.png",
+        "confidence": 0.45,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0411074,
+        "latency_s": 8.6
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.1562.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.039147600000000005,
+        "latency_s": 10.7
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.610.0.png",
+        "confidence": 0.45,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.038415000000000005,
+        "latency_s": 7.4
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.6453.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.040630799999999995,
+        "latency_s": 10.7
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.601.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.038159399999999996,
+        "latency_s": 8.4
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.7.587.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037287600000000004,
+        "latency_s": 7.1
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.1594.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0384276,
+        "latency_s": 7.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.452.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037416200000000004,
+        "latency_s": 6.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.457.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0374638,
+        "latency_s": 6.1
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.1572.0.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0390508,
+        "latency_s": 9.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.7.603.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0374838,
+        "latency_s": 6.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.484.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.037263000000000004,
+        "latency_s": 6.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.521.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0370946,
+        "latency_s": 6.0
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.2941.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.038267999999999996,
+        "latency_s": 9.9
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "squeeze",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.6862.0.png",
+        "confidence": 0.5,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0408918,
+        "latency_s": 8.9
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.4116.0.png",
+        "confidence": 0.45,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0383238,
+        "latency_s": 8.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.535.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0375032,
+        "latency_s": 6.1
+      },
+      {
+        "true_label": "defective",
+        "pred_label": "crack",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/defective/pic.6.2932.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0404712,
+        "latency_s": 7.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.462.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0372826,
+        "latency_s": 6.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pilldefect",
+        "image": "pilldefect/Train.pill.big-1/good/pic.6.481.0.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0372274,
+        "latency_s": 6.2
+      }
+    ]
+  }
+}

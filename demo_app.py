@@ -1,24 +1,38 @@
-"""AI 정제 외관 검사기 — QC 데모 웹앱 (Flask)"""
+"""AI 정제 외관 검사기 — QC 검사 스테이션 데모 (Flask)
+
+흐름: 샘플 선택(촬영 조건 선택 가능) → 품질 게이트 → AI 판정 → 처분(합격/불합격/재검사/재촬영)
+     → 사람 최종 판정 → 해시 체인 감사추적.  두 번째 탭은 밸리데이션 결과 대시보드.
+    python demo_app.py   # http://127.0.0.1:8931
+"""
 import hashlib
 import json
 import random
+import tempfile
 import threading
 import uuid
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
-from flask import Flask, abort, jsonify, render_template_string, request, send_file
+from flask import Flask, abort, jsonify, render_template, request, send_file
 
-from benchmark import (PROMPT, PROMPT_VERSION, REVIEW_THRESHOLD, call_claude,
-                       find_category_dir, resolve_data_dir)
+import quality_gate
+from benchmark import (PERTURBATIONS, PROMPT, PROMPT_REF, REVIEW_THRESHOLD, USE_REFERENCE, call_claude,
+                       find_category_dir, perturbed_copy, prompt_version, reference_images,
+                       resolve_data_dir)
 
 BASE = Path(__file__).parent
 AUDIT_LOG = BASE / "audit_trail.jsonl"
-MODEL_ID = "claude (Claude Code CLI)"
+SUMMARY = BASE / "results" / "summary.json"
+CACHE = Path(tempfile.gettempdir()) / "qc_demo_cache"  # 열화 이미지 캐시 (시드 고정이라 다시 만들어도 같다)
+CONDITIONS = {"clean": "원본", "noise10": "백색잡음 σ10", "noise25": "백색잡음 σ25",
+              "blur2": "블러 (초점 이탈)", "dark60": "조명 60%"}
+assert set(CONDITIONS) == {"clean", *PERTURBATIONS}
 app = Flask(__name__)
+app.json.sort_keys = False  # 배치 정보 등 화면 표시 순서 유지
 
 # 샘플 이미지 풀: 클라이언트에는 인덱스만 보낸다 (경로에 정답 라벨이 들어 있음)
 SAMPLE_POOL = []
+REFERENCES = {}
 
 
 def build_pool():
@@ -35,16 +49,20 @@ def build_pool():
             for img in sorted(d.glob("*.png")):
                 SAMPLE_POOL.append({"category": cat, "true_label": "good" if d.name == "good" else d.name,
                                     "path": str(img), "name": img.name})
+    random.Random(0).shuffle(SAMPLE_POOL)  # id 순서로 라벨을 짐작하지 못하게
+    if data_dir and USE_REFERENCE:
+        REFERENCES.update(reference_images(data_dir, ["pill", "capsule"]))
     return SAMPLE_POOL
 
 
 def disposition(pred: dict) -> str:
-    """AI 판정 → QC 처리 결정. 판정 실패·저신뢰도는 합격시키지 않는다 (fail-safe)."""
+    """AI 판정 → QC 처분. 판정 실패·저신뢰도는 합격시키지 않는다 (fail-safe)."""
     if "error" in pred or (pred.get("confidence") or 0) < REVIEW_THRESHOLD:
         return "review"
     return "pass" if pred.get("verdict") == "good" else "reject"
 
 
+# ---- 감사추적: append-only + 해시 체인 ----
 _audit_lock = threading.Lock()
 GENESIS = "GENESIS"
 
@@ -73,15 +91,20 @@ def audit(record: dict) -> dict:
 
 
 def verify_chain() -> dict:
+    """한계: 맨 끝 기록을 지우거나 체인 전체를 다시 계산하면 이것만으로는 못 잡는다.
+    실제 시스템이면 마지막 해시를 외부(별도 서버·출력 기록)에 주기적으로 남겨 고정한다."""
     prev = GENESIS
-    log = _read_log()
-    for i, r in enumerate(log, 1):
-        r = dict(r)
-        h = r.pop("hash", None)
+    lines = AUDIT_LOG.read_text(encoding="utf-8").splitlines() if AUDIT_LOG.exists() else []
+    for i, line in enumerate(lines, 1):
+        try:
+            r = json.loads(line)
+            h = r.pop("hash")
+        except (ValueError, KeyError, AttributeError):
+            return {"ok": False, "n": len(lines), "broken_at": i}
         if r.get("prev_hash") != prev or _record_hash(r) != h:
-            return {"ok": False, "n": len(log), "broken_at": i}
+            return {"ok": False, "n": len(lines), "broken_at": i}
         prev = h
-    return {"ok": True, "n": len(log), "broken_at": None}
+    return {"ok": True, "n": len(lines), "broken_at": None}
 
 
 def now_kst():
@@ -93,111 +116,57 @@ def new_audit_id(now) -> str:
 
 
 def fake_gmp(category: str):
-    """데모용 합성 GMP 메타데이터"""
-    now = datetime.now(timezone(timedelta(hours=9)))
+    """데모용 합성 배치 정보 (실제 제품·배치 아님)"""
+    now = now_kst()
     return {
-        "batch_no": f"BT-{now.strftime('%y%m%d')}-{random.randint(100, 999)}",
-        "product": "Amoxicillin Cap 250mg" if category == "capsule" else "Ibuprofen Tab 200mg",
-        "spec": "외관: 흠·오염·변색 없을 것 (SOP-QC-041)",
-        "line": f"L-{random.randint(1, 4)}",
-        "inspector": "AI-VISION-01",
-        "timestamp": now.strftime("%Y-%m-%d %H:%M:%S KST"),
+        "배치번호": f"BT-{now.strftime('%y%m%d')}-{random.randint(100, 999)}",
+        "제품": "Amoxicillin Cap 250mg (예시)" if category == "capsule" else "Ibuprofen Tab 200mg (예시)",
+        "외관 규격": "흠·오염·변색·이물 없을 것 (SOP-QC-041 예시)",
+        "라인": f"L-{random.randint(1, 4)}",
     }
 
 
-PAGE = """<!doctype html>
-<html lang="ko"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AI 정제 외관 검사기 — QC 데모</title>
-<style>
-body{font-family:-apple-system,'Noto Sans KR',sans-serif;background:#0f172a;color:#e2e8f0;margin:0;padding:24px}
-.wrap{max-width:960px;margin:0 auto}
-h1{font-size:22px;margin:0 0 4px} .sub{color:#94a3b8;font-size:13px;margin-bottom:20px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.card{background:#1e293b;border-radius:12px;padding:16px}
-.card h3{margin:0 0 10px;font-size:14px;color:#94a3b8}
-img.sample{width:100%;border-radius:8px;background:#0b1120}
-button{background:#38bdf8;border:0;color:#0f172a;font-weight:700;border-radius:8px;padding:10px 16px;cursor:pointer;font-size:14px}
-button:disabled{opacity:.5;cursor:wait}
-.row{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
-.verdict{font-size:28px;font-weight:800;margin:8px 0}
-.good{color:#4ade80}.bad{color:#f87171}.warn{color:#fbbf24}
-.meta{font-size:13px;color:#cbd5e1;line-height:1.8}
-.meta b{color:#94a3b8;font-weight:400;display:inline-block;width:90px}
-.spin{display:inline-block;animation:sp 1s linear infinite}@keyframes sp{to{transform:rotate(360deg)}}
-.conf{height:8px;background:#334155;border-radius:4px;margin-top:6px;overflow:hidden}
-.conf>div{height:100%;background:#38bdf8}
-.note{font-size:12px;color:#64748b;margin-top:16px}
-input{background:#0f172a;border:1px solid #334155;color:#e2e8f0;border-radius:8px;padding:9px 12px;font-size:14px}
-button.ok{background:#4ade80}button.ng{background:#f87171}
-table{width:100%;border-collapse:collapse;font-size:12px}th,td{text-align:left;padding:6px;border-bottom:1px solid #334155}
-th{color:#94a3b8;font-weight:400}td.h{font-family:monospace;color:#64748b}
-@media(max-width:700px){.grid{grid-template-columns:1fr}}
-</style></head><body><div class="wrap">
-<h1>💊 AI 정제 외관 검사기</h1>
-<div class="sub">제약 QC 외관검사 보조 데모 — AI 1차 스크리닝 → 저신뢰도는 사람 재검사 → 판정 감사추적 기록</div>
-<div class="grid">
-<div class="card"><h3>검사 대상</h3>
-<img id="img" class="sample" src="" alt="sample">
-<div class="row">
-<button id="btnNew">🎲 다른 샘플</button>
-<button id="btnGo">🔍 AI 검사 시작</button>
-</div></div>
-<div class="card"><h3>판정 결과</h3>
-<div id="res"><p class="meta">샘플을 선택하고 [AI 검사 시작]을 누르세요.</p></div>
-</div></div>
-<div class="card" id="reviewCard" style="margin-top:16px;display:none"><h3>사람 재검사 (최종 판정)</h3>
-<div class="row"><input id="rvName" placeholder="검사자 이름"><input id="rvReason" placeholder="판정 사유 (필수)" style="flex:1"></div>
-<div class="row"><button class="ok" data-d="pass">✅ 합격</button><button class="ng" data-d="reject">❌ 불합격</button></div>
-<div id="rvMsg" class="meta"></div></div>
-<div class="card" style="margin-top:16px"><h3>감사추적 <span id="chain"></span></h3>
-<table id="audit"><thead><tr><th>시각</th><th>유형</th><th>판정자</th><th>처분/판정</th><th>해시</th></tr></thead><tbody></tbody></table></div>
-<div class="card" style="margin-top:16px"><h3>배치 정보 (GMP 합성 데모)</h3>
-<div id="gmp" class="meta"></div></div>
-<p class="note">* 이미지는 MVTec AD 산업 벤치마크 실사진이며, 실제 제약 QC 데이터가 아닙니다. 배치 정보는 데모용 합성입니다.</p>
-</div>
-<script>
-let cur=null;
-async function api(p,m){const r=await fetch(p,{method:m||'GET'});return r.json();}
-async function newSample(){cur=await api('/api/sample');document.getElementById('img').src='/api/image?id='+cur.id;
-const g=await api('/api/gmp?id='+cur.id);document.getElementById('gmp').innerHTML=Object.entries(g).map(([k,v])=>`<div><b>${k}</b>${v}</div>`).join('');
-document.getElementById('res').innerHTML='<p class="meta">샘플을 선택하고 [AI 검사 시작]을 누르세요.</p>';}
-document.getElementById('btnNew').onclick=newSample;
-document.getElementById('btnGo').onclick=async()=>{
-if(!cur)return;const b=document.getElementById('btnGo');b.disabled=true;
-document.getElementById('res').innerHTML='<p class="meta"><span class="spin">⏳</span> AI가 외관을 검사 중입니다… (약 15초)</p>';
-const r=await api('/api/inspect?id='+cur.id);
-b.disabled=false;
-const D={pass:['good','✅ 합격'],reject:['bad','❌ 불합격'],review:['warn','⚠️ 재검사 (사람 확인)']}[r.disposition];
-const c=r.confidence||0;
-document.getElementById('res').innerHTML=`
-<div class="verdict ${D[0]}">${D[1]}</div>
-<div class="meta"><div><b>AI 판정</b>${r.error?'판정 실패':(r.verdict==='good'?'정상':'불량')}</div>
-<div><b>불량 유형</b>${r.defect_type||'—'}</div>
-<div><b>신뢰도</b>${(c*100).toFixed(1)}% (기준 ${r.threshold*100}%)<div class="conf"><div style="width:${c*100}%"></div></div></div>
-<div><b>실제 정답</b>${r.true_label} ${r.true_label===(r.verdict==='good'?'good':r.defect_type)?'✓':'✗'}</div>
-<div><b>감사추적</b>${r.audit_id}</div></div>`;
-cur.audit_id=r.audit_id;
-document.getElementById('reviewCard').style.display='block';
-rvMsg.textContent=r.disposition==='review'?'AI가 확정하지 않았습니다. 사람이 최종 판정하세요.':'AI 처분을 사람이 확인·변경할 수 있습니다 (원 기록은 보존).';
-loadAudit();};
-document.querySelectorAll('#reviewCard button').forEach(btn=>btn.onclick=async()=>{
-const r=await fetch('/api/review',{method:'POST',headers:{'Content-Type':'application/json'},
-body:JSON.stringify({ref:cur.audit_id,decision:btn.dataset.d,reviewer:rvName.value,reason:rvReason.value})});
-const j=await r.json();rvMsg.textContent=r.ok?`기록됨: ${j.audit_id}`:j.error;if(r.ok)loadAudit();});
-async function loadAudit(){const a=await api('/api/audit');
-chain.textContent=a.ok?`· 해시 체인 정상 (${a.n}건)`:`· ⚠️ 체인 손상: ${a.broken_at}번째 기록`;chain.className=a.ok?'good':'bad';
-const tb=document.querySelector('#audit tbody');tb.replaceChildren();
-for(const x of a.records){const tr=tb.insertRow();
-[x.timestamp.slice(11,19),x.type==='human_review'?'사람 재검사':'AI 검사',x.operator,x.decision||x.disposition,x.hash.slice(0,10)]
-.forEach((v,i)=>{const td=tr.insertCell();td.textContent=v;if(i===4)td.className='h';});}}
-newSample();loadAudit();
-</script></body></html>"""
+# ---- 요청 처리 ----
+def sample_or_404():
+    try:
+        return build_pool()[int(request.values["id"])]
+    except (KeyError, ValueError, IndexError):
+        abort(404)
+
+
+def condition_or_400() -> str:
+    cond = request.values.get("cond", "clean")
+    if cond not in CONDITIONS:
+        abort(400)
+    return cond
+
+
+_cache_lock = threading.Lock()
+
+
+def image_path(s: dict, cond: str) -> str:
+    """선택한 촬영 조건의 이미지 경로. 열화본은 캐시한다.
+    이미지·게이트 요청이 동시에 와도 한 번만 만들도록 잠근다 (Windows는 열린 파일을 덮어쓰면 실패)."""
+    if cond == "clean":
+        return s["path"]
+    out = CACHE / f"{s['category']}_{hashlib.md5(s['path'].encode()).hexdigest()[:10]}_{cond}.png"
+    with _cache_lock:
+        if not out.exists():
+            CACHE.mkdir(exist_ok=True)
+            Path(perturbed_copy(s["path"], cond, str(CACHE))).replace(out)
+    return str(out)
 
 
 @app.route("/")
 def index():
-    return render_template_string(PAGE)
+    return render_template("index.html", conditions=CONDITIONS)
+
+
+@app.route("/api/config")
+def api_config():
+    return jsonify({"threshold": REVIEW_THRESHOLD, "use_reference": USE_REFERENCE,
+                    "prompt_version": prompt_version(PROMPT_REF if USE_REFERENCE else PROMPT),
+                    "gate": bool(quality_gate.load_limits()), "n_samples": len(build_pool())})
 
 
 @app.route("/api/sample")
@@ -206,47 +175,67 @@ def api_sample():
     if not pool:
         return jsonify({"error": "데이터셋 없음 — README의 다운로드 안내 참고"}), 503
     i = random.randrange(len(pool))
-    return jsonify({"id": i, "category": pool[i]["category"], "name": pool[i]["name"]})
-
-
-def sample_or_404():
-    try:
-        return build_pool()[int(request.args["id"])]
-    except (KeyError, ValueError, IndexError):
-        abort(404)
+    return jsonify({"id": i, "category": pool[i]["category"], "name": pool[i]["name"],
+                    "gmp": fake_gmp(pool[i]["category"])})
 
 
 @app.route("/api/image")
 def api_image():
-    return send_file(sample_or_404()["path"], mimetype="image/png")
+    return send_file(image_path(sample_or_404(), condition_or_400()), mimetype="image/png")
 
 
-@app.route("/api/gmp")
-def api_gmp():
-    return jsonify(fake_gmp(sample_or_404()["category"]))
+@app.route("/api/gate")
+def api_gate():
+    s, cond = sample_or_404(), condition_or_400()
+    limits = quality_gate.load_limits().get(s["category"])
+    if not limits:
+        return jsonify({"ok": True, "metrics": {}, "failed": [], "limits": None})
+    return jsonify(quality_gate.check(image_path(s, cond), limits) | {"limits": limits})
 
 
-@app.route("/api/inspect")
+@app.before_request
+def require_demo_header():
+    """POST는 화면의 fetch만 허용 (사용자 정의 헤더는 다른 출처에서 사전 확인 없이 못 붙인다)"""
+    if request.method == "POST" and request.headers.get("X-QC-Demo") != "1":
+        abort(403)
+
+
+@app.post("/api/inspect")
 def api_inspect():
-    s = sample_or_404()
-    try:
-        pred = call_claude(s["path"], PROMPT)
-    except Exception as e:
-        pred = {"error": str(e)[:200]}
+    s, cond = sample_or_404(), condition_or_400()
+    path = image_path(s, cond)
+    limits = quality_gate.load_limits().get(s["category"])
+    gate = quality_gate.check(path, limits) if limits else {"ok": True, "failed": []}
     now = now_kst()
     rec = {
         "type": "ai_inspection",
         "audit_id": new_audit_id(now),
         "timestamp": now.isoformat(timespec="seconds"),
         "operator": "AI-VISION-01",
-        "model": MODEL_ID,
-        "prompt_version": PROMPT_VERSION,
-        "image_sha256": hashlib.sha256(Path(s["path"]).read_bytes()).hexdigest(),
+        "image_sha256": hashlib.sha256(Path(path).read_bytes()).hexdigest(),
         "image": f"{s['category']}/{s['name']}",
-        **pred,
-        "disposition": disposition(pred),
+        "condition": cond,
         "threshold": REVIEW_THRESHOLD,
     }
+    if not gate["ok"]:  # CAPA D5: 품질 미달 이미지는 AI에 넘기지 않고 재촬영
+        rec |= {"disposition": "recapture", "gate_failed": gate["failed"]}
+    else:
+        ref = REFERENCES.get(s["category"])
+        prompt = PROMPT_REF if ref else PROMPT
+        try:
+            pred = call_claude(path, prompt, reference=ref) if ref else call_claude(path, prompt)
+        except Exception as e:
+            pred = {"error": str(e)[:200]}
+        conf = pred.get("confidence")
+        clean = {"error": pred["error"]} if "error" in pred else {
+            "verdict": pred.get("verdict") if pred.get("verdict") in ("good", "defective") else None,
+            "defect_type": str(pred.get("defect_type"))[:40] if pred.get("defect_type") else None,
+            "confidence": conf if isinstance(conf, (int, float)) and 0 <= conf <= 1 else None,
+        }
+        if "error" not in clean and (clean["verdict"] is None or clean["confidence"] is None):
+            clean = {"error": "모델 응답 형식 오류"}
+        rec |= {"model": pred.get("_model"), "prompt_version": prompt_version(prompt)}
+        rec |= clean | {"disposition": disposition(clean)}
     rec = audit(rec)
     return jsonify(rec | {"true_label": s["true_label"]})
 
@@ -279,10 +268,17 @@ def api_review():
 
 @app.route("/api/audit")
 def api_audit():
-    return jsonify(verify_chain() | {"records": _read_log()[-8:][::-1]})
+    return jsonify(verify_chain() | {"records": _read_log()[-10:][::-1]})
+
+
+@app.route("/api/validation")
+def api_validation():
+    if not SUMMARY.exists():
+        return jsonify({"error": "results/summary.json 없음 — python analyze.py 실행"}), 404
+    return jsonify(json.loads(SUMMARY.read_text(encoding="utf-8")))
 
 
 if __name__ == "__main__":
     build_pool()
-    print(f"샘플 {len(SAMPLE_POOL)}장 로드")
+    print(f"샘플 {len(SAMPLE_POOL)}장 로드 · 기준 {REVIEW_THRESHOLD} · 레퍼런스 {USE_REFERENCE}")
     app.run(host="127.0.0.1", port=8931)

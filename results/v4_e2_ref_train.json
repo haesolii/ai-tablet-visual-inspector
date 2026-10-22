@@ -1,0 +1,2026 @@
+{
+  "claude": {
+    "meta": {
+      "prompt_version": "93b7fafa",
+      "seed": 42,
+      "per_type": 100,
+      "dataset": "mvtec",
+      "splits": [
+        "train"
+      ],
+      "perturb": null,
+      "reference": {
+        "pill": "000.png",
+        "capsule": "000.png"
+      }
+    },
+    "score": {
+      "n": 199,
+      "accuracy": 0.4372,
+      "miss_rate": 0,
+      "miss_rate_95ci_upper": 0.0,
+      "review_threshold": 0.7,
+      "review_rate": 0.7035,
+      "auto_pass_miss_rate": 0,
+      "avg_latency_s": 8.8,
+      "false_alarm_rate": 0.5628,
+      "error_rate": 0.0,
+      "per_type": {
+        "good": "87/199"
+      },
+      "skipped": 0
+    },
+    "results": [
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "image": "pill/train/good/043.png",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0531442,
+        "latency_s": 7.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "capsule",
+        "image": "capsule/train/good/068.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.06491079999999999,
+        "latency_s": 9.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "image": "pill/train/good/125.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0573562,
+        "latency_s": 17.4
+      },
+      {
+        "true_label": "good",
+        "pred_label": "contamination",
+        "category": "pill",
+        "image": "pill/train/good/094.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.054776599999999995,
+        "latency_s": 7.4
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "image": "pill/train/good/139.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.055649000000000004,
+        "latency_s": 8.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "contamination",
+        "category": "pill",
+        "image": "pill/train/good/207.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.05417280000000001,
+        "latency_s": 12.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "image": "pill/train/good/086.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0538296,
+        "latency_s": 7.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "scratch",
+        "category": "capsule",
+        "image": "capsule/train/good/138.png",
+        "confidence": 0.45,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.06519720000000001,
+        "latency_s": 15.4
+      },
+      {
+        "true_label": "good",
+        "pred_label": "contamination",
+        "category": "pill",
+        "image": "pill/train/good/180.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0543442,
+        "latency_s": 9.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/train/good/198.png",
+        "confidence": 0.85,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.061048000000000005,
+        "latency_s": 7.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/train/good/141.png",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0630642,
+        "latency_s": 11.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "image": "pill/train/good/186.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0543788,
+        "latency_s": 7.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "contamination",
+        "category": "pill",
+        "image": "pill/train/good/191.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.054868,
+        "latency_s": 7.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "image": "pill/train/good/097.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0542518,
+        "latency_s": 8.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "image": "pill/train/good/174.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.054129000000000004,
+        "latency_s": 7.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "image": "pill/train/good/258.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.05431280000000001,
+        "latency_s": 7.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "capsule",
+        "image": "capsule/train/good/167.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.06837280000000001,
+        "latency_s": 13.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/train/good/158.png",
+        "confidence": 0.85,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.06221720000000001,
+        "latency_s": 8.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "image": "pill/train/good/129.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0580908,
+        "latency_s": 13.9
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/train/good/142.png",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0640116,
+        "latency_s": 10.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/train/good/145.png",
+        "confidence": 0.72,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0655236,
+        "latency_s": 11.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "scratch",
+        "category": "capsule",
+        "image": "capsule/train/good/216.png",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.06130580000000001,
+        "latency_s": 7.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "color",
+        "category": "pill",
+        "image": "pill/train/good/253.png",
+        "confidence": 0.45,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.057469599999999996,
+        "latency_s": 9.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "capsule",
+        "image": "capsule/train/good/063.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.067429,
+        "latency_s": 10.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/train/good/092.png",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0624908,
+        "latency_s": 7.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "contamination",
+        "category": "pill",
+        "image": "pill/train/good/178.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.056064800000000005,
+        "latency_s": 8.4
+      },
+      {
+        "true_label": "good",
+        "pred_label": "contamination",
+        "category": "pill",
+        "image": "pill/train/good/137.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.055169,
+        "latency_s": 7.9
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "image": "pill/train/good/229.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0542204,
+        "latency_s": 7.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "capsule",
+        "image": "capsule/train/good/207.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0636452,
+        "latency_s": 8.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "capsule",
+        "image": "capsule/train/good/164.png",
+        "confidence": 0.65,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0613128,
+        "latency_s": 8.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "image": "pill/train/good/165.png",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0530428,
+        "latency_s": 6.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/train/good/125.png",
+        "confidence": 0.85,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0615642,
+        "latency_s": 8.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "scratch",
+        "category": "pill",
+        "image": "pill/train/good/062.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.05514100000000001,
+        "latency_s": 7.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "contamination",
+        "category": "pill",
+        "image": "pill/train/good/136.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.056140800000000005,
+        "latency_s": 8.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "image": "pill/train/good/114.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.056064800000000005,
+        "latency_s": 11.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "image": "pill/train/good/023.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0539242,
+        "latency_s": 8.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "contamination",
+        "category": "pill",
+        "image": "pill/train/good/222.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.05642900000000001,
+        "latency_s": 8.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "contamination",
+        "category": "capsule",
+        "image": "capsule/train/good/137.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0652852,
+        "latency_s": 14.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "contamination",
+        "category": "pill",
+        "image": "pill/train/good/208.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.054308,
+        "latency_s": 7.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "contamination",
+        "category": "pill",
+        "image": "pill/train/good/068.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.054036,
+        "latency_s": 7.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "scratch",
+        "category": "pill",
+        "image": "pill/train/good/024.png",
+        "confidence": 0.5,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0606318,
+        "latency_s": 13.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/train/good/170.png",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.06757200000000001,
+        "latency_s": 9.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "contamination",
+        "category": "pill",
+        "image": "pill/train/good/091.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.054140400000000005,
+        "latency_s": 7.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "image": "pill/train/good/067.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0544528,
+        "latency_s": 7.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/train/good/186.png",
+        "confidence": 0.88,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0610696,
+        "latency_s": 11.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/train/good/027.png",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.061835600000000004,
+        "latency_s": 8.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "poke",
+        "category": "capsule",
+        "image": "capsule/train/good/183.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.061804200000000004,
+        "latency_s": 9.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "image": "pill/train/good/188.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.055374400000000004,
+        "latency_s": 8.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "capsule",
+        "image": "capsule/train/good/195.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.061292400000000004,
+        "latency_s": 7.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/train/good/010.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0636318,
+        "latency_s": 7.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "capsule",
+        "image": "capsule/train/good/062.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0665972,
+        "latency_s": 10.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "contamination",
+        "category": "pill",
+        "image": "pill/train/good/150.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.053776,
+        "latency_s": 7.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/train/good/045.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0629078,
+        "latency_s": 8.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "image": "pill/train/good/254.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.054757200000000006,
+        "latency_s": 7.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "image": "pill/train/good/140.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0553084,
+        "latency_s": 8.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "image": "pill/train/good/039.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0547724,
+        "latency_s": 8.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "image": "pill/train/good/090.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0543604,
+        "latency_s": 7.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "capsule",
+        "image": "capsule/train/good/095.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.061175400000000005,
+        "latency_s": 7.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "pill",
+        "image": "pill/train/good/018.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.055494400000000006,
+        "latency_s": 7.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/train/good/078.png",
+        "confidence": 0.85,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.060576599999999994,
+        "latency_s": 8.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/train/good/135.png",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0632972,
+        "latency_s": 11.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "contamination",
+        "category": "pill",
+        "image": "pill/train/good/162.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0574874,
+        "latency_s": 10.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "poke",
+        "category": "capsule",
+        "image": "capsule/train/good/109.png",
+        "confidence": 0.5,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0641236,
+        "latency_s": 11.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/train/good/016.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.064356,
+        "latency_s": 8.9
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/train/good/036.png",
+        "confidence": 0.72,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.064024,
+        "latency_s": 8.9
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/train/good/029.png",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0632642,
+        "latency_s": 8.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/train/good/039.png",
+        "confidence": 0.85,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.061249000000000005,
+        "latency_s": 7.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "contamination",
+        "category": "pill",
+        "image": "pill/train/good/015.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0543384,
+        "latency_s": 8.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "contamination",
+        "category": "pill",
+        "image": "pill/train/good/049.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0563036,
+        "latency_s": 10.9
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "image": "pill/train/good/237.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.055783,
+        "latency_s": 9.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "poke",
+        "category": "pill",
+        "image": "pill/train/good/166.png",
+        "confidence": 0.5,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0558756,
+        "latency_s": 8.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/train/good/093.png",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0617718,
+        "latency_s": 7.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "image": "pill/train/good/147.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0577486,
+        "latency_s": 10.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "contamination",
+        "category": "pill",
+        "image": "pill/train/good/163.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.055108000000000004,
+        "latency_s": 8.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "capsule",
+        "image": "capsule/train/good/041.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0646668,
+        "latency_s": 8.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "scratch",
+        "category": "pill",
+        "image": "pill/train/good/116.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0557394,
+        "latency_s": 8.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "image": "pill/train/good/195.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.054151200000000003,
+        "latency_s": 9.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "image": "pill/train/good/041.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.056293800000000005,
+        "latency_s": 8.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/train/good/014.png",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.061584200000000006,
+        "latency_s": 9.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "image": "pill/train/good/025.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.053716599999999996,
+        "latency_s": 7.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/train/good/028.png",
+        "confidence": 0.85,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.061188400000000004,
+        "latency_s": 8.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "image": "pill/train/good/069.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0538604,
+        "latency_s": 7.4
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "image": "pill/train/good/239.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.052938799999999994,
+        "latency_s": 7.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "capsule",
+        "image": "capsule/train/good/067.png",
+        "confidence": 0.65,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.062014799999999995,
+        "latency_s": 7.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "image": "pill/train/good/183.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.054375599999999996,
+        "latency_s": 7.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "capsule",
+        "image": "capsule/train/good/176.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.06390000000000001,
+        "latency_s": 8.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "capsule",
+        "image": "capsule/train/good/002.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.061283199999999996,
+        "latency_s": 8.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "capsule",
+        "image": "capsule/train/good/119.png",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0614484,
+        "latency_s": 8.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/train/good/101.png",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.061310199999999995,
+        "latency_s": 7.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "image": "pill/train/good/087.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0562236,
+        "latency_s": 16.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "poke",
+        "category": "capsule",
+        "image": "capsule/train/good/205.png",
+        "confidence": 0.45,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0640684,
+        "latency_s": 8.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/train/good/204.png",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0656486,
+        "latency_s": 9.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/train/good/035.png",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0621074,
+        "latency_s": 8.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "image": "pill/train/good/057.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0581678,
+        "latency_s": 9.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/train/good/012.png",
+        "confidence": 0.85,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0612928,
+        "latency_s": 7.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/train/good/004.png",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0636002,
+        "latency_s": 8.9
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "image": "pill/train/good/044.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.054228599999999995,
+        "latency_s": 7.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "capsule",
+        "image": "capsule/train/good/156.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0613114,
+        "latency_s": 9.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/train/good/143.png",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.062223600000000004,
+        "latency_s": 7.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "contamination",
+        "category": "pill",
+        "image": "pill/train/good/160.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0548924,
+        "latency_s": 8.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "capsule",
+        "image": "capsule/train/good/160.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0654194,
+        "latency_s": 10.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "image": "pill/train/good/011.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.05427,
+        "latency_s": 7.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "contamination",
+        "category": "pill",
+        "image": "pill/train/good/179.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0559626,
+        "latency_s": 9.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/train/good/050.png",
+        "confidence": 0.85,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0612646,
+        "latency_s": 8.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "image": "pill/train/good/118.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0540182,
+        "latency_s": 7.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "contamination",
+        "category": "pill",
+        "image": "pill/train/good/047.png",
+        "confidence": 0.5,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.054811,
+        "latency_s": 7.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "capsule",
+        "image": "capsule/train/good/111.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0627524,
+        "latency_s": 8.9
+      },
+      {
+        "true_label": "good",
+        "pred_label": "contamination",
+        "category": "pill",
+        "image": "pill/train/good/169.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.055117,
+        "latency_s": 9.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "image": "pill/train/good/053.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.054353399999999996,
+        "latency_s": 8.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "image": "pill/train/good/052.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.053983,
+        "latency_s": 7.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "image": "pill/train/good/055.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0542516,
+        "latency_s": 8.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "image": "pill/train/good/058.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.055345200000000004,
+        "latency_s": 8.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "squeeze",
+        "category": "capsule",
+        "image": "capsule/train/good/008.png",
+        "confidence": 0.5,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0663636,
+        "latency_s": 11.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/train/good/130.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.064108,
+        "latency_s": 11.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "capsule",
+        "image": "capsule/train/good/020.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0620918,
+        "latency_s": 7.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/train/good/172.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0643884,
+        "latency_s": 9.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "image": "pill/train/good/016.png",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0533086,
+        "latency_s": 7.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/train/good/080.png",
+        "confidence": 0.85,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.061182,
+        "latency_s": 7.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "image": "pill/train/good/194.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0537164,
+        "latency_s": 7.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "image": "pill/train/good/141.png",
+        "confidence": 0.65,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0536604,
+        "latency_s": 7.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "image": "pill/train/good/108.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.056888,
+        "latency_s": 9.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "contamination",
+        "category": "pill",
+        "image": "pill/train/good/107.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.054195,
+        "latency_s": 9.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/train/good/097.png",
+        "confidence": 0.75,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0624204,
+        "latency_s": 9.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/train/good/188.png",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0625976,
+        "latency_s": 7.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "scratch",
+        "category": "capsule",
+        "image": "capsule/train/good/076.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.06453339999999999,
+        "latency_s": 9.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "contamination",
+        "category": "pill",
+        "image": "pill/train/good/214.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0552954,
+        "latency_s": 8.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "capsule",
+        "image": "capsule/train/good/104.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.06285879999999999,
+        "latency_s": 8.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "image": "pill/train/good/251.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.053808,
+        "latency_s": 7.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/train/good/147.png",
+        "confidence": 0.85,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0606014,
+        "latency_s": 8.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "crack",
+        "category": "pill",
+        "image": "pill/train/good/261.png",
+        "confidence": 0.5,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0579442,
+        "latency_s": 10.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/train/good/151.png",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0619312,
+        "latency_s": 7.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "capsule",
+        "image": "capsule/train/good/175.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0632318,
+        "latency_s": 10.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/train/good/215.png",
+        "confidence": 0.9,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0604928,
+        "latency_s": 11.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "image": "pill/train/good/262.png",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0537214,
+        "latency_s": 8.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "image": "pill/train/good/059.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0563108,
+        "latency_s": 8.4
+      },
+      {
+        "true_label": "good",
+        "pred_label": "squeeze",
+        "category": "capsule",
+        "image": "capsule/train/good/203.png",
+        "confidence": 0.5,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.066068,
+        "latency_s": 10.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "capsule",
+        "image": "capsule/train/good/196.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.060764200000000004,
+        "latency_s": 9.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/train/good/179.png",
+        "confidence": 0.85,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.061980400000000005,
+        "latency_s": 7.4
+      },
+      {
+        "true_label": "good",
+        "pred_label": "contamination",
+        "category": "pill",
+        "image": "pill/train/good/155.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0558354,
+        "latency_s": 8.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "capsule",
+        "image": "capsule/train/good/206.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0616554,
+        "latency_s": 9.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/train/good/212.png",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.062396599999999997,
+        "latency_s": 10.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "image": "pill/train/good/056.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.05402800000000001,
+        "latency_s": 7.4
+      },
+      {
+        "true_label": "good",
+        "pred_label": "contamination",
+        "category": "pill",
+        "image": "pill/train/good/088.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.054212800000000005,
+        "latency_s": 7.4
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/train/good/083.png",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.062622,
+        "latency_s": 8.4
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/train/good/152.png",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0630274,
+        "latency_s": 11.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "image": "pill/train/good/158.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.054036,
+        "latency_s": 7.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/train/good/209.png",
+        "confidence": 0.75,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.061361000000000006,
+        "latency_s": 6.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "scratch",
+        "category": "capsule",
+        "image": "capsule/train/good/108.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0634112,
+        "latency_s": 8.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "capsule",
+        "image": "capsule/train/good/040.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0634036,
+        "latency_s": 10.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "image": "pill/train/good/040.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.053835,
+        "latency_s": 7.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "squeeze",
+        "category": "capsule",
+        "image": "capsule/train/good/061.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.06620039999999999,
+        "latency_s": 11.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "capsule",
+        "image": "capsule/train/good/211.png",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0616296,
+        "latency_s": 9.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "capsule",
+        "image": "capsule/train/good/117.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.06366959999999999,
+        "latency_s": 8.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "contamination",
+        "category": "pill",
+        "image": "pill/train/good/074.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.055029,
+        "latency_s": 7.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "image": "pill/train/good/075.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0537248,
+        "latency_s": 8.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/train/good/192.png",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0635284,
+        "latency_s": 8.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/train/good/075.png",
+        "confidence": 0.85,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.061309,
+        "latency_s": 7.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "image": "pill/train/good/171.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0549756,
+        "latency_s": 7.4
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "image": "pill/train/good/216.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.054029,
+        "latency_s": 7.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "image": "pill/train/good/143.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.054985200000000005,
+        "latency_s": 8.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "image": "pill/train/good/154.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.054056599999999996,
+        "latency_s": 7.4
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/train/good/087.png",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.06448040000000001,
+        "latency_s": 8.9
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "image": "pill/train/good/050.png",
+        "confidence": 0.65,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.05399759999999999,
+        "latency_s": 8.1
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "image": "pill/train/good/012.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0537436,
+        "latency_s": 9.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "color",
+        "category": "pill",
+        "image": "pill/train/good/031.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0573496,
+        "latency_s": 9.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/train/good/128.png",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.06990360000000001,
+        "latency_s": 12.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "contamination",
+        "category": "pill",
+        "image": "pill/train/good/020.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.05646520000000001,
+        "latency_s": 8.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/train/good/023.png",
+        "confidence": 0.75,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.06296299999999999,
+        "latency_s": 8.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/train/good/098.png",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.062329,
+        "latency_s": 7.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "image": "pill/train/good/071.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.05360859999999999,
+        "latency_s": 7.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "color",
+        "category": "pill",
+        "image": "pill/train/good/245.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.055856,
+        "latency_s": 10.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "contamination",
+        "category": "pill",
+        "image": "pill/train/good/006.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0558842,
+        "latency_s": 8.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "image": "pill/train/good/096.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.053350999999999996,
+        "latency_s": 7.4
+      },
+      {
+        "true_label": "good",
+        "pred_label": "contamination",
+        "category": "pill",
+        "image": "pill/train/good/092.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.055959400000000006,
+        "latency_s": 8.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "crack",
+        "category": "pill",
+        "image": "pill/train/good/001.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0552214,
+        "latency_s": 8.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "capsule",
+        "image": "capsule/train/good/054.png",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0609508,
+        "latency_s": 8.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/train/good/149.png",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.062421000000000004,
+        "latency_s": 7.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/train/good/102.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.06473720000000001,
+        "latency_s": 10.2
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "image": "pill/train/good/213.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.054215,
+        "latency_s": 7.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "contamination",
+        "category": "capsule",
+        "image": "capsule/train/good/116.png",
+        "confidence": 0.5,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0629112,
+        "latency_s": 8.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/train/good/129.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0642052,
+        "latency_s": 8.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/train/good/056.png",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0615516,
+        "latency_s": 6.9
+      },
+      {
+        "true_label": "good",
+        "pred_label": "contamination",
+        "category": "pill",
+        "image": "pill/train/good/093.png",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.056841,
+        "latency_s": 9.6
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/train/good/082.png",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0637674,
+        "latency_s": 8.9
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "image": "pill/train/good/234.png",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.053125200000000004,
+        "latency_s": 8.4
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "capsule",
+        "image": "capsule/train/good/174.png",
+        "confidence": 0.65,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.061647400000000005,
+        "latency_s": 7.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "capsule",
+        "image": "capsule/train/good/182.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0653636,
+        "latency_s": 10.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/train/good/191.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.061889599999999996,
+        "latency_s": 8.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "contamination",
+        "category": "pill",
+        "image": "pill/train/good/117.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.055756,
+        "latency_s": 9.3
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/train/good/058.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0661166,
+        "latency_s": 11.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/train/good/064.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0661236,
+        "latency_s": 9.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/train/good/208.png",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0644918,
+        "latency_s": 9.9
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "image": "pill/train/good/017.png",
+        "confidence": 0.7,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0533794,
+        "latency_s": 6.7
+      },
+      {
+        "true_label": "good",
+        "pred_label": "contamination",
+        "category": "pill",
+        "image": "pill/train/good/026.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0570354,
+        "latency_s": 10.4
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/train/good/126.png",
+        "confidence": 0.8,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0616182,
+        "latency_s": 7.0
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "capsule",
+        "image": "capsule/train/good/127.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.062417200000000006,
+        "latency_s": 7.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "image": "capsule/train/good/187.png",
+        "confidence": 0.9,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.060495,
+        "latency_s": 7.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "poke",
+        "category": "capsule",
+        "image": "capsule/train/good/168.png",
+        "confidence": 0.55,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.0649658,
+        "latency_s": 9.5
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "image": "pill/train/good/206.png",
+        "confidence": 0.6,
+        "model": "claude-opus-5-5",
+        "cost_usd": 0.054457200000000004,
+        "latency_s": 11.0
+      }
+    ]
+  }
+}

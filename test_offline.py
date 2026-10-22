@@ -15,7 +15,13 @@ for t in ["good", "crack", "scratch"]:
         (d / f"00{i}.png").write_bytes(b"\x89PNG\r\n\x1a\n")
 os.environ["QC_DATA_DIR"] = tmp
 
+import logging  # noqa: E402
+
 import benchmark as b  # noqa: E402
+
+for h in logging.getLogger().handlers[:]:   # 테스트의 의도적 실패 로그가 실제 benchmark.log에 섞이지 않게
+    logging.getLogger().removeHandler(h)
+logging.getLogger().addHandler(logging.FileHandler(Path(tmp) / "test.log"))
 
 seen = []
 lock = threading.Lock()
@@ -60,6 +66,20 @@ for name in b.PERTURBATIONS:
     assert Image.open(x).tobytes() != Image.open(real).tobytes(), name
     assert "real" not in Path(x).name
 
+# --resume: 판정 실패 건만 다시 돌리고, 성공한 건은 그대로 두며, 원래 파일은 보존한다
+import json  # noqa: E402
+import sys  # noqa: E402
+
+out = Path(tmp) / "run.json"
+out.write_text(json.dumps({"claude": {"results": results}}), encoding="utf-8")
+seen.clear()
+sys.argv = ["benchmark.py", "--categories", "pill", "--out", str(out), "--resume"]
+b.main()
+merged = json.loads(out.read_text(encoding="utf-8"))["claude"]["results"]
+assert len(seen) == 1 and len(merged) == 9                       # 실패했던 1건만 재호출
+assert sum(r["pred_label"] == b.ERROR for r in merged) == 0
+assert (Path(tmp) / "run_before_resume.json").exists()
+
 # 레퍼런스 동봉(CAPA D3): 레퍼런스 경로도 익명화되어 모델에 넘어간다
 seen.clear()
 ref = Path(tmp) / "pill" / "test" / "good" / "000.png"
@@ -82,23 +102,42 @@ assert d.disposition({"verdict": "good", "confidence": 0.5}) == "review"
 assert d.disposition({"verdict": "good", "confidence": 0.9}) == "pass"
 assert d.disposition({"verdict": "defective", "confidence": 0.9}) == "reject"
 
-d.call_claude = lambda p, pr: {"verdict": "good", "defect_type": None, "confidence": 0.95}
+d.call_claude = lambda p, pr, **kw: {"verdict": "good", "defect_type": None, "confidence": 0.95,
+                                     "operator": "hacker", "type": "human_review",  # 감사 필드 덮어쓰기 시도
+                                     "_model": "fake", "_cost_usd": 0.01}
 d.AUDIT_LOG = Path(tmp) / "audit.jsonl"
+d.CACHE = Path(tmp) / "cache"
+gate_limits = q.calibrate([real])
+q.load_limits = lambda: {"pill": gate_limits}     # 진짜 보정값 대신 테스트 이미지 기준
+for img in (Path(tmp) / "pill" / "test").rglob("*.png"):
+    Image.open(real).save(img)                    # 데모는 실제로 이미지를 열어 게이트를 잰다
 c = d.app.test_client()
+H = {"X-QC-Demo": "1"}
 s = c.get("/api/sample").get_json()
 assert "path" not in s, s                         # 브라우저에 라벨 든 경로 노출 금지
 assert c.get(f"/api/image?id={s['id']}").status_code == 200
+assert c.get(f"/api/image?id={s['id']}&cond=noise25").status_code == 200
+assert c.get(f"/api/image?id={s['id']}&cond=../x").status_code == 400
 assert c.get("/api/image?id=999").status_code == 404
 assert c.get("/api/image?id=../etc").status_code == 404
-r = c.get(f"/api/inspect?id={s['id']}").get_json()
-assert r["disposition"] == "pass" and len(r["image_sha256"]) == 64
+assert c.get(f"/api/gate?id={s['id']}").get_json()["ok"]
+# 품질 미달(강한 노이즈)은 AI에 넘기지 않고 재촬영 처분 (CAPA D5)
+assert c.post(f"/api/inspect?id={s['id']}").status_code == 403    # 헤더 없는 POST(다른 사이트 폼) 거부
+g = c.post(f"/api/inspect?id={s['id']}&cond=noise25", headers=H).get_json()
+assert g["disposition"] == "recapture" and "noise" in g["gate_failed"] and "model" not in g
+d.AUDIT_LOG.unlink()
+r = c.post(f"/api/inspect?id={s['id']}", headers=H).get_json()
+assert r["operator"] == "AI-VISION-01" and r["type"] == "ai_inspection"   # 모델 출력이 감사 필드를 못 덮는다
+assert r["disposition"] == "pass" and len(r["image_sha256"]) == 64 and r["model"] == "fake"
+assert "_cost_usd" not in r and "_model" not in r
 assert d.AUDIT_LOG.read_text(encoding="utf-8").count("\n") == 1
 assert c.get("/").status_code == 200
+assert c.get("/api/config").get_json()["threshold"] == b.REVIEW_THRESHOLD
 
 # 사람 재검사: 필수값 검증, 원 기록은 고치지 않고 덧붙임
-assert c.post("/api/review", json={"ref": r["audit_id"], "decision": "pass", "reviewer": "kim"}).status_code == 400
-assert c.post("/api/review", json={"ref": "nope", "decision": "pass", "reviewer": "kim", "reason": "x"}).status_code == 404
-rv = c.post("/api/review", json={"ref": r["audit_id"], "decision": "reject", "reviewer": "kim", "reason": "모서리 결손"})
+assert c.post("/api/review", headers=H, json={"ref": r["audit_id"], "decision": "pass", "reviewer": "kim"}).status_code == 400
+assert c.post("/api/review", headers=H, json={"ref": "nope", "decision": "pass", "reviewer": "kim", "reason": "x"}).status_code == 404
+rv = c.post("/api/review", headers=H, json={"ref": r["audit_id"], "decision": "reject", "reviewer": "kim", "reason": "모서리 결손"})
 assert rv.status_code == 200 and rv.get_json()["ai_disposition"] == "pass"
 a = c.get("/api/audit").get_json()
 assert a["ok"] and a["n"] == 2 and a["records"][0]["type"] == "human_review"
@@ -107,4 +146,21 @@ assert a["ok"] and a["n"] == 2 and a["records"][0]["type"] == "human_review"
 lines = d.AUDIT_LOG.read_text(encoding="utf-8").splitlines()
 d.AUDIT_LOG.write_text("\n".join([lines[0].replace('"pass"', '"reject"', 1)] + lines[1:]) + "\n", encoding="utf-8")
 assert d.verify_chain() == {"ok": False, "n": 2, "broken_at": 1}
+d.AUDIT_LOG.write_text(lines[0] + "\n{깨진 줄\n", encoding="utf-8")    # 형식이 깨진 줄도 500 없이 손상으로 보고
+assert d.verify_chain() == {"ok": False, "n": 2, "broken_at": 2}
+
+# 형식이 깨진 모델 응답(verdict 없음)은 '불량 검출'이 아니라 판정 실패
+res, _ = b.run_model("x", lambda p, pr: {"confidence": 0.9}, samples[:1])
+assert res[0]["pred_label"] == b.ERROR
+
+# 분석: 기준 경계값과 실험 유효성 (일탈 D7 회귀 방지)
+import analyze as an  # noqa: E402
+
+edge = {"true_label": "crack", "pred_label": "good", "confidence": 0.7}
+assert an.leaked(edge, an.V3_TH) and not an.leaked(edge, an.V4_TH)   # v3는 '< 0.7'이라 0.7은 유출, v4는 아님
+ok_run = {f"i{i}": {"pred_label": "good"} for i in range(100)}
+bad_run = {f"j{i}": {"pred_label": b.ERROR if i < 5 else "good"} for i in range(100)}
+assert not an.valid({"ok": True, "result": ""}, ok_run).get("invalid")
+v = an.valid({"ok": True, "result": ""}, ok_run, ok_run, ok_run, bad_run)   # 합치면 1.25%지만 bad_run 단독 5%
+assert v["invalid"] and not v["ok"]
 print("OK")
