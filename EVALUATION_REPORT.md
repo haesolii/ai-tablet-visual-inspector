@@ -17,7 +17,7 @@
 
 **누출 효과 (같은 pill 79장)**: 정확도 97.5% → 63.3%, 불량 누락 0/69 → 8/69.
 
-## 2. v2 결과 (Claude, 구독 인증 CLI, 프롬프트 버전은 `benchmark_v2_full.json` meta 참고)
+## 2. v2 결과 (Claude, 구독 인증 CLI, 프롬프트 버전은 `results/v2_full.json` meta 참고)
 
 ### 전체
 

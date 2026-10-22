@@ -32,7 +32,7 @@ QC 관점에 맞춰 정확도보다 **불량 누락(유출)** 을 최우선 지�
 
 v1(정확도 97.5%, 누락 0%)은 **측정 오류**였다. 프롬프트에 이미지 경로(`.../test/crack/003.png`)를 넣어 폴더명=정답이 모델에 보였다.
 같은 79장을 누출 차단 후 재측정하니 **정확도 97.5% → 63.3%, 누락 0/69 → 8/69**.
-→ 이미지를 무작위 파일명으로 복사해 전달하도록 수정하고, 재발 방지 테스트를 추가했다. v1 원본은 `v1_leaky_*.json`으로 보존.
+→ 이미지를 무작위 파일명으로 복사해 전달하도록 수정하고, 재발 방지 테스트를 추가했다. v1 원본은 `results/v1_leaky_*.json`으로 보존.
 
 ## 설계 포인트 (GMP 관점)
 
@@ -69,8 +69,8 @@ python test_offline.py # 데이터·API 없이 로직 자체검증
 - `benchmark.py` — 벤치마크 하네스 (Claude 구현, GPT/Gemini 스텁)
 - `demo_app.py` — Flask 데모
 - `test_offline.py` — 누출 방지·채점·데모 라우트 자체검증
-- `benchmark_v2_full.json` — v2 전수 결과 원본
-- `v1_leaky_pill.json`, `v1_leaky_capsule.json` — 철회한 v1 결과 (누출 있음)
+- `results/v2_full.json` — v2 전수 결과 원본
+- `results/v1_leaky_*.json` — 철회한 v1 결과 (누출 있음)
 - `EVALUATION_REPORT.md` — 평가 리포트 / `INTERVIEW.md` — 면접 준비 노트 / `PROJECT_PLAN.md` — 기획서
 
 ## 한계와 다음 단계

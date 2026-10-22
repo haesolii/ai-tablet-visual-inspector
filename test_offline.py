@@ -45,6 +45,19 @@ assert sc["review_rate"] == round(1 / 9, 4)        # 실패 1건은 재검사행
 assert sc["miss_rate_95ci_upper"] == 0.3903        # 누락 0/6이어도 95% 상한은 39%
 assert b.wilson_upper(0, 141) < 0.027              # 불량 141장 전수면 상한 2.7%
 
+# 강건성 시험용 열화: 재현 가능(같은 시드)해야 하고 원본과 달라야 한다
+from PIL import Image  # noqa: E402
+
+real = Path(tmp) / "real.png"
+im = Image.new("RGB", (32, 32), (200, 200, 200))
+im.paste((20, 20, 20), (0, 0, 16, 32))  # 경계가 있어야 블러 효과가 보인다
+im.save(real)
+for name in b.PERTURBATIONS:
+    x, y = b.perturbed_copy(str(real), name, tmp), b.perturbed_copy(str(real), name, tmp)
+    assert Path(x).read_bytes() == Path(y).read_bytes(), name
+    assert Image.open(x).tobytes() != Image.open(real).tobytes(), name
+    assert "real" not in Path(x).name
+
 import demo_app as d  # noqa: E402
 
 assert d.disposition({"error": "x"}) == "review"

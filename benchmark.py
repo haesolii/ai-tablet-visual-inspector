@@ -86,8 +86,8 @@ def find_category_dir(data_dir: Path, category: str) -> Path | None:
 
 
 def load_test_set(data_dir: Path, categories: list[str], per_type_max: int = 10,
-                   seed: int = 42) -> list[dict]:
-    """test/ 디렉토리에서 층화 샘플링. 라벨=디렉토리명."""
+                   seed: int = 42, splits: tuple[str, ...] = ("test",)) -> list[dict]:
+    """층화 샘플링. 라벨=디렉토리명. 학습을 안 하므로 train/(정상만 있음)도 평가에 쓸 수 있다."""
     rng = random.Random(seed)
     samples = []
     for cat in categories:
@@ -95,16 +95,48 @@ def load_test_set(data_dir: Path, categories: list[str], per_type_max: int = 10,
         if test_dir is None:
             print(f"[skip] {cat}: test 디렉토리 없음")
             continue
-        for defect_dir in sorted(test_dir.iterdir()):
-            if not defect_dir.is_dir():
-                continue
-            label = "good" if defect_dir.name == "good" else defect_dir.name
-            imgs = sorted(defect_dir.glob("*.png"))
-            picked = rng.sample(imgs, min(per_type_max, len(imgs)))
-            for img in picked:
-                samples.append({"category": cat, "label": label, "path": str(img)})
+        for split in splits:
+            for defect_dir in sorted((test_dir.parent / split).iterdir()):
+                if not defect_dir.is_dir():
+                    continue
+                label = "good" if defect_dir.name == "good" else defect_dir.name
+                imgs = sorted(defect_dir.glob("*.png"))
+                picked = rng.sample(imgs, min(per_type_max, len(imgs)))
+                for img in picked:
+                    samples.append({"category": cat, "label": label, "path": str(img), "split": split})
     rng.shuffle(samples)
     return samples
+
+
+def _white_noise(im, sigma: float, rng: random.Random):
+    """가우시안 백색잡음 (0~255 스케일 표준편차 sigma): 센서 노이즈·저가 카메라 모사"""
+    from PIL import Image, ImageChops
+    n = im.size[0] * im.size[1] * 3
+    noise = bytes(min(255, max(0, int(128 + rng.gauss(0, sigma)))) for _ in range(n))  # 평균 128
+    return ImageChops.add(im, Image.frombytes("RGB", im.size, noise), offset=-128)
+
+
+def _perturbations(rng: random.Random):
+    from PIL import ImageEnhance, ImageFilter
+    return {
+        "noise10": lambda im: _white_noise(im, 10, rng),   # 약한 센서 노이즈
+        "noise25": lambda im: _white_noise(im, 25, rng),   # 강한 센서 노이즈
+        "blur2": lambda im: im.filter(ImageFilter.GaussianBlur(2)),  # 초점 이탈·진동
+        "dark60": lambda im: ImageEnhance.Brightness(im).enhance(0.6),  # 조명 열화
+    }
+
+
+PERTURBATIONS = ["noise10", "noise25", "blur2", "dark60"]
+
+
+def perturbed_copy(path: str, name: str, out_dir: str) -> str:
+    """강건성 시험용 열화 이미지. 재현성을 위해 이미지 경로로 시드를 고정한다."""
+    from PIL import Image
+    rng = random.Random(hashlib.md5(f"{Path(path).as_posix()}{name}".encode()).hexdigest())
+    im = Image.open(path).convert("RGB")
+    out = Path(out_dir) / f"{uuid.uuid4().hex}.png"
+    _perturbations(rng)[name](im).save(out)
+    return str(out)
 
 
 CLAUDE_SCHEMA = {
@@ -250,14 +282,23 @@ def score(results: list[dict]) -> dict:
     }
 
 
-def run_model(name: str, fn, samples: list[dict], workers: int = 1) -> tuple[list[dict], int]:
+def image_id(s: dict) -> str:
+    return f"{s['category']}/{s.get('split', 'test')}/{s['label']}/{Path(s['path']).name}"
+
+
+def run_model(name: str, fn, samples: list[dict], workers: int = 1,
+              perturb: str | None = None) -> tuple[list[dict], int]:
     """판정 실패는 ERROR로 결과에 남긴다. 반환: (결과, 실패 건수)"""
     def one(i_s):
         i, s = i_s
         print(f"  [{i}/{len(samples)}] {s['category']}/{s['label']}/{Path(s['path']).name}")
         t0 = time.monotonic()
         try:
-            pred = fn(s["path"], PROMPT)
+            if perturb:
+                with tempfile.TemporaryDirectory() as tmp:
+                    pred = fn(perturbed_copy(s["path"], perturb, tmp), PROMPT)
+            else:
+                pred = fn(s["path"], PROMPT)
             verdict = pred.get("verdict")
             pred_label = "good" if verdict == "good" else (pred.get("defect_type") or "defective")
         except NotImplementedError:
@@ -266,7 +307,7 @@ def run_model(name: str, fn, samples: list[dict], workers: int = 1) -> tuple[lis
             log.warning("ERROR %s (%s/%s): %s", s["path"], s["category"], s["label"], e)
             pred, pred_label = {}, ERROR
         return {"true_label": s["label"], "pred_label": pred_label,
-                "category": s["category"], "image": f"{s['category']}/{s['label']}/{Path(s['path']).name}",
+                "category": s["category"], "image": image_id(s),
                 "confidence": pred.get("confidence"),
                 "latency_s": round(time.monotonic() - t0, 1)}
 
@@ -283,6 +324,9 @@ def main():
     ap.add_argument("--data", default=None)
     ap.add_argument("--seed", type=int, default=42)
     ap.add_argument("--workers", type=int, default=1, help="동시 호출 수 (구독 사용량 한도 주의)")
+    ap.add_argument("--splits", nargs="+", default=["test"], choices=["test", "train"],
+                    help="train = MVTec 학습용 정상 이미지 (특이성 표본 확대용)")
+    ap.add_argument("--perturb", choices=PERTURBATIONS, default=None, help="강건성 시험용 이미지 열화")
     ap.add_argument("--out", default=str(BASE / "benchmark_results.json"))
     args = ap.parse_args()
 
@@ -294,7 +338,7 @@ def main():
         print("    또는: ln -s <캐시>/versions/2 ~/workspace/sideproject-qc-vision/data")
         return
 
-    samples = load_test_set(data_dir, args.categories, args.per_type, args.seed)
+    samples = load_test_set(data_dir, args.categories, args.per_type, args.seed, tuple(args.splits))
     print(f"데이터: {data_dir} / 샘플 {len(samples)}장")
     if not samples:
         return
@@ -304,14 +348,15 @@ def main():
         print(f"=== {name} ===")
         fn = MODELS[name]
         try:
-            results, skipped = run_model(name, fn, samples, args.workers)
+            results, skipped = run_model(name, fn, samples, args.workers, args.perturb)
         except NotImplementedError:
             print(f"[{name}] 미구현 — 계정 인증 후 실행")
             continue
         sc = score(results)
         sc["skipped"] = skipped
         all_results[name] = {"meta": {"prompt_version": PROMPT_VERSION, "seed": args.seed,
-                                      "per_type": args.per_type, "data": data_dir.name},
+                                      "per_type": args.per_type, "data": data_dir.name,
+                                      "splits": args.splits, "perturb": args.perturb},
                              "score": sc, "results": results}
         print(f"[{name}] {sc} (판정 실패 {skipped})")
 
