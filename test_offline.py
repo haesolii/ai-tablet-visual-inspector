@@ -77,4 +77,17 @@ r = c.get(f"/api/inspect?id={s['id']}").get_json()
 assert r["disposition"] == "pass" and len(r["image_sha256"]) == 64
 assert d.AUDIT_LOG.read_text(encoding="utf-8").count("\n") == 1
 assert c.get("/").status_code == 200
+
+# 사람 재검사: 필수값 검증, 원 기록은 고치지 않고 덧붙임
+assert c.post("/api/review", json={"ref": r["audit_id"], "decision": "pass", "reviewer": "kim"}).status_code == 400
+assert c.post("/api/review", json={"ref": "nope", "decision": "pass", "reviewer": "kim", "reason": "x"}).status_code == 404
+rv = c.post("/api/review", json={"ref": r["audit_id"], "decision": "reject", "reviewer": "kim", "reason": "모서리 결손"})
+assert rv.status_code == 200 and rv.get_json()["ai_disposition"] == "pass"
+a = c.get("/api/audit").get_json()
+assert a["ok"] and a["n"] == 2 and a["records"][0]["type"] == "human_review"
+
+# 해시 체인: 첫 기록을 몰래 고치면 탐지
+lines = d.AUDIT_LOG.read_text(encoding="utf-8").splitlines()
+d.AUDIT_LOG.write_text("\n".join([lines[0].replace('"pass"', '"reject"', 1)] + lines[1:]) + "\n", encoding="utf-8")
+assert d.verify_chain() == {"ok": False, "n": 2, "broken_at": 1}
 print("OK")

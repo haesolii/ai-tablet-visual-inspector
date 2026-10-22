@@ -3,8 +3,25 @@
 정제·캡슐 외관검사에서 범용 비전 AI(Claude)에게 **어디까지 맡겨도 되는지**를 측정한 사이드 프로젝트.
 QC 관점에 맞춰 정확도보다 **불량 누락(유출)** 을 최우선 지표로 두고,
 확신이 낮은 판정은 AI가 합격시키지 않고 **사람 재검사**로 넘기는 2단계 구조로 설계했다.
+제약 QC의 **시험법 밸리데이션 형식**(사전 설정 합격 기준 → 시험 → 일탈 조사 → CAPA)으로 평가했다.
 
-## 결과 (v2, MVTec AD pill + capsule 테스트셋 전수 299장)
+## 핵심 결론 (v3 밸리데이션)
+
+> **이 AI는 "자동 합격"을 맡기면 안 되고, "확실한 불량을 먼저 걸러내는 선별기"로 쓸 수 있다.**
+
+- 사전 설정한 합격 기준 5개 중 **4개 부적합** → 숨기지 않고 일탈로 조사 ([EVALUATION_REPORT.md](EVALUATION_REPORT.md))
+- 유출(AI가 단독 합격시킨 불량) 14건이 **전부 신뢰도 경계값 0.7**에서 발생 → 기준 변경 제안, 독립 데이터로 검증 예정
+- 백색잡음·블러·저조도를 섞자 누락은 늘었지만 **모델이 확신을 낮춰 재검사로 넘김**(40%→80%) — 안전한 방향으로 실패
+- 신뢰도 0.75 이상의 불량 판정은 정상품 535장에서 **오탐 0건**. 반면 정상을 자신 있게 판정한 경우는 3%뿐
+
+| 밸리데이션 항목 | 결과 | 사전 기준 |
+|---|---|---|
+| 특이성 (정상 535장 오탐) | 12.9% (AI 단독 불합격은 0.7%) | ≤10% ❌ |
+| 반복성 (70장 × 3회 결론 일치) | 88.6% (불일치는 전부 재검사 구간) | ≥90% ❌ |
+| 강건성 (백색잡음 σ10·σ25, 블러, 조명 60%) | 유출 1~3건, 강한 노이즈에서 변경률 20% | 유출 0 ❌ / 변경률 ❌ |
+| 운용 기준값 (무작위 절반 1,000회) | 유출률 평균 1.2% | ≤2% ✅ |
+
+## v2 결과 (MVTec AD pill + capsule 테스트셋 전수 299장)
 
 | | pill (167) | capsule (132) | 전체 (299) |
 |---|---|---|---|
@@ -57,21 +74,26 @@ python -c "import kagglehub; kagglehub.dataset_download('ipythonx/mvtec-ad')"   
 # Claude Code 구독 인증 필요 (claude auth login). ANTHROPIC_API_KEY는 자동 제외(과금 방지)
 python benchmark.py --categories pill capsule --per-type 1000 --workers 4   # 전수
 python benchmark.py --categories pill --per-type 2                           # 빠른 확인
+python benchmark.py --per-type 5 --perturb noise25 --workers 4                # 강건성: noise10/noise25/blur2/dark60
+python benchmark.py --per-type 1000 --splits train --workers 4                # 특이성: MVTec 정상 486장
+python analyze.py > results/v3_analysis.md                                    # 합격 기준 A1~A5 판정표
 
 python demo_app.py     # http://127.0.0.1:8931
 python test_offline.py # 데이터·API 없이 로직 자체검증
 ```
 
-데모: 랜덤 샘플 → AI 판정 → **합격 / 불합격 / 재검사(사람 확인)** 처분 + 정답 대조 + 감사추적 ID. 배치정보는 데모용 합성.
+데모: 랜덤 샘플 → AI 판정 → **합격 / 불합격 / 재검사** 처분 → 검사자가 사유와 함께 최종 판정 입력 → 감사추적 표시(해시 체인 무결성 검증 포함). 배치정보는 데모용 합성.
 
 ## 파일
 
 - `benchmark.py` — 벤치마크 하네스 (Claude 구현, GPT/Gemini 스텁)
 - `demo_app.py` — Flask 데모
-- `test_offline.py` — 누출 방지·채점·데모 라우트 자체검증
+- `analyze.py` — v3 밸리데이션 판정표 생성
+- `test_offline.py` — 누출 방지·채점·열화 재현성·재검사·해시 체인 변조 탐지 자체검증
 - `results/v2_full.json` — v2 전수 결과 원본
+- `results/v3_*.json`, `results/v3_analysis.md` — v3 반복성·강건성·특이성 원자료와 판정표
 - `results/v1_leaky_*.json` — 철회한 v1 결과 (누출 있음)
-- `EVALUATION_REPORT.md` — 평가 리포트 / `INTERVIEW.md` — 면접 준비 노트 / `PROJECT_PLAN.md` — 기획서
+- `PROJECT_PLAN.md` — 밸리데이션 프로토콜(합격 기준 사전 설정) / `EVALUATION_REPORT.md` — 결과·일탈·CAPA / `INTERVIEW.md` — 면접 준비 노트
 
 ## 한계와 다음 단계
 
