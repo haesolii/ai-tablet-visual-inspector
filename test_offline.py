@@ -175,6 +175,22 @@ for r in rs5:
 assert an.v5_thresholds(rs5) == th5
 assert [an.v5_disposition({"category": "pill", "score": x}, {"pill": {"pass": 1, "reject": 2}}) for x in (0.5, 1.5, 2.5)] == ["pass", "review", "reject"]
 
+# v6: train 정상은 파일명 해시로 보정/평가/기억 분할 — 기억 몫은 결과에 나오면 안 된다
+import patchcore  # noqa: E402
+
+for n in ("000.png", "001.png", "002.png", "003.png", "004.png", "005.png", "006.png"):
+    role = patchcore.train_role(n)
+    r = {"image": f"pill/train/good/{n}"}
+    if role == "bank":
+        try:
+            an.v6_role(r)
+            raise AssertionError("기억 몫이 평가에 섞임")
+        except AssertionError as e:
+            assert "기억" not in str(e)
+    else:
+        assert an.v6_role(r) == role
+assert an.v6_role({"image": "pill/test/crack/001.png"}) == ("eval" if an.holdout("pill/test/crack/001.png") else "calib")
+
 import torch  # noqa: E402
 
 fake = type("M", (), {"weights_sha256": "0" * 64, "score": lambda self, c, p: (1.5, torch.full((28, 28), 1.5))})()
@@ -187,8 +203,6 @@ assert "heatmap" not in d.AUDIT_LOG.read_text(encoding="utf-8").splitlines()[-1]
 
 # 망분리 모드: 차단 후 외부 연결 시도는 실패해야 한다 (전역 소켓을 바꾸므로 맨 마지막)
 import socket  # noqa: E402
-
-import patchcore  # noqa: E402
 
 patchcore.block_network()
 try:

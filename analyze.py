@@ -1,7 +1,7 @@
 """밸리데이션 분석: results/*.json → 합격 기준 판정표(markdown) + 대시보드용 results/summary.json
     python analyze.py > results/analysis.md
 
-v3 기준(A1~A5)은 PROJECT_PLAN §4, v4 기준(B1~B5)은 §7, v5 기준(C1~C6)은 §8. 기준값은 프로토콜에 고정된 값을 쓰고,
+v3 기준(A1~A5)은 PROJECT_PLAN §4, v4 기준(B1~B5)은 §7, v5 기준(C1~C6)은 §8, v6 기준(F1~F6)은 §9. 기준값은 프로토콜에 고정된 값을 쓰고,
 운용 설정(benchmark.REVIEW_THRESHOLD)이 나중에 바뀌어도 과거 판정은 바뀌지 않게 한다.
 """
 import hashlib
@@ -325,6 +325,98 @@ def v5(md: list, summary: dict):
            " / ".join(f"{c['id']} {mark(c['ok'])}" for c in crit[-6:]), ""]
 
 
+def v6_role(r) -> str:
+    """§9 분할: test는 v5와 같은 md5 반분, train 정상은 md5(파일명) % 5 (0 보정, 1 평가; 나머지는 정상 기억이라 결과에 없음)"""
+    if "/train/" in r["image"]:
+        k = int(hashlib.md5(r["image"].rsplit("/", 1)[1].encode()).hexdigest(), 16) % 5
+        assert k in (0, 1), r["image"]
+        return "calib" if k == 0 else "eval"
+    return "eval" if holdout(r["image"]) else "calib"
+
+
+def v6_thresholds(rs: list) -> dict:
+    """v5와 같은 규칙, 보정 정상품에 train 보정분을 더한다"""
+    th = {}
+    for cat in {r["category"] for r in rs}:
+        cal = [r for r in rs if r["category"] == cat and v6_role(r) == "calib"]
+        th[cat] = {"pass": 0.95 * min(r["score"] for r in cal if is_defect(r)),
+                   "reject": 1.05 * max(r["score"] for r in cal if not is_defect(r))}
+    return th
+
+
+def v6_eval(rs: list) -> dict:
+    th = v6_thresholds(rs)
+    ev = [r for r in rs if v6_role(r) == "eval"]
+    goods = [r for r in ev if not is_defect(r)]
+    defs = [r for r in ev if is_defect(r)]
+    dp = lambda r: v5_disposition(r, th)  # noqa: E731
+    g_pass = sum(dp(r) == "pass" for r in goods) / len(goods)
+    g_rej = sum(dp(r) == "reject" for r in goods) / len(goods)
+    d_rev = sum(dp(r) == "review" for r in defs) / len(defs)
+    return {"th": th, "n_good": len(goods), "n_def": len(defs),
+            "leak": sum(dp(r) == "pass" for r in defs), "good_pass": g_pass, "good_reject": g_rej,
+            "good_pass_n": sum(dp(r) == "pass" for r in goods), "good_reject_n": sum(dp(r) == "reject" for r in goods),
+            "line_review": 0.99 * (1 - g_pass - g_rej) + 0.01 * d_rev,
+            "auroc": {c: auroc([r for r in rs if r["category"] == c]) for c in th}}
+
+
+def v6(md: list, summary: dict):
+    runs = [json.loads((R / f"v6_run{i}.json").read_text(encoding="utf-8")) for i in (1, 2, 3)]
+    for run in runs:
+        assert run["meta"]["protocol"] == "v6" and run["meta"]["method"] == "coreset", "v6: 조건"
+        assert len(run["results"]) == len(runs[0]["results"]), "v6: 표본 수"
+    rs = runs[0]["results"]
+    e = v6_eval(rs)
+    rnd = json.loads((R / "v6_random.json").read_text(encoding="utf-8"))
+    assert rnd["meta"]["method"] == "random" and len(rnd["results"]) == len(rs)
+    er = v6_eval(rnd["results"])
+    sec = max(run["meta"]["sec_per_image"] for run in runs)
+    same = all([r["score"] for r in run["results"]] == [r["score"] for r in rs] for run in runs[1:])
+    offline = all(run["meta"]["offline"] for run in runs[1:])
+
+    # 같은 평가 이미지에서 Claude (v2 test + v3 train 정상, 기준 0.75)
+    claude = load("v2_full") | load("v3_train_good")
+    ev = [claude[r["image"]] for r in rs if v6_role(r) == "eval"]
+    cg = [r for r in ev if not is_defect(r)]
+    cd = [r for r in ev if is_defect(r)]
+    c_pass = sum(says_good(r) and conf(r) >= V4_TH for r in cg) / len(cg)
+    c_rej = sum(false_alarm(r) and conf(r) >= V4_TH for r in cg) / len(cg)
+    c = {"leak": sum(leaked(r, V4_TH) for r in cd), "good_pass": c_pass, "good_reject": c_rej,
+         "line_review": 0.99 * (1 - c_pass - c_rej) + 0.01 * sum(review(r, V4_TH) for r in cd) / len(cd)}
+
+    crit = summary["criteria"]
+    n_def, n_good = e["n_def"], e["n_good"]
+    crit += [
+        {"id": "F1", "name": "v6 로컬 — 유출", "rule": f"평가 불량 {n_def}장 모델 단독 합격 0건",
+         "result": f"{e['leak']}/{n_def} (95% 상한 {pct(wilson_upper(e['leak'], n_def))})", "ok": e["leak"] == 0},
+        {"id": "F2", "name": "v6 로컬 — 정상품 자동 합격", "rule": f"평가 정상 {n_good}장 중 ≥50%",
+         "result": f"{pct(e['good_pass'])} ({e['good_pass_n']}/{n_good}) · v5 15% · Claude {pct(c_pass)}", "ok": e["good_pass"] >= 0.5},
+        {"id": "F3", "name": "v6 로컬 — 정상 오탐", "rule": "모델 단독 불합격된 정상 ≤2%",
+         "result": f"{pct(e['good_reject'])} ({e['good_reject_n']}/{n_good})", "ok": e["good_reject"] <= 0.02},
+        {"id": "F4", "name": "v6 로컬 — 속도", "rule": "장당 ≤1초 (CPU)", "result": f"{sec:.2f}초 (3회 중 최대)", "ok": sec <= 1.0},
+        {"id": "F5", "name": "v6 로컬 — 재현성", "rule": "3회 점수 비트 단위 동일",
+         "result": f"{len(rs)}장 모두 동일" if same else "불일치 있음", "ok": same},
+        {"id": "F6", "name": "v6 망분리 동작", "rule": "네트워크 차단 상태로 전체 검사",
+         "result": "차단 상태 2회 완료" if offline else "미확인", "ok": offline},
+    ]
+    rows = [
+        ["단독 유출 (불량을 혼자 합격)", f"{e['leak']}/{n_def}", f"{er['leak']}/{n_def}", f"{c['leak']}/{n_def}"],
+        ["정상품 자동 합격", pct(e["good_pass"]), pct(er["good_pass"]), pct(c["good_pass"])],
+        ["정상 단독 불합격 (오탐)", pct(e["good_reject"]), pct(er["good_reject"]), pct(c["good_reject"])],
+        ["불량률 1% 라인 가정 재검사", pct(e["line_review"]), pct(er["line_review"]), pct(c["line_review"])],
+        ["AUROC (pill / capsule)", " / ".join(f"{e['auroc'][k]:.3f}" for k in ("pill", "capsule")),
+         " / ".join(f"{er['auroc'][k]:.3f}" for k in ("pill", "capsule")), "—"],
+    ]
+    summary["v6"] = {"n_def": n_def, "n_good": n_good, "sec": sec, "cols": ["v6 coreset", "참고: 무작위 보관", "Claude (기준 0.75)"],
+                     "rows": rows, "thresholds": e["th"], "weights_sha256": runs[0]["meta"]["weights_sha256"],
+                     "good_pass": e["good_pass"], "leak": e["leak"]}
+    md += ["# v6 D8 CAPA — 정상품 자동 합격률 (평가: 불량 %d, 정상 %d)" % (n_def, n_good), "",
+           "| | " + " | ".join(summary["v6"]["cols"]) + " |", "|---|---|---|---|"]
+    md += ["| " + " | ".join(r) + " |" for r in rows]
+    md += ["", "기준값: " + ", ".join(f"{k} 합격<{t['pass']:.3f}, 불합격>{t['reject']:.3f}" for k, t in e["th"].items()), "",
+           " / ".join(f"{x['id']} {mark(x['ok'])}" for x in crit[-6:]), ""]
+
+
 def main():
     import sys
     sys.stdout.reconfigure(encoding="utf-8")  # Windows 콘솔(cp949)에서도 표·기호 출력
@@ -336,6 +428,8 @@ def main():
         v4(md, summary)
     if (R / "v5_run3.json").exists():
         v5(md, summary)
+    if (R / "v6_random.json").exists():
+        v6(md, summary)
     if summary["external"]:  # 운용 기준의 성능은 기준을 고른 데이터가 아니라 독립 데이터로 보여준다
         ext = summary["external"]
         n_def = sum(x["n_def"] for x in ext)

@@ -167,17 +167,17 @@ _local_lock = threading.Lock()
 
 
 def local_engine():
-    """v5 로컬 모델. torch가 무거워서 처음 쓸 때 불러온다 (정상 패치 기억은 .cache에 저장해 재사용)"""
+    """v6 로컬 모델 (F1·F3 적합으로 채택, §9). torch가 무거워서 처음 쓸 때 불러온다 (정상 패치 기억은 .cache에 저장해 재사용)"""
     with _local_lock:
         if not _local:
             import analyze
             import patchcore
             m = patchcore.PatchCore()
             data_dir = resolve_data_dir(None)
-            for cat in ["pill", "capsule"]:
-                m.fit(cat, patchcore.train_goods(data_dir, cat))
-            run = json.loads((BASE / "results" / "v5_run1.json").read_text(encoding="utf-8"))
-            _local.update(model=m, th=analyze.v5_thresholds(run["results"]), disposition=analyze.v5_disposition)
+            for cat in ["pill", "capsule"]:   # 실험과 같은 정상 기억: train 정상 중 'bank' 몫, greedy coreset
+                m.fit(cat, [p for p in patchcore.train_goods(data_dir, cat) if patchcore.train_role(p) == "bank"])
+            run = json.loads((BASE / "results" / "v6_run1.json").read_text(encoding="utf-8"))
+            _local.update(model=m, th=analyze.v6_thresholds(run["results"]), disposition=analyze.v5_disposition)
     return _local
 
 
@@ -201,7 +201,7 @@ def inspect_local(s: dict, path: str) -> tuple[dict, dict]:
     score, d = eng["model"].score(s["category"], path)
     sec = time.perf_counter() - t0
     t = eng["th"][s["category"]]
-    rec = {"model": f"PatchCore/wide_resnet50_2 sha256:{eng['model'].weights_sha256[:12]}",
+    rec = {"model": f"PatchCore v6 coreset/wide_resnet50_2 sha256:{eng['model'].weights_sha256[:12]}",
            "score": round(score, 4), "t_pass": round(t["pass"], 4), "t_reject": round(t["reject"], 4),
            "network": "미사용", "disposition": eng["disposition"]({"category": s["category"], "score": score}, eng["th"])}
     return rec, {"heatmap": heatmap_data_url(path, d, t), "sec": round(sec, 3)}
@@ -215,7 +215,7 @@ def index():
 @app.route("/api/config")
 def api_config():
     return jsonify({"threshold": REVIEW_THRESHOLD, "use_reference": USE_REFERENCE, "engines": ENGINES,
-                    "local_ready": (BASE / "results" / "v5_run1.json").exists(),
+                    "local_ready": (BASE / "results" / "v6_run1.json").exists(),
                     "prompt_version": prompt_version(PROMPT_REF if USE_REFERENCE else PROMPT),
                     "gate": bool(quality_gate.load_limits()), "n_samples": len(build_pool())})
 
