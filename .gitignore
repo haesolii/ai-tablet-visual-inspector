@@ -6,3 +6,4 @@ expect_driver.exp
 expect_login.exp
 pty_driver.py
 audit_trail.jsonl
+.cache/

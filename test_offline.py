@@ -163,4 +163,37 @@ bad_run = {f"j{i}": {"pred_label": b.ERROR if i < 5 else "good"} for i in range(
 assert not an.valid({"ok": True, "result": ""}, ok_run).get("invalid")
 v = an.valid({"ok": True, "result": ""}, ok_run, ok_run, ok_run, bad_run)   # 합치면 1.25%지만 bad_run 단독 5%
 assert v["invalid"] and not v["ok"]
+
+# v5 로컬 엔진: 기준값은 보정 절반에서만 정한다 (홀드아웃 점수가 바뀌어도 기준값 불변)
+names = [f"pill/test/{lab}/{i:03d}.png" for lab in ("good", "crack") for i in range(40)]
+rs5 = [{"image": n, "category": "pill", "true_label": n.split("/")[2], "score": 1.0 if "good" in n else 3.0} for n in names]
+th5 = an.v5_thresholds(rs5)
+assert th5 == {"pill": {"pass": 0.95 * 3.0, "reject": 1.05 * 1.0}}
+for r in rs5:
+    if an.holdout(r["image"]):
+        r["score"] = 99.0
+assert an.v5_thresholds(rs5) == th5
+assert [an.v5_disposition({"category": "pill", "score": x}, {"pill": {"pass": 1, "reject": 2}}) for x in (0.5, 1.5, 2.5)] == ["pass", "review", "reject"]
+
+import torch  # noqa: E402
+
+fake = type("M", (), {"weights_sha256": "0" * 64, "score": lambda self, c, p: (1.5, torch.full((28, 28), 1.5))})()
+d.AUDIT_LOG.unlink()                              # 위에서 일부러 깨뜨린 로그 정리
+d.local_engine = lambda: {"model": fake, "th": {"pill": {"pass": 1.0, "reject": 2.0}}, "disposition": an.v5_disposition}
+assert c.post(f"/api/inspect?id={s['id']}&engine=x", headers=H).status_code == 400
+r = c.post(f"/api/inspect?id={s['id']}&engine=local", headers=H).get_json()
+assert r["disposition"] == "review" and r["network"] == "미사용" and r["heatmap"].startswith("data:image/png")
+assert "heatmap" not in d.AUDIT_LOG.read_text(encoding="utf-8").splitlines()[-1]   # 화면용 이미지는 감사기록에 안 넣음
+
+# 망분리 모드: 차단 후 외부 연결 시도는 실패해야 한다 (전역 소켓을 바꾸므로 맨 마지막)
+import socket  # noqa: E402
+
+import patchcore  # noqa: E402
+
+patchcore.block_network()
+try:
+    socket.create_connection(("example.com", 80), timeout=1)
+    raise AssertionError("차단 실패")
+except ConnectionError:
+    pass
 print("OK")

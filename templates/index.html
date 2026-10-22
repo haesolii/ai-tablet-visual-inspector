@@ -110,6 +110,10 @@ dl.kv dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
 .spin { display: inline-block; width: 14px; height: 14px; border: 2px solid var(--axis); border-top-color: var(--accent); border-radius: 50%; animation: sp 1s linear infinite; vertical-align: -2px; }
 @keyframes sp { to { transform: rotate(360deg); } }
 .review-form { display: grid; grid-template-columns: 1fr 2fr; gap: 8px; margin-top: 8px; }
+.heat { display: block; width: 100%; max-width: 260px; border-radius: 8px; margin-top: 4px; image-rendering: auto; }
+.score { position: relative; height: 10px; border-radius: 5px; margin-top: 6px;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--good) 35%, transparent) var(--p), color-mix(in srgb, var(--warning) 35%, transparent) var(--p) var(--r), color-mix(in srgb, var(--critical) 35%, transparent) var(--r)); }
+.score .th { position: absolute; top: -4px; bottom: -4px; width: 3px; background: var(--ink); border-radius: 2px; }
 button.ok { background: var(--good); color: #fff; border-color: transparent; }
 button.ng { background: var(--critical); color: #fff; border-color: transparent; }
 
@@ -172,6 +176,10 @@ svg .lbl { fill: var(--ink-2); font-size: 11px; }
         {% for k, v in conditions.items() %}<button data-cond="{{ k }}" aria-pressed="{{ 'true' if k == 'clean' else 'false' }}">{{ v }}</button>{% endfor %}
       </div>
       <div class="row" style="margin-top:12px">
+        <span class="small muted">판정 엔진</span>
+        <div class="seg" id="engines" role="group" aria-label="판정 엔진" style="margin:0"></div>
+      </div>
+      <div class="row" style="margin-top:12px">
         <button class="btn primary" id="btnGo">AI 검사 시작</button>
         <button class="btn" id="btnNew">다른 샘플</button>
         <span class="small muted">이미지를 클릭하면 확대</span>
@@ -229,6 +237,8 @@ svg .lbl { fill: var(--ink-2); font-size: 11px; }
     <div class="card"><h2>촬영 조건별 사람 재검사 비율 <span class="muted small">같은 70장</span></h2><div id="chRobust"></div></div>
     <div class="card"><h2>재검사 기준값별 AI 단독 유출 <span class="muted small">MVTec 불량 250장</span></h2><div id="chLeak"></div></div>
     <div class="card"><h2>재검사 기준값별 사람 재검사 비율 <span class="muted small">MVTec 299장</span></h2><div id="chReview"></div></div>
+    <div class="card full" id="v5card" hidden><h2>v5 로컬 고정 모델 vs 클라우드 AI <span class="muted small">같은 홀드아웃 이미지</span></h2><div class="tablewrap"><table id="v5"></table></div>
+      <p class="small muted" id="v5note"></p></div>
     <div class="card"><h2>외부 데이터 독립 검증 <span class="muted small">처음 보는 데이터</span></h2><div class="tablewrap"><table id="ext"></table></div></div>
   </div>
   <p class="note">데이터: MVTec AD pill/capsule (CC BY-NC-SA 4.0), PharmaVision (CC BY-SA 4.0), Pill defect (라이선스 미표기, 결과만 공개). 실제 제약사 QC 데이터가 아니며, 모델 신뢰도는 보정되지 않은 자기 보고값입니다.</p>
@@ -254,7 +264,7 @@ async function api(url, opt = {}) {
   const r = await fetch(url, opt); return [r.ok, await r.json().catch(() => ({}))];
 }
 
-let cfg = {}, cur = null, cond = 'clean', gate = null;
+let cfg = {}, cur = null, cond = 'clean', gate = null, engine = 'claude';
 
 // ---- theme / tabs ----
 $('#themeBtn').onclick = () => {
@@ -279,7 +289,17 @@ async function loadConfig() {
     el('span', {className: 'chip'}, '프롬프트 ', el('b', {textContent: cfg.prompt_version})),
     el('span', {className: 'chip'}, '레퍼런스 ', el('b', {textContent: cfg.use_reference ? '사용' : '미사용'})),
     el('span', {className: 'chip'}, '품질 게이트 ', el('b', {textContent: cfg.gate ? 'ON' : 'OFF'})));
+  $('#engines').replaceChildren(...Object.entries(cfg.engines).map(([k, v]) => el('button', {
+    textContent: v, disabled: k === 'local' && !cfg.local_ready, title: k === 'local' ? 'v5: 이미지가 PC 밖으로 나가지 않는 고정 모델' : '이미지를 클라우드 AI로 전송'},
+  )));
+  [...$('#engines').children].forEach((b, i) => { b.dataset.engine = Object.keys(cfg.engines)[i]; b.setAttribute('aria-pressed', b.dataset.engine === engine); });
 }
+$('#engines').onclick = e => {
+  if (!e.target.dataset.engine || e.target.disabled) return;
+  engine = e.target.dataset.engine;
+  [...$('#engines').children].forEach(b => b.setAttribute('aria-pressed', b.dataset.engine === engine));
+  if (cur) $('#res').replaceChildren(emptyState());
+};
 
 // ---- inspection ----
 function emptyState() {
@@ -288,7 +308,9 @@ function emptyState() {
     el('p', {className: 'muted', textContent: '[AI 검사 시작]을 누르면 아래 순서로 처리됩니다.'}),
     el('ol', {className: 'steps'},
       li('품질 게이트', '— 노이즈·선명도·밝기가 정상 범위 밖이면 AI에 넘기지 않고 재촬영'),
-      li('AI 판정', `— 신뢰도 ${cfg.threshold} 미만이거나 판정 실패면 재검사, 그 외 합격/불합격`),
+      engine === 'local'
+        ? li('로컬 판정', '— 정상품 패치와의 거리(이상 점수)로 합격/재검사/불합격. 이미지는 PC 밖으로 나가지 않음')
+        : li('AI 판정', `— 신뢰도 ${cfg.threshold} 미만이거나 판정 실패면 재검사, 그 외 합격/불합격`),
       li('사람 최종 판정', '— 사유와 함께 기록. AI 기록은 고치지 않고 덧붙임'),
       li('감사추적', '— 해시 체인으로 변조 여부 상시 확인')),
     el('p', {className: 'small muted', textContent: '왼쪽 촬영 조건을 바꾸면 열화된 이미지에서 게이트와 AI가 어떻게 반응하는지 볼 수 있습니다.'}));
@@ -346,9 +368,10 @@ $('#btnGo').onclick = async () => {
   if (!cur) return;
   const b = $('#btnGo'); b.disabled = true;
   const t0 = Date.now(), msg = el('span');
-  const timer = setInterval(() => msg.textContent = ` AI가 외관을 검사 중… ${((Date.now() - t0) / 1000).toFixed(0)}초`, 500);
+  const what = engine === 'local' ? '로컬 모델이 검사 중 (처음 한 번은 모델 준비로 1~2분)' : 'AI가 외관을 검사 중';
+  const timer = setInterval(() => msg.textContent = ` ${what}… ${((Date.now() - t0) / 1000).toFixed(0)}초`, 500);
   $('#res').replaceChildren(el('p', {}, el('span', {className: 'spin'}), msg));
-  const [ok, r] = await api(`/api/inspect?id=${cur.id}&cond=${cond}`, {method: 'POST'});
+  const [ok, r] = await api(`/api/inspect?id=${cur.id}&cond=${cond}&engine=${engine}`, {method: 'POST'});
   clearInterval(timer); b.disabled = false;
   if (!ok) { $('#res').replaceChildren(el('p', {textContent: '요청 실패'})); return; }
   renderResult(r);
@@ -362,6 +385,18 @@ function renderResult(r) {
   if (r.disposition === 'recapture') {
     add('사유', '품질 게이트 불합격: ' + r.gate_failed.map(k => METRIC_NAME[k]).join(', '));
     parts.push(kv, el('div', {className: 'hint', textContent: '이미지 품질이 정상 범위를 벗어나 AI 판정을 하지 않았습니다. 실제 라인이라면 재촬영 후 다시 검사합니다.'}));
+  } else if (r.engine === 'local') {
+    const max = r.t_reject * 1.3, pos = x => Math.min(100, x / max * 100);
+    add('이상 점수', el('div', {},
+      `${r.score.toFixed(3)} · ` + (r.disposition === 'pass' ? `합격 기준 ${r.t_pass.toFixed(3)} 미만` : r.disposition === 'reject' ? `불합격 기준 ${r.t_reject.toFixed(3)} 초과` : '두 기준 사이 → 재검사'),
+      el('div', {className: 'score', style: `--p:${pos(r.t_pass)}%;--r:${pos(r.t_reject)}%`, title: '초록 = 합격 구간, 노랑 = 재검사, 빨강 = 불합격'},
+        el('div', {className: 'th', style: `left:${pos(r.score)}%`}))));
+    add('불량 위치', el('div', {}, el('img', {className: 'heat', src: r.heatmap, alt: '이상 점수 히트맵 (파란 곳이 정상품과 다른 부분)'}),
+      el('div', {className: 'small muted', textContent: '파란 곳 = 정상품과 다른 부분. 불량 유형은 말하지 않음'})));
+    add('처리', `${r.sec}초 · 네트워크 ${r.network} (이미지 외부 전송 없음)`);
+    add('모델', r.model);
+    parts.push(kv);
+    if (r.disposition === 'review') parts.push(el('div', {className: 'hint', textContent: '이상 점수가 합격·불합격 기준 사이라 모델이 처분을 확정하지 않았습니다. 사람이 최종 판정해야 합니다.'}));
   } else {
     const c = r.confidence || 0;
     add('AI 판정', r.error ? '판정 실패' : (r.verdict === 'good' ? '정상' : '불량'));
@@ -430,6 +465,22 @@ async function loadDash() {
     tip: `기준 신뢰도 < ${s.th}<br>AI 단독 유출 ${s.leak_n}/${s.n_def} (${pct(s.leak)})<br>95% 상한 ${pct(s.leak_upper)}`})), v => pct(v), d.adopted_threshold);
   bars('#chReview', d.sweep.map(s => ({label: '< ' + s.th, value: s.review,
     tip: `기준 신뢰도 < ${s.th}<br>사람 재검사 ${pct(s.review)}`})), v => pct(v), d.adopted_threshold);
+  if (d.v5) {
+    const v = d.v5, c = v.claude;
+    $('#v5card').hidden = false;
+    const row = (k, a, b) => el('tr', {}, el('td', {textContent: k}), el('td', {className: 'num', textContent: a}), el('td', {className: 'num', textContent: b}));
+    $('#v5').replaceChildren(el('thead', {}, el('tr', {}, el('th', {textContent: `홀드아웃 ${v.n_hold}장 (불량 ${v.n_def}, 정상 ${v.n_good})`}),
+        el('th', {className: 'num', textContent: '로컬 PatchCore'}), el('th', {className: 'num', textContent: 'Claude (클라우드)'}))),
+      el('tbody', {},
+        row('단독 유출 (불량을 혼자 합격)', `${v.leak}/${v.n_def}`, `${c.leak}/${v.n_def}`),
+        row('사람 재검사 비율', pct(v.review), pct(c.review)),
+        row('단독 오탐 (정상을 혼자 불합격)', `${v.auto_fa}/${v.n_good}`, `${c.auto_fa}/${v.n_good}`),
+        row('정상품 자동 합격', `${v.good_pass}/${v.n_good}`, `${c.good_pass}/${v.n_good}`),
+        row('장당 처리 시간', `${v.sec.toFixed(2)}초 (CPU)`, '7.7초'),
+        row('같은 이미지 반복 결과', '100% 동일', '88.6% 일치'),
+        row('이미지 외부 전송', '없음 (차단 상태로 검증)', '있음')));
+    $('#v5note').textContent = '주의: 홀드아웃은 불량이 85%라 재검사 비율이 실제 라인보다 낮게 보입니다. 실제 라인은 대부분 정상품이라 "정상품 자동 합격"이 재검사 부담을 좌우하고, 두 엔진 모두 낮습니다 (일탈 D8).';
+  }
   const ext = $('#ext');
   ext.replaceChildren(el('thead', {}, el('tr', {}, ...['데이터셋', '불량', '정상', 'AI 단독 유출', '오탐 (AI 단독)', '재검사'].map((h, i) => el('th', {className: i ? 'num' : '', textContent: h})))),
     el('tbody', {}, ...d.external.map(x => el('tr', {},

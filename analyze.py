@@ -1,9 +1,10 @@
 """밸리데이션 분석: results/*.json → 합격 기준 판정표(markdown) + 대시보드용 results/summary.json
     python analyze.py > results/analysis.md
 
-v3 기준(A1~A5)은 PROJECT_PLAN §4, v4 기준(B1~B5)은 §7. 기준값은 프로토콜에 고정된 값을 쓰고,
+v3 기준(A1~A5)은 PROJECT_PLAN §4, v4 기준(B1~B5)은 §7, v5 기준(C1~C6)은 §8. 기준값은 프로토콜에 고정된 값을 쓰고,
 운용 설정(benchmark.REVIEW_THRESHOLD)이 나중에 바뀌어도 과거 판정은 바뀌지 않게 한다.
 """
+import hashlib
 import json
 import random
 from pathlib import Path
@@ -236,6 +237,94 @@ def v4(md: list, summary: dict):
     summary["gate"] = {c: rate[c] for c in g}
 
 
+def holdout(image: str) -> bool:
+    """v5 분할: md5(image_id) 홀수 = 홀드아웃(평가), 짝수 = 보정(기준값 선정)"""
+    return int(hashlib.md5(image.encode()).hexdigest(), 16) % 2 == 1
+
+
+def v5_thresholds(rs: list) -> dict:
+    """§8 규칙: 보정 절반만 보고 카테고리별 기준값"""
+    th = {}
+    for cat in {r["category"] for r in rs}:
+        cal = [r for r in rs if r["category"] == cat and not holdout(r["image"])]
+        th[cat] = {"pass": 0.95 * min(r["score"] for r in cal if is_defect(r)),
+                   "reject": 1.05 * max(r["score"] for r in cal if not is_defect(r))}
+    return th
+
+
+def v5_disposition(r, th) -> str:
+    t = th[r["category"]]
+    return "pass" if r["score"] < t["pass"] else "reject" if r["score"] > t["reject"] else "review"
+
+
+def auroc(rs) -> float:
+    d = [r["score"] for r in rs if is_defect(r)]
+    g = [r["score"] for r in rs if not is_defect(r)]
+    return sum((x > y) + 0.5 * (x == y) for x in d for y in g) / (len(d) * len(g))
+
+
+def v5(md: list, summary: dict):
+    runs = [json.loads((R / f"v5_run{i}.json").read_text(encoding="utf-8")) for i in (1, 2, 3)]
+    for run in runs:
+        assert len(run["results"]) == 299, "v5: 표본 수"
+    rs = runs[0]["results"]
+    th = v5_thresholds(rs)
+    hold = [r for r in rs if holdout(r["image"])]
+    disp = {r["image"]: v5_disposition(r, th) for r in hold}
+    n_def = sum(is_defect(r) for r in hold)
+    n_good = len(hold) - n_def
+    leak = sum(is_defect(r) and disp[r["image"]] == "pass" for r in hold)
+    rev = sum(d == "review" for d in disp.values()) / len(hold)
+    auto_fa = sum(not is_defect(r) and disp[r["image"]] == "reject" for r in hold)
+    sec = max(run["meta"]["sec_per_image"] for run in runs)
+    same = all([r["score"] for r in run["results"]] == [r["score"] for r in rs] for run in runs[1:])
+    offline = all(run["meta"]["offline"] for run in runs[1:])
+
+    # 같은 홀드아웃에서 Claude (v2, 기준 0.75)
+    v2 = load("v2_full")
+    ch = [v2[r["image"]] for r in hold]
+    c_leak = sum(leaked(r, V4_TH) for r in ch)
+    c_rev = sum(review(r, V4_TH) for r in ch) / len(ch)
+    c_fa = sum(false_alarm(r) and conf(r) >= V4_TH for r in ch)
+    # 실제 라인은 대부분 정상품이라, 재검사 부담은 '정상품을 자동 합격시키는 비율'이 좌우한다 (일탈 D8)
+    good_pass = sum(not is_defect(r) and disp[r["image"]] == "pass" for r in hold)
+    c_good_pass = sum(not is_defect(r) and says_good(r) and conf(r) >= V4_TH for r in ch)
+
+    crit = summary["criteria"]
+    crit += [
+        {"id": "C1", "name": "로컬 모델 — 유출", "rule": "홀드아웃 모델 단독 합격된 불량 0건",
+         "result": f"{leak}/{n_def} (95% 상한 {pct(wilson_upper(leak, n_def))}) · Claude {c_leak}건", "ok": leak == 0},
+        {"id": "C2", "name": "로컬 모델 — 재검사 비율", "rule": "≤30%",
+         "result": f"{pct(rev)} · Claude {pct(c_rev)}", "ok": rev <= 0.30},
+        {"id": "C3", "name": "로컬 모델 — 오탐", "rule": "모델 단독 불합격된 정상 ≤5%",
+         "result": f"{auto_fa}/{n_good} ({pct(auto_fa / n_good)}) · Claude {c_fa}건", "ok": auto_fa / n_good <= 0.05},
+        {"id": "C4", "name": "로컬 모델 — 속도", "rule": "장당 ≤1초 (CPU)",
+         "result": f"{sec:.2f}초 (3회 중 최대) · Claude 7.7초", "ok": sec <= 1.0},
+        {"id": "C5", "name": "로컬 모델 — 재현성", "rule": "3회 점수 299장 비트 단위 동일",
+         "result": "299장 모두 동일" if same else "불일치 있음", "ok": same},
+        {"id": "C6", "name": "망분리 동작", "rule": "네트워크 차단 상태로 전체 검사",
+         "result": "차단 상태 2회 완료" if offline else "미확인", "ok": offline},
+    ]
+    summary["v5"] = {"n_hold": len(hold), "n_def": n_def, "n_good": n_good, "leak": leak, "review": rev,
+                     "auto_fa": auto_fa, "sec": sec, "good_pass": good_pass,
+                     "claude": {"leak": c_leak, "review": c_rev, "auto_fa": c_fa, "good_pass": c_good_pass},
+                     "thresholds": th, "auroc": {c: auroc([r for r in rs if r["category"] == c]) for c in th},
+                     "weights_sha256": runs[0]["meta"]["weights_sha256"]}
+    md += ["# v5 온프레미스 검사 (PatchCore, 홀드아웃 절반)", "",
+           f"홀드아웃 {len(hold)}장 (불량 {n_def}, 정상 {n_good}). 기준값은 보정 절반에서만 선정.", "",
+           "| | 로컬 PatchCore | Claude (v2, 기준 0.75) |", "|---|---|---|",
+           f"| 단독 유출 | {leak}/{n_def} | {c_leak}/{n_def} |",
+           f"| 재검사 비율 | {pct(rev)} | {pct(c_rev)} |",
+           f"| 단독 오탐 | {auto_fa}/{n_good} | {c_fa}/{n_good} |",
+           f"| 정상품 자동 합격 | {good_pass}/{n_good} | {c_good_pass}/{n_good} |",
+           f"| 장당 시간 | {sec:.2f}초 (CPU) | 7.7초 |",
+           f"| 반복 재현 | {'100% 동일' if same else '불일치'} | 88.6% (A2) |",
+           f"| 이미지 외부 전송 | 없음 (차단 상태 실행) | 있음 |", "",
+           "AUROC (참고, 전체 299장): " + ", ".join(f"{c} {v:.3f}" for c, v in summary["v5"]["auroc"].items()), "",
+           "기준값: " + ", ".join(f"{c} 합격<{t['pass']:.3f}, 불합격>{t['reject']:.3f}" for c, t in th.items()), "",
+           " / ".join(f"{c['id']} {mark(c['ok'])}" for c in crit[-6:]), ""]
+
+
 def main():
     import sys
     sys.stdout.reconfigure(encoding="utf-8")  # Windows 콘솔(cp949)에서도 표·기호 출력
@@ -245,6 +334,8 @@ def main():
     v3(md, summary)
     if (R / "v4_e2_ref_train.json").exists() and (R / "v4_e3_gate.json").exists():
         v4(md, summary)
+    if (R / "v5_run3.json").exists():
+        v5(md, summary)
     if summary["external"]:  # 운용 기준의 성능은 기준을 고른 데이터가 아니라 독립 데이터로 보여준다
         ext = summary["external"]
         n_def = sum(x["n_def"] for x in ext)

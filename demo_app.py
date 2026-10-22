@@ -1,14 +1,18 @@
 """AI 정제 외관 검사기 — QC 검사 스테이션 데모 (Flask)
 
 흐름: 샘플 선택(촬영 조건 선택 가능) → 품질 게이트 → AI 판정 → 처분(합격/불합격/재검사/재촬영)
+     판정 엔진: Claude(클라우드) 또는 PatchCore(로컬, v5 — 이미지가 PC 밖으로 나가지 않음)
      → 사람 최종 판정 → 해시 체인 감사추적.  두 번째 탭은 밸리데이션 결과 대시보드.
     python demo_app.py   # http://127.0.0.1:8931
 """
+import base64
 import hashlib
+import io
 import json
 import random
 import tempfile
 import threading
+import time
 import uuid
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
@@ -27,6 +31,7 @@ CACHE = Path(tempfile.gettempdir()) / "qc_demo_cache"  # 열화 이미지 캐시
 CONDITIONS = {"clean": "원본", "noise10": "백색잡음 σ10", "noise25": "백색잡음 σ25",
               "blur2": "블러 (초점 이탈)", "dark60": "조명 60%"}
 assert set(CONDITIONS) == {"clean", *PERTURBATIONS}
+ENGINES = {"claude": "Claude (클라우드)", "local": "PatchCore (로컬)"}
 app = Flask(__name__)
 app.json.sort_keys = False  # 배치 정보 등 화면 표시 순서 유지
 
@@ -157,6 +162,51 @@ def image_path(s: dict, cond: str) -> str:
     return str(out)
 
 
+_local = {}
+_local_lock = threading.Lock()
+
+
+def local_engine():
+    """v5 로컬 모델. torch가 무거워서 처음 쓸 때 불러온다 (정상 패치 기억은 .cache에 저장해 재사용)"""
+    with _local_lock:
+        if not _local:
+            import analyze
+            import patchcore
+            m = patchcore.PatchCore()
+            data_dir = resolve_data_dir(None)
+            for cat in ["pill", "capsule"]:
+                m.fit(cat, patchcore.train_goods(data_dir, cat))
+            run = json.loads((BASE / "results" / "v5_run1.json").read_text(encoding="utf-8"))
+            _local.update(model=m, th=analyze.v5_thresholds(run["results"]), disposition=analyze.v5_disposition)
+    return _local
+
+
+def heatmap_data_url(path: str, d, t: dict) -> str:
+    """모델이 본 224×224 영역 위에, 정상 기준에서 먼 패치일수록 진한 파랑을 겹친다 (빨간 오염과 헷갈리지 않게)"""
+    from PIL import Image
+    import patchcore
+    base = patchcore.TF.transforms[1](patchcore.TF.transforms[0](Image.open(path).convert("RGB")))
+    v = ((d - t["pass"]) / (t["reject"] - t["pass"])).clamp(0, 1)
+    mask = Image.fromarray((v * 170).byte().numpy(), "L").resize(base.size, Image.BILINEAR)
+    out = Image.composite(Image.new("RGB", base.size, (0, 140, 255)), base, mask)
+    buf = io.BytesIO()
+    out.save(buf, "PNG")
+    return "data:image/png;base64," + base64.b64encode(buf.getvalue()).decode()
+
+
+def inspect_local(s: dict, path: str) -> tuple[dict, dict]:
+    """감사 기록용 필드와, 기록하지 않고 화면에만 보내는 필드(히트맵)"""
+    eng = local_engine()
+    t0 = time.perf_counter()
+    score, d = eng["model"].score(s["category"], path)
+    sec = time.perf_counter() - t0
+    t = eng["th"][s["category"]]
+    rec = {"model": f"PatchCore/wide_resnet50_2 sha256:{eng['model'].weights_sha256[:12]}",
+           "score": round(score, 4), "t_pass": round(t["pass"], 4), "t_reject": round(t["reject"], 4),
+           "network": "미사용", "disposition": eng["disposition"]({"category": s["category"], "score": score}, eng["th"])}
+    return rec, {"heatmap": heatmap_data_url(path, d, t), "sec": round(sec, 3)}
+
+
 @app.route("/")
 def index():
     return render_template("index.html", conditions=CONDITIONS)
@@ -164,7 +214,8 @@ def index():
 
 @app.route("/api/config")
 def api_config():
-    return jsonify({"threshold": REVIEW_THRESHOLD, "use_reference": USE_REFERENCE,
+    return jsonify({"threshold": REVIEW_THRESHOLD, "use_reference": USE_REFERENCE, "engines": ENGINES,
+                    "local_ready": (BASE / "results" / "v5_run1.json").exists(),
                     "prompt_version": prompt_version(PROMPT_REF if USE_REFERENCE else PROMPT),
                     "gate": bool(quality_gate.load_limits()), "n_samples": len(build_pool())})
 
@@ -203,6 +254,9 @@ def require_demo_header():
 @app.post("/api/inspect")
 def api_inspect():
     s, cond = sample_or_404(), condition_or_400()
+    engine = request.values.get("engine", "claude")
+    if engine not in ENGINES:
+        abort(400)
     path = image_path(s, cond)
     limits = quality_gate.load_limits().get(s["category"])
     gate = quality_gate.check(path, limits) if limits else {"ok": True, "failed": []}
@@ -215,11 +269,16 @@ def api_inspect():
         "image_sha256": hashlib.sha256(Path(path).read_bytes()).hexdigest(),
         "image": f"{s['category']}/{s['name']}",
         "condition": cond,
-        "threshold": REVIEW_THRESHOLD,
+        "engine": engine,
     }
+    view = {}
     if not gate["ok"]:  # CAPA D5: 품질 미달 이미지는 AI에 넘기지 않고 재촬영
         rec |= {"disposition": "recapture", "gate_failed": gate["failed"]}
+    elif engine == "local":
+        local, view = inspect_local(s, path)
+        rec |= local
     else:
+        rec["threshold"] = REVIEW_THRESHOLD
         ref = REFERENCES.get(s["category"])
         prompt = PROMPT_REF if ref else PROMPT
         try:
@@ -237,7 +296,7 @@ def api_inspect():
         rec |= {"model": pred.get("_model"), "prompt_version": prompt_version(prompt)}
         rec |= clean | {"disposition": disposition(clean)}
     rec = audit(rec)
-    return jsonify(rec | {"true_label": s["true_label"]})
+    return jsonify(rec | view | {"true_label": s["true_label"]})
 
 
 @app.post("/api/review")
