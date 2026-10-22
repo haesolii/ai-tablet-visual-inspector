@@ -1,0 +1,97 @@
+{
+  "claude": {
+    "score": {
+      "n": 12,
+      "accuracy": 1.0,
+      "miss_rate": 0.0,
+      "false_alarm_rate": 0.0,
+      "skipped": 0
+    },
+    "results": [
+      {
+        "true_label": "faulty_imprint",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/capsule/test/faulty_imprint/000.png",
+        "confidence": 0.93
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "capsule",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/capsule/test/good/004.png",
+        "confidence": 0.85
+      },
+      {
+        "true_label": "poke",
+        "pred_label": "poke",
+        "category": "capsule",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/capsule/test/poke/017.png",
+        "confidence": 0.7
+      },
+      {
+        "true_label": "scratch",
+        "pred_label": "scratch",
+        "category": "capsule",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/capsule/test/scratch/002.png",
+        "confidence": 0.9
+      },
+      {
+        "true_label": "poke",
+        "pred_label": "poke",
+        "category": "capsule",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/capsule/test/poke/003.png",
+        "confidence": 0.85
+      },
+      {
+        "true_label": "squeeze",
+        "pred_label": "squeeze",
+        "category": "capsule",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/capsule/test/squeeze/013.png",
+        "confidence": 0.9
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "capsule",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/capsule/test/good/007.png",
+        "confidence": 0.85
+      },
+      {
+        "true_label": "squeeze",
+        "pred_label": "squeeze",
+        "category": "capsule",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/capsule/test/squeeze/001.png",
+        "confidence": 0.8
+      },
+      {
+        "true_label": "scratch",
+        "pred_label": "scratch",
+        "category": "capsule",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/capsule/test/scratch/018.png",
+        "confidence": 0.9
+      },
+      {
+        "true_label": "faulty_imprint",
+        "pred_label": "faulty_imprint",
+        "category": "capsule",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/capsule/test/faulty_imprint/008.png",
+        "confidence": 0.93
+      },
+      {
+        "true_label": "crack",
+        "pred_label": "crack",
+        "category": "capsule",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/capsule/test/crack/003.png",
+        "confidence": 0.8
+      },
+      {
+        "true_label": "crack",
+        "pred_label": "crack",
+        "category": "capsule",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/capsule/test/crack/020.png",
+        "confidence": 0.72
+      }
+    ]
+  }
+}

@@ -1,0 +1,566 @@
+{
+  "claude": {
+    "score": {
+      "n": 79,
+      "accuracy": 0.9747,
+      "miss_rate": 0.0,
+      "false_alarm_rate": 0.0,
+      "skipped": 0
+    },
+    "results": [
+      {
+        "true_label": "faulty_imprint",
+        "pred_label": "faulty_imprint",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/faulty_imprint/012.png",
+        "confidence": 0.85
+      },
+      {
+        "true_label": "faulty_imprint",
+        "pred_label": "faulty_imprint",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/faulty_imprint/001.png",
+        "confidence": 0.85
+      },
+      {
+        "true_label": "crack",
+        "pred_label": "crack",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/crack/002.png",
+        "confidence": 0.9
+      },
+      {
+        "true_label": "combined",
+        "pred_label": "combined",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/combined/011.png",
+        "confidence": 0.85
+      },
+      {
+        "true_label": "color",
+        "pred_label": "color",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/color/004.png",
+        "confidence": 0.9
+      },
+      {
+        "true_label": "pill_type",
+        "pred_label": "pill_type",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/pill_type/008.png",
+        "confidence": 0.85
+      },
+      {
+        "true_label": "faulty_imprint",
+        "pred_label": "faulty_imprint",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/faulty_imprint/016.png",
+        "confidence": 0.85
+      },
+      {
+        "true_label": "combined",
+        "pred_label": "crack",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/combined/000.png",
+        "confidence": 0.8
+      },
+      {
+        "true_label": "color",
+        "pred_label": "color",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/color/003.png",
+        "confidence": 0.85
+      },
+      {
+        "true_label": "scratch",
+        "pred_label": "scratch",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/scratch/020.png",
+        "confidence": 0.85
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/good/012.png",
+        "confidence": 0.85
+      },
+      {
+        "true_label": "crack",
+        "pred_label": "crack",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/crack/022.png",
+        "confidence": 0.85
+      },
+      {
+        "true_label": "contamination",
+        "pred_label": "contamination",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/contamination/012.png",
+        "confidence": 0.85
+      },
+      {
+        "true_label": "combined",
+        "pred_label": "combined",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/combined/015.png",
+        "confidence": 0.85
+      },
+      {
+        "true_label": "combined",
+        "pred_label": "combined",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/combined/001.png",
+        "confidence": 0.85
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/good/018.png",
+        "confidence": 0.85
+      },
+      {
+        "true_label": "color",
+        "pred_label": "color",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/color/020.png",
+        "confidence": 0.8
+      },
+      {
+        "true_label": "scratch",
+        "pred_label": "poke",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/scratch/019.png",
+        "confidence": 0.55
+      },
+      {
+        "true_label": "faulty_imprint",
+        "pred_label": "faulty_imprint",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/faulty_imprint/008.png",
+        "confidence": 0.85
+      },
+      {
+        "true_label": "pill_type",
+        "pred_label": "pill_type",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/pill_type/001.png",
+        "confidence": 0.85
+      },
+      {
+        "true_label": "contamination",
+        "pred_label": "contamination",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/contamination/014.png",
+        "confidence": 0.85
+      },
+      {
+        "true_label": "contamination",
+        "pred_label": "contamination",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/contamination/013.png",
+        "confidence": 0.7
+      },
+      {
+        "true_label": "combined",
+        "pred_label": "combined",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/combined/016.png",
+        "confidence": 0.85
+      },
+      {
+        "true_label": "color",
+        "pred_label": "color",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/color/000.png",
+        "confidence": 0.55
+      },
+      {
+        "true_label": "combined",
+        "pred_label": "combined",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/combined/012.png",
+        "confidence": 0.85
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/good/019.png",
+        "confidence": 0.85
+      },
+      {
+        "true_label": "scratch",
+        "pred_label": "scratch",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/scratch/009.png",
+        "confidence": 0.85
+      },
+      {
+        "true_label": "crack",
+        "pred_label": "crack",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/crack/012.png",
+        "confidence": 0.85
+      },
+      {
+        "true_label": "crack",
+        "pred_label": "crack",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/crack/008.png",
+        "confidence": 0.6
+      },
+      {
+        "true_label": "pill_type",
+        "pred_label": "pill_type",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/pill_type/000.png",
+        "confidence": 0.85
+      },
+      {
+        "true_label": "pill_type",
+        "pred_label": "pill_type",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/pill_type/006.png",
+        "confidence": 0.85
+      },
+      {
+        "true_label": "scratch",
+        "pred_label": "scratch",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/scratch/002.png",
+        "confidence": 0.85
+      },
+      {
+        "true_label": "color",
+        "pred_label": "color",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/color/008.png",
+        "confidence": 0.85
+      },
+      {
+        "true_label": "color",
+        "pred_label": "color",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/color/024.png",
+        "confidence": 0.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/good/009.png",
+        "confidence": 0.85
+      },
+      {
+        "true_label": "crack",
+        "pred_label": "crack",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/crack/010.png",
+        "confidence": 0.85
+      },
+      {
+        "true_label": "faulty_imprint",
+        "pred_label": "faulty_imprint",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/faulty_imprint/007.png",
+        "confidence": 0.9
+      },
+      {
+        "true_label": "combined",
+        "pred_label": "combined",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/combined/013.png",
+        "confidence": 0.8
+      },
+      {
+        "true_label": "contamination",
+        "pred_label": "contamination",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/contamination/007.png",
+        "confidence": 0.85
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/good/017.png",
+        "confidence": 0.8
+      },
+      {
+        "true_label": "faulty_imprint",
+        "pred_label": "faulty_imprint",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/faulty_imprint/017.png",
+        "confidence": 0.9
+      },
+      {
+        "true_label": "contamination",
+        "pred_label": "contamination",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/contamination/018.png",
+        "confidence": 0.85
+      },
+      {
+        "true_label": "crack",
+        "pred_label": "crack",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/crack/003.png",
+        "confidence": 0.85
+      },
+      {
+        "true_label": "scratch",
+        "pred_label": "scratch",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/scratch/021.png",
+        "confidence": 0.9
+      },
+      {
+        "true_label": "pill_type",
+        "pred_label": "pill_type",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/pill_type/002.png",
+        "confidence": 0.8
+      },
+      {
+        "true_label": "crack",
+        "pred_label": "crack",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/crack/006.png",
+        "confidence": 0.8
+      },
+      {
+        "true_label": "combined",
+        "pred_label": "combined",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/combined/008.png",
+        "confidence": 0.85
+      },
+      {
+        "true_label": "color",
+        "pred_label": "color",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/color/002.png",
+        "confidence": 0.6
+      },
+      {
+        "true_label": "combined",
+        "pred_label": "combined",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/combined/009.png",
+        "confidence": 0.8
+      },
+      {
+        "true_label": "color",
+        "pred_label": "color",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/color/013.png",
+        "confidence": 0.85
+      },
+      {
+        "true_label": "pill_type",
+        "pred_label": "pill_type",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/pill_type/007.png",
+        "confidence": 0.85
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/good/020.png",
+        "confidence": 0.85
+      },
+      {
+        "true_label": "contamination",
+        "pred_label": "contamination",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/contamination/008.png",
+        "confidence": 0.8
+      },
+      {
+        "true_label": "scratch",
+        "pred_label": "scratch",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/scratch/008.png",
+        "confidence": 0.8
+      },
+      {
+        "true_label": "scratch",
+        "pred_label": "scratch",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/scratch/014.png",
+        "confidence": 0.9
+      },
+      {
+        "true_label": "pill_type",
+        "pred_label": "pill_type",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/pill_type/003.png",
+        "confidence": 0.85
+      },
+      {
+        "true_label": "scratch",
+        "pred_label": "scratch",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/scratch/006.png",
+        "confidence": 0.85
+      },
+      {
+        "true_label": "faulty_imprint",
+        "pred_label": "faulty_imprint",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/faulty_imprint/000.png",
+        "confidence": 0.9
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/good/011.png",
+        "confidence": 0.82
+      },
+      {
+        "true_label": "crack",
+        "pred_label": "crack",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/crack/023.png",
+        "confidence": 0.85
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/good/006.png",
+        "confidence": 0.85
+      },
+      {
+        "true_label": "combined",
+        "pred_label": "combined",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/combined/003.png",
+        "confidence": 0.8
+      },
+      {
+        "true_label": "pill_type",
+        "pred_label": "pill_type",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/pill_type/004.png",
+        "confidence": 0.85
+      },
+      {
+        "true_label": "scratch",
+        "pred_label": "scratch",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/scratch/005.png",
+        "confidence": 0.8
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/good/002.png",
+        "confidence": 0.85
+      },
+      {
+        "true_label": "faulty_imprint",
+        "pred_label": "faulty_imprint",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/faulty_imprint/003.png",
+        "confidence": 0.8
+      },
+      {
+        "true_label": "color",
+        "pred_label": "color",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/color/007.png",
+        "confidence": 0.8
+      },
+      {
+        "true_label": "contamination",
+        "pred_label": "contamination",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/contamination/002.png",
+        "confidence": 0.85
+      },
+      {
+        "true_label": "color",
+        "pred_label": "color",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/color/023.png",
+        "confidence": 0.85
+      },
+      {
+        "true_label": "faulty_imprint",
+        "pred_label": "faulty_imprint",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/faulty_imprint/011.png",
+        "confidence": 0.9
+      },
+      {
+        "true_label": "contamination",
+        "pred_label": "contamination",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/contamination/000.png",
+        "confidence": 0.75
+      },
+      {
+        "true_label": "scratch",
+        "pred_label": "scratch",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/scratch/011.png",
+        "confidence": 0.88
+      },
+      {
+        "true_label": "crack",
+        "pred_label": "crack",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/crack/004.png",
+        "confidence": 0.8
+      },
+      {
+        "true_label": "faulty_imprint",
+        "pred_label": "faulty_imprint",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/faulty_imprint/015.png",
+        "confidence": 0.93
+      },
+      {
+        "true_label": "good",
+        "pred_label": "good",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/good/024.png",
+        "confidence": 0.8
+      },
+      {
+        "true_label": "contamination",
+        "pred_label": "contamination",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/contamination/020.png",
+        "confidence": 0.8
+      },
+      {
+        "true_label": "crack",
+        "pred_label": "crack",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/crack/013.png",
+        "confidence": 0.6
+      },
+      {
+        "true_label": "pill_type",
+        "pred_label": "pill_type",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/pill_type/005.png",
+        "confidence": 0.85
+      },
+      {
+        "true_label": "contamination",
+        "pred_label": "contamination",
+        "category": "pill",
+        "path": "/home/hatch/.cache/kagglehub/datasets/ipythonx/mvtec-ad/versions/2/pill/test/contamination/017.png",
+        "confidence": 0.85
+      }
+    ]
+  }
+}
